@@ -22,7 +22,8 @@
             </form>
         </div>
     </div>
-    <div class="card">
+
+    <div class="card mb-3">
         <div class="card-header">List of Permission group</div>
         <div class="card-body">
             <table id="list" class="table table-bordered table-hover table-stripped m-0">

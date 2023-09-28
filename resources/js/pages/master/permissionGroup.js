@@ -78,7 +78,7 @@ function submitForm(form, event) {
 }
 
 function resetForm() {
-    form.find('.reset').val('');
+    form.find('.reset').val('').removeClass('is-invalid');
     formCard.find('.card-header').html('Add new Permission group');
     formBtn.html('Submit');
 }
@@ -96,6 +96,4 @@ const showUpdateForm = async function (element) {
     formBtn.html('Update');
 };
 
-
 window.showUpdateForm = showUpdateForm;
-
