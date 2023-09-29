@@ -86,6 +86,7 @@ function resetForm() {
 form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
+    resetForm();
     let id = $(element).data('id');
     const { data } = await axios.get(`/permission-groups/${id}`);
     let fields = ['id', 'name'];
@@ -94,6 +95,7 @@ const showUpdateForm = async function (element) {
     });
     formCard.find('.card-header').html('Update Permission group');
     formBtn.html('Update');
+    window.scrollTo(0, 0);
 };
 
 window.showUpdateForm = showUpdateForm;

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Master;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PermissionGroupRequest extends FormRequest
 {
@@ -21,8 +22,14 @@ class PermissionGroupRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('permission_group');
         return [
-            'name' => 'required|string|max:100'
+            'name' => [
+                'required',
+                'string',
+                'max:100',
+                Rule::unique(config('table.permission_groups'), 'name')->ignore($id),
+            ]
         ];
     }
 }
