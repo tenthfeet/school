@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Master\PermissionGroupController;
+use App\Http\Controllers\Master\PermissionController;
+use App\Http\Controllers\Master\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,7 @@ use App\Http\Controllers\Master\PermissionGroupController;
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::apiResource('permission-groups', PermissionGroupController::class);
+    Route::apiResource('permissions', PermissionController::class);
 });
 
 require __DIR__ . '/auth.php';
