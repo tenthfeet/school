@@ -18,10 +18,10 @@
                     <input class="form-control rounded-end" name="password" type="password" placeholder="Password">
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col">
                         <button class="btn btn-primary px-4" type="submit">Login</button>
                     </div>
-                    <div class="col-6 text-end">
+                    <div class="col text-end">
                         <a class="btn btn-link px-0">Forgot password?</a>
                     </div>
                 </div>

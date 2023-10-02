@@ -6,7 +6,7 @@ const validatorConfig = {
     errorClass: 'is-invalid',
     errorPlacement: function(error, element) {
         error.addClass('invalid-feedback');
-        error.insertAfter(element);
+        element.closest('.form-group').append(error);
     },
 };
 

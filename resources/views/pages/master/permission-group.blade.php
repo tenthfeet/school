@@ -8,7 +8,7 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row justify-content-center">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Permission group name</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
