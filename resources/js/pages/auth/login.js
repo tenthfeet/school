@@ -17,10 +17,14 @@ const validator = validatorInit('#login-form', {
 function submitForm(form, event) {
     event.preventDefault();
     let formData = new FormData(form);
+    let btn = $(form).find('button[type="submit"]');
+    btn.attr('disabled', true).html('Logging in...' + SPINNER);
     axios.post('/login', formData)
         .then((response) => {
+            btn.html('Logged In');
             location.href = '/dashboard';
         }).catch((error) => {
+            btn.attr('disabled', false).html('Login');
             if (error.response && error.response.status === 422) {
                 const validationErrors = error.response.data.errors;
                 validator.showErrors(validationErrors);

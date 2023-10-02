@@ -19,6 +19,8 @@
         "datatables.net-bs5": "^1.13.6",
         "jquery": "^3.7.1",
         "jquery-validation": "^1.19.5",
+        "select2": "^4.1.0-rc.0",
+        "select2-theme-bootstrap5": "^0.1.1",
         "simplebar": "^6.2.5",
         "sweetalert2": "^11.7.28"
     }
