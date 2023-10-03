@@ -108,10 +108,10 @@ async function showAddForm() {
     resetForm();
     const { data } = await axios.get("/permission-groups");
     let dataSource = toSelect2DataSource(data.data, "id", "name");
+    form.find(`[name="permission_group_id"]`).empty();
     dataSource.unshift({ id: '', text: '--Select Group--' });
     select2Init('[name="permission_group_id"]', { data: dataSource });
 }
-
 
 
 window.showUpdateForm = showUpdateForm;

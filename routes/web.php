@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::apiResource('permission-groups', PermissionGroupController::class);
     Route::apiResource('permissions', PermissionController::class);
+    Route::apiResource('roles', RoleController::class);
 });
 
 require __DIR__ . '/auth.php';

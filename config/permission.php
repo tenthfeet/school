@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Permission;
+use App\Models\Role;
 
 return [
 
@@ -27,7 +28,8 @@ return [
          * `Spatie\Permission\Contracts\Role` contract.
          */
 
-        'role' => Spatie\Permission\Models\Role::class,
+        // 'role' => Spatie\Permission\Models\Role::class,
+        'role' => Role::class,
 
     ],
 
