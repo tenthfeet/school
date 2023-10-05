@@ -5,6 +5,7 @@ use App\Http\Controllers\Master\PermissionGroupController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\CountryController;
+use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
 
 
@@ -28,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('cities', CityController::class);
     Route::apiResource('countries', CountryController::class);
     Route::apiResource('languages', LanguageController::class);
-    
+    Route::apiResource('financial-years', FinancialYearController::class);
 });
 
 

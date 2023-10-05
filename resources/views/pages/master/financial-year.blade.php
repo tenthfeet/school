@@ -1,27 +1,15 @@
 <x-app-layout>
-    <x-slot:breadcrumb> City </x-slot:breadcrumb>
+    <x-slot:breadcrumb> Financial Year </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new City </div>
+        <div class="card-header">Add new Financial Year </div>
         <div class="card-body">
-            <form id="city-form">
+            <form id="financial-year-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row justify-content-center">
                     <div class="col-md-4 form-group">
-                        <label class="form-label">State</label>
-                        <select class="form-control reset" name="state_id">
-                            <option value="">Select State</option>
-                            @foreach ($states as $state)
-                                <option value="{{ $state->id }}"
-                                    @isset($data){{ $data->state_id == $state->id ? 'selected' : '' }} @endisset>
-                                    {{ $state->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">City</label>
+                        <label class="form-label">Financial Year</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
                     <div class="col-md-4 form-group">
@@ -33,8 +21,7 @@
                             </option>
                             <option value="0"
                                 @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
-                                Inactive
-                            </option>
+                                Inactive</option>
                         </select>
                     </div>
                 </div>
@@ -48,14 +35,13 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header">List of Cities</div>
+        <div class="card-header">List of Financial Years</div>
         <div class="card-body">
-            <table id="list" class="table table-bordered table-hover table-stripped m-0">
+            <table id="lists" class="table table-bordered table-hover table-stripped m-0">
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
-                        <th>State</th>
-                        <th>City</th>
+                        <th>Financial Year</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -67,7 +53,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/city.js')
+        @vite('resources/js/pages/master/financialYear.js')
     </x-slot:script>
 
 </x-app-layout>

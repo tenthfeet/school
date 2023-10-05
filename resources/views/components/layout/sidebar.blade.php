@@ -49,6 +49,11 @@
                                             <span class="nav-icon"></span> Language
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('financial-years.index') }}">
+                                            <span class="nav-icon"></span> Financial Year
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </div>
