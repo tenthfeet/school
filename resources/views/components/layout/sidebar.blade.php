@@ -29,6 +29,26 @@
                                             <span class="nav-icon"></span> Permission Group
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('states.index') }}">
+                                            <span class="nav-icon"></span> State
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('cities.index') }}">
+                                            <span class="nav-icon"></span> City
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('countries.index') }}">
+                                            <span class="nav-icon"></span> Country
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('languages.index') }}">
+                                            <span class="nav-icon"></span> Language
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </div>
