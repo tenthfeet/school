@@ -8,15 +8,19 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row justify-content-center">
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label class="form-label">Country</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Mobile Code</label>
-                        <input type="text" class="form-control reset" name="mobile_code" value="+">
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">ISO Code</label>
+                        <input type="text" class="form-control reset" name="iso_code">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Mobile Code</label>
+                        <input type="number" class="form-control reset" name="mobile_code" value="+">
+                    </div>
+                    <div class="col-md-3 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control reset" name="is_active">
                             <option value="1"
@@ -46,6 +50,7 @@
                     <tr class="table-primary">
                         <th>#</th>
                         <th>Country</th>
+                        <th>ISO Code</th>
                         <th>Mobile Code</th>
                         <th>Status</th>
                         <th>Actions</th>

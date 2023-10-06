@@ -9,6 +9,7 @@ class Country extends Model
 {
      protected $fillable = [
         'name',
+        'iso_code',
         'mobile_code',
         'is_active'
     ];

@@ -10,13 +10,14 @@ const validator = validatorInit('#state-form', {
     rules: {
         name: { required: true, maxlength: 100 },
         code: { required: true, maxlength: 50 },
+        is_active: { required: true },
     },
     messages: {
         name: {
             required: 'Please enter the state name',
         },
         code: {
-            required: 'Please enter the code',
+            required: 'Please enter the state code',
         },
     },
     submitHandler: (form, event) => {

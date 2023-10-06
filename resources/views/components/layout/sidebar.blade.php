@@ -51,7 +51,7 @@
                                     </li>
                                      <li class="nav-item">
                                         <a class="nav-link" href="{{ route('statuses.index') }}">
-                                            <span class="nav-icon"></span> Status
+                                            <span class="nav-icon"></span> Student Status
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -70,8 +70,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('fees-types.index') }}">
-                                            <span class="nav-icon"></span> Fees
+                                        <a class="nav-link" href="{{ route('fees.index') }}">
+                                            <span class="nav-icon"></span> Fee
                                         </a>
                                     </li>
                                 </ul>

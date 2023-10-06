@@ -10,6 +10,7 @@ const validator = validatorInit('#city-form', {
     rules: {
         name: { required: true, maxlength: 50 },
         state_id: { required: true },
+        is_active: { required: true },
     },
     messages: {
         name: {

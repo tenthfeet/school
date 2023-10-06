@@ -26,7 +26,6 @@ class FinancialYearRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'string',
                 'max:100',
                 Rule::unique(config('table.financial_years'), 'name')->ignore($id)
             ],

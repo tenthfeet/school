@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('table.statuses'), function (Blueprint $table) {
-            $table->tinyIncrements('id',3);
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->after('password',function(Blueprint $table){
+
+            });
         });
     }
 
@@ -23,6 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('table.statuses'));
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn([
+
+            ]);
+        });
     }
 };

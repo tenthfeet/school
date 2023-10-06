@@ -26,7 +26,6 @@ class StateRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'string',
                 'max:50',
                 Rule::unique(config('table.states'), 'name')->ignore($id)
             ],

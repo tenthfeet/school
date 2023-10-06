@@ -10,6 +10,7 @@ const validator = validatorInit('#subject-form', {
     rules: {
         name: { required: true, maxlength: 150 },
         printable_name: { required: true, maxlength: 150 },
+        is_active: { required: true },
     },
     messages: {
         name: {

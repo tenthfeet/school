@@ -4,13 +4,13 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Master\FeesTypeRequest;
-use App\Models\FeesType;
+use App\Http\Requests\Master\FeeRequest;
+use App\Models\Fee;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class FeesTypeController extends Controller
+class FeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,21 +18,21 @@ class FeesTypeController extends Controller
     public function index(Request $request)
     {
         return $request->wantsJson()
-        ? response()->json(['data' => FeesType::all()])
-        : view('pages.master.fees-type');
+        ? response()->json(['data' => Fee::all()])
+        : view('pages.master.fee');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FeesTypeRequest $request): JsonResponse
+    public function store(FeeRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
-        $feesType = FeesType::create($validated);
+        $fee = Fee::create($validated);
 
         return response()->json([
-            'item' => $feesType,
+            'item' => $fee,
             'message' => [
                 'text' => "{$request->name} added successfully...",
                 'icon' => 'success'
@@ -43,23 +43,23 @@ class FeesTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FeesType $feesType): JsonResponse
+    public function show(Fee $fee): JsonResponse
     {
-        return response()->json($feesType);
+        return response()->json($fee);
     }
 
     /**
      * Update the specified resource in storage.
      */
 
-    public function update(FeesTypeRequest $request,FeesType $feesType)
+    public function update(FeeRequest $request,Fee $fee)
     {
         $validated = $request->validated();
 
-        $feesType->update($validated);
+        $fee->update($validated);
 
         return response()->json([
-            'item' => $feesType,
+            'item' => $fee,
             'message' => [
                 'text' => "{$request->name} updated successfully...",
                 'icon' => 'success'

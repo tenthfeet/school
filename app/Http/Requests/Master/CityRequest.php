@@ -26,11 +26,10 @@ class CityRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'string',
                 'max:50',
                 Rule::unique(config('table.cities'), 'name')->where('state_id', $this->input('state_id'))->ignore($id)
             ],
-            'state_id' => 'required|integer|max:50',
+            'state_id' => 'required|max:50',
             'is_active' => 'required'
         ];
     }

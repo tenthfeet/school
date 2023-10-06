@@ -5,7 +5,7 @@ namespace App\Http\Requests\Master;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FeesTypeRequest extends FormRequest
+class FeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,15 @@ class FeesTypeRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('fees_type');
+        $id = $this->route('fee');
         return [
             'name' => [
                 'required',
-                'string',
                 'max:100',
-                Rule::unique(config('table.fees_types'), 'name')->ignore($id)
+                Rule::unique(config('table.fees'), 'name')->ignore($id)
             ],
-            'fees_type'=>'required|string|max:120',
-            'fees_amount'=>'required|numeric|min:0',
+            'fee_type'=>'required|max:100',
+            'fee_amount'=>'required|numeric|min:0',
             'is_active' => 'required|boolean',
 
         ];

@@ -26,13 +26,16 @@ class CountryRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'string',
                 'max:200',
                 Rule::unique(config('table.countries'), 'name')->ignore($id)
             ],
+            'iso_code' => [
+                'required',
+                'max:3',
+                Rule::unique(config('table.countries'), 'iso_code')->ignore($id)
+            ],
             'mobile_code' => [
                 'required',
-                'string',
                 'max:6',
                 Rule::unique(config('table.countries'), 'mobile_code')->ignore($id)
             ],

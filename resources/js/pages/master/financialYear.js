@@ -9,6 +9,7 @@ const formBtn = form.find('button[type="submit"]');
 const validator = validatorInit('#financial-year-form', {
     rules: {
         name: { required: true, maxlength: 12 },
+        is_active: { required: true },
     },
     messages: {
         name: {

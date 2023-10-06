@@ -9,12 +9,16 @@ const formBtn = form.find('button[type="submit"]');
 const validator = validatorInit('#country-form', {
     rules: {
         name: { required: true, maxlength: 100 },
-        mobile_code: { required: true, maxlength: 50 },
+        iso_code: { required: true, maxlength: 3 },
+        mobile_code: { required: true, maxlength: 5 },
         is_active: { required: true },
     },
     messages: {
         name: {
             required: 'Please enter the country name',
+        },
+        iso_code: {
+            required: 'Please enter the iso code',
         },
         mobile_code: {
             required: 'Please enter the mobile code',
@@ -35,6 +39,7 @@ const dataTable = new DataTable('#lists', {
             }
         },
         { data: 'name' },
+        { data: 'iso_code' },
         { data: 'mobile_code' },
         {
             data: 'is_active',
@@ -100,7 +105,7 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/countries/${id}`);
-    let fields = ['id', 'name', 'mobile_code', 'is_active'];
+    let fields = ['id', 'name', 'iso_code', 'mobile_code', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

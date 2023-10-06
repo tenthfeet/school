@@ -9,6 +9,7 @@ const formBtn = form.find('button[type="submit"]');
 const validator = validatorInit('#term-form', {
     rules: {
         name: { required: true, maxlength: 100 },
+        is_active: { required: true },
     },
     messages: {
         name: {

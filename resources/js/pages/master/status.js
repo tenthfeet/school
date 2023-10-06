@@ -31,12 +31,6 @@ const dataTable = new DataTable('#lists', {
         },
         { data: 'name' },
         {
-            data: 'is_active',
-            render: function (data) {
-                return data == 1 ? 'Active' : 'Inactive';
-            }
-        },
-        {
             data: 'id',
             render: function (data) {
                 return `
@@ -94,7 +88,7 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/statuses/${id}`);
-    let fields = ['id', 'name', 'is_active'];
+    let fields = ['id', 'name'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

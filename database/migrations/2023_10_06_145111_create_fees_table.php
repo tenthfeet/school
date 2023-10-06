@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('table.fees_types'), function (Blueprint $table) {
+        Schema::create(config('table.fees'), function (Blueprint $table) {
             $table->smallIncrements('id',5);
             $table->string('name',150);
-            $table->string('fees_type',100);
-            $table->decimal('fees_amount',11,2);
+            $table->string('fee_type',100);
+            $table->decimal('fee_amount',11,2);
             $table->string('is_active',5);
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('table.fees_types'));
+        Schema::dropIfExists(config('table.fees'));
     }
 };

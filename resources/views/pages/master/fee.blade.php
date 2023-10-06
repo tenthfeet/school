@@ -2,23 +2,23 @@
     <x-slot:breadcrumb> Fees </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new Fees </div>
+        <div class="card-header">Add new Fee </div>
         <div class="card-body">
-            <form id="fees-form">
+            <form id="fee-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row justify-content-center">
                     <div class="col-md-3 form-group">
-                        <label class="form-label">Name</label>
+                        <label class="form-label">Fee Name</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
                     <div class="col-md-3 form-group">
-                        <label class="form-label">Fees Type</label>
-                        <input type="text" class="form-control reset" name="fees_type">
+                        <label class="form-label">Fee Type</label>
+                        <input type="text" class="form-control reset" name="fee_type">
                     </div>
                     <div class="col-md-3 form-group">
-                        <label class="form-label">Fees Amount</label>
-                        <input type="number" class="form-control reset" name="fees_amount">
+                        <label class="form-label">Fee Amount</label>
+                        <input type="number" class="form-control reset" name="fee_amount">
                     </div>
                     <div class="col-md-3 form-group">
                         <label class="form-label">Status</label>
@@ -49,9 +49,9 @@
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Fees Type</th>
-                        <th>Fees Amount</th>
+                        <th>Fee Name</th>
+                        <th>Fee Type</th>
+                        <th>Fee Amount</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -63,7 +63,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/feesType.js')
+        @vite('resources/js/pages/master/fee.js')
     </x-slot:script>
 
 </x-app-layout>

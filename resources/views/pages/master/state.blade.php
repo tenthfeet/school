@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">State Code</label>
-                        <input type="text" class="form-control reset" name="code">
+                        <input type="number" class="form-control reset" name="code">
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>

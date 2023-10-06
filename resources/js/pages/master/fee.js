@@ -2,25 +2,26 @@ import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
-const form = $('#fees-form');
+const form = $('#fee-form');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#fees-form', {
+const validator = validatorInit('#fee-form', {
     rules: {
         name: { required: true, maxlength: 120 },
-        fees_type: { required: true, maxlength: 100 },
-        fees_amount: { required: true },
+        fee_type: { required: true, maxlength: 100 },
+        fee_amount: { required: true },
+        is_active: { required: true },
     },
     messages: {
         name: {
-            required: 'Please enter the country name',
+            required: 'Please enter the fee name',
         },
-        fees_type: {
-            required: 'Please enter the mobile code',
+        fee_type: {
+            required: 'Please enter the fee type',
         },
-        fees_amount: {
-            required: 'Please enter the mobile code',
+        fee_amount: {
+            required: 'Please enter the fee amount',
         },
     },
     submitHandler: (form, event) => {
@@ -29,7 +30,7 @@ const validator = validatorInit('#fees-form', {
 });
 
 const dataTable = new DataTable('#list', {
-    ajax: 'fees-types',
+    ajax: 'fees',
     columns: [
         {
             data: 'id',
@@ -38,8 +39,8 @@ const dataTable = new DataTable('#list', {
             }
         },
         { data: 'name' },
-        { data: 'fees_type' },
-        { data: 'fees_amount' },
+        { data: 'fee_type' },
+        { data: 'fee_amount' },
         {
             data: 'is_active',
             render: function (data) {
@@ -64,7 +65,7 @@ function submitForm(form, event) {
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/fees-types/${id}` : '/fees-types';
+    let url = isUpdate ? `/fees/${id}` : '/fees';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
@@ -95,7 +96,7 @@ function submitForm(form, event) {
 
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
-    formCard.find('.card-header').html('Add new fees');
+    formCard.find('.card-header').html('Add new fee');
     formBtn.html('Submit');
 }
 
@@ -103,8 +104,8 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/fees-types/${id}`);
-    let fields = ['id', 'name', 'fees_type', 'fees_amount', 'is_active'];
+    const { data } = await axios.get(`/fees/${id}`);
+    let fields = ['id', 'name', 'fee_type', 'fee_amount', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

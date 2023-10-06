@@ -26,11 +26,10 @@ class SubjectRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'string',
                 'max:150',
                 Rule::unique(config('table.subjects'), 'name')->ignore($id)
             ],
-            'printable_name' => 'required|string|max:150',
+            'printable_name' => 'required|max:150',
             'is_active' => 'required|boolean',
 
         ];
