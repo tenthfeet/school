@@ -59,6 +59,11 @@
                                             <span class="nav-icon"></span> Subject
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('terms.index') }}">
+                                            <span class="nav-icon"></span> Term
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </div>

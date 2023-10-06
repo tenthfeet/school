@@ -15,4 +15,5 @@ return [
     'languages' => 'languages',
     'financial_years' => 'financial_years',
     'subjects' => 'subjects',
+    'terms' => 'terms',
 ];

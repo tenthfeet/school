@@ -8,6 +8,7 @@ use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
 use App\Http\Controllers\Master\SubjectController;
+use App\Http\Controllers\Master\TermController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('languages', LanguageController::class);
     Route::apiResource('financial-years', FinancialYearController::class);
     Route::apiResource('subjects', SubjectController::class);
+    Route::apiResource('terms', TermController::class);
 });
 
 
