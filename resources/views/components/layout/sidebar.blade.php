@@ -64,6 +64,11 @@
                                             <span class="nav-icon"></span> Term
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('fees-types.index') }}">
+                                            <span class="nav-icon"></span> Fees
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </div>

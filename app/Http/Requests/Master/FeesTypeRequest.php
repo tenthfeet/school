@@ -5,7 +5,7 @@ namespace App\Http\Requests\Master;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FinancialYearRequest extends FormRequest
+class FeesTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,16 @@ class FinancialYearRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('financial_year');
+        $id = $this->route('fees_type');
         return [
             'name' => [
                 'required',
                 'string',
                 'max:100',
-                Rule::unique(config('table.financial_years'), 'name')->ignore($id)
+                Rule::unique(config('table.fees_types'), 'name')->ignore($id)
             ],
+            'fees_type'=>'required|string|max:120',
+            'fees_amount'=>'required|numeric|min:0',
             'is_active' => 'required|boolean',
 
         ];

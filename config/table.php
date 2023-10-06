@@ -16,4 +16,5 @@ return [
     'financial_years' => 'financial_years',
     'subjects' => 'subjects',
     'terms' => 'terms',
+    'fees_types' => 'fees_types',
 ];

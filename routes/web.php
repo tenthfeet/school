@@ -5,6 +5,7 @@ use App\Http\Controllers\Master\PermissionGroupController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\CountryController;
+use App\Http\Controllers\Master\FeesTypeController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
 use App\Http\Controllers\Master\SubjectController;
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('financial-years', FinancialYearController::class);
     Route::apiResource('subjects', SubjectController::class);
     Route::apiResource('terms', TermController::class);
+    Route::apiResource('fees-types', FeesTypeController::class);
 });
 
 
