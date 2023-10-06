@@ -1,26 +1,18 @@
 <x-app-layout>
-    <x-slot:breadcrumb> Fees </x-slot:breadcrumb>
+    <x-slot:breadcrumb> Status </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new Fees </div>
+        <div class="card-header">Add new Status </div>
         <div class="card-body">
-            <form id="fees-form">
+            <form id="status-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row justify-content-center">
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Name</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-3 form-group">
-                        <label class="form-label">Fees Type</label>
-                        <input type="text" class="form-control reset" name="fees_type">
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label class="form-label">Fees Amount</label>
-                        <input type="number" class="form-control reset" name="fees_amount">
-                    </div>
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control reset" name="is_active">
                             <option value="1"
@@ -43,15 +35,13 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header">List of Fees</div>
+        <div class="card-header">List of Statuses</div>
         <div class="card-body">
-            <table id="list" class="table table-bordered table-hover table-stripped m-0">
+            <table id="lists" class="table table-bordered table-hover table-stripped m-0">
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
                         <th>Name</th>
-                        <th>Fees Type</th>
-                        <th>Fees Amount</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -63,7 +53,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/feesType.js')
+        @vite('resources/js/pages/master/status.js')
     </x-slot:script>
 
 </x-app-layout>

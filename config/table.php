@@ -17,4 +17,5 @@ return [
     'subjects' => 'subjects',
     'terms' => 'terms',
     'fees_types' => 'fees_types',
+    'statuses' => 'statuses',
 ];
