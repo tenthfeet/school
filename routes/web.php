@@ -7,7 +7,7 @@ use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
-
+use App\Http\Controllers\Master\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('countries', CountryController::class);
     Route::apiResource('languages', LanguageController::class);
     Route::apiResource('financial-years', FinancialYearController::class);
+    Route::apiResource('subjects', SubjectController::class);
 });
 
 

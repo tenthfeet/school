@@ -54,6 +54,11 @@
                                             <span class="nav-icon"></span> Financial Year
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('subjects.index') }}">
+                                            <span class="nav-icon"></span> Subject
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </div>

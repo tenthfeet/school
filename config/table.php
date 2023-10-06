@@ -13,5 +13,6 @@ return [
     'cities' => 'cities',
     'countries' => 'countries',
     'languages' => 'languages',
-    'financial_years'=>'financial_years',
+    'financial_years' => 'financial_years',
+    'subjects' => 'subjects',
 ];
