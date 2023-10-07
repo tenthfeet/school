@@ -25,6 +25,11 @@
                                 </a>
                                 <ul class="nav-group-items">
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('users.index') }}">
+                                            <span class="nav-icon"></span> User
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('permission-groups.index') }}">
                                             <span class="nav-icon"></span> Permission Group
                                         </a>

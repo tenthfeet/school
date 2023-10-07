@@ -11,6 +11,7 @@ use App\Http\Controllers\Master\LanguageController;
 use App\Http\Controllers\Master\StatusController;
 use App\Http\Controllers\Master\SubjectController;
 use App\Http\Controllers\Master\TermController;
+use App\Http\Controllers\Master\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ use App\Http\Controllers\Master\TermController;
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::apiResource('permission-groups', PermissionGroupController::class);
+    Route::apiResource('users', UserController::class);
     Route::apiResource('states', StateController::class);
     Route::apiResource('cities', CityController::class);
     Route::apiResource('countries', CountryController::class);

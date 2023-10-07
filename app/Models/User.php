@@ -22,6 +22,16 @@ class User extends Authenticatable
         'employee_no',
         'email',
         'password',
+        'country_id',
+        'mobile_no',
+        'city_id',
+        'state_id',
+        'address',
+        'date_of_birth',
+        'date_of_join',
+        'role_id',
+        'qualification',
+        'is_active'
     ];
 
     /**
@@ -47,5 +57,17 @@ class User extends Authenticatable
     public function getTable()
     {
         return config('table.users', parent::getTable());
+    }
+    public function state()
+    {
+        return $this->belongsTo(State::class,'state_id');
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class,'city_id');
+    }
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id');
     }
 }
