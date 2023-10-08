@@ -4,6 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Master\PermissionGroupController;
 use App\Http\Controllers\Master\PermissionController;
 use App\Http\Controllers\Master\RoleController;
+use App\Http\Controllers\Master\StateController;
+use App\Http\Controllers\Master\CityController;
+use App\Http\Controllers\Master\CountryController;
+use App\Http\Controllers\Master\FeeController;
+use App\Http\Controllers\Master\FinancialYearController;
+use App\Http\Controllers\Master\LanguageController;
+use App\Http\Controllers\Master\StatusController;
+use App\Http\Controllers\Master\SubjectController;
+use App\Http\Controllers\Master\TermController;
+use App\Http\Controllers\Master\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +33,18 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('permission-groups', PermissionGroupController::class);
     Route::apiResource('permissions', PermissionController::class);
     Route::apiResource('roles', RoleController::class);
+    Route::apiResource('users', UserController::class);
+    Route::apiResource('states', StateController::class);
+    Route::apiResource('cities', CityController::class);
+    Route::apiResource('countries', CountryController::class);
+    Route::apiResource('languages', LanguageController::class);
+    Route::apiResource('statuses', StatusController::class);
+    Route::apiResource('financial-years', FinancialYearController::class);
+    Route::apiResource('subjects', SubjectController::class);
+    Route::apiResource('terms', TermController::class);
+    Route::apiResource('fees', FeeController::class);
+
 });
+
 
 require __DIR__ . '/auth.php';

@@ -9,4 +9,13 @@ return [
     'model_has_roles' => config('permission.table_names.model_has_roles'),
     'role_has_permissions' => config('permission.table_names.role_has_permissions'),
     'permission_groups' => 'permission_groups',
+    'states' => 'states',
+    'cities' => 'cities',
+    'countries' => 'countries',
+    'languages' => 'languages',
+    'financial_years' => 'financial_years',
+    'subjects' => 'subjects',
+    'terms' => 'terms',
+    'fees' => 'fees',
+    'statuses' => 'statuses',
 ];

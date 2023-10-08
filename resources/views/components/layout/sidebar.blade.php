@@ -25,6 +25,11 @@
                                 </a>
                                 <ul class="nav-group-items">
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('users.index') }}">
+                                            <span class="nav-icon"></span> User
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('permission-groups.index') }}">
                                             <span class="nav-icon"></span> Permission Group
                                         </a>
@@ -37,6 +42,51 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('roles.index') }}">
                                             <span class="nav-icon"></span> Roles
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('states.index') }}">
+                                            <span class="nav-icon"></span> State
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('cities.index') }}">
+                                            <span class="nav-icon"></span> City
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('countries.index') }}">
+                                            <span class="nav-icon"></span> Country
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('languages.index') }}">
+                                            <span class="nav-icon"></span> Language
+                                        </a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('statuses.index') }}">
+                                            <span class="nav-icon"></span> Student Status
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('financial-years.index') }}">
+                                            <span class="nav-icon"></span> Financial Year
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('subjects.index') }}">
+                                            <span class="nav-icon"></span> Subject
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('terms.index') }}">
+                                            <span class="nav-icon"></span> Term
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('fees.index') }}">
+                                            <span class="nav-icon"></span> Fee
                                         </a>
                                     </li>
                                 </ul>
