@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Master\PermissionGroupController;
+use App\Http\Controllers\Master\PermissionController;
+use App\Http\Controllers\Master\RoleController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\CountryController;
@@ -29,6 +31,8 @@ use App\Http\Controllers\Master\UserController;
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::apiResource('permission-groups', PermissionGroupController::class);
+    Route::apiResource('permissions', PermissionController::class);
+    Route::apiResource('roles', RoleController::class);
     Route::apiResource('users', UserController::class);
     Route::apiResource('states', StateController::class);
     Route::apiResource('cities', CityController::class);

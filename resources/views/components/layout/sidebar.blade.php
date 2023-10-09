@@ -10,8 +10,8 @@
             </div>
             <div class="simplebar-mask">
                 <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
-                         aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                    <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content"
+                        style="height: 100%; overflow: hidden scroll;">
                         <div class="simplebar-content" style="padding: 0px;">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('dashboard') }}">
@@ -32,6 +32,16 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('permission-groups.index') }}">
                                             <span class="nav-icon"></span> Permission Group
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('permissions.index') }}">
+                                            <span class="nav-icon"></span> Permissions
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('roles.index') }}">
+                                            <span class="nav-icon"></span> Roles
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -92,7 +102,7 @@
         </div>
         <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
             <div class="simplebar-scrollbar"
-                 style="height: 479px; transform: translate3d(0px, 155px, 0px); display: block;"></div>
+                style="height: 479px; transform: translate3d(0px, 155px, 0px); display: block;"></div>
         </div>
     </ul>
     <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
