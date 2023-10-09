@@ -84,4 +84,13 @@ class UserController extends Controller
     {
         //
     }
+
+    public function fetchCities(Request $request)
+    {
+        $cities = City::select('id', 'name')
+            ->where('state_id', $request->state_id)
+            ->where('is_active', 1)
+            ->get();
+        return response()->json($cities);
+    }
 }

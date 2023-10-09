@@ -3,6 +3,8 @@ import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
 const form = $('#user-form');
+const state = form.find('[name="state_id"]');
+const city = form.find('[name="city_id"]');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
@@ -10,6 +12,7 @@ const validator = validatorInit('#user-form', {
     rules: {
         employee_no: { required: true },
         name: { required: true, maxlength: 50 },
+        email: { required: true },
         mobile_no: { required: true },
         city_id: { required: true },
         state_id: { required: true },
@@ -18,6 +21,9 @@ const validator = validatorInit('#user-form', {
     messages: {
         name: {
             required: 'Please enter the name',
+        },
+        email: {
+            required: 'Please enter the email',
         },
         employee_no: {
             required: 'Please enter the employee name',
@@ -35,6 +41,26 @@ const validator = validatorInit('#user-form', {
     submitHandler: (form, event) => {
         submitForm(form, event)
     }
+});
+
+state.on('change', function () {
+    let state_id = this.value;
+    let element = city;
+    element.html(`<option>  Select City  </option>`);
+
+    if (state_id == '') {
+        return;
+    }
+
+    axios.get('/cities-by-state-id', {
+        params: { state_id }
+    }).then(function (response) {
+        response.data.forEach(item => {
+            element.append(`<option value="${item.id}">${item.name}</option>`)
+        });
+    }).catch((error) => {
+        Swal.fire({ text: 'something went wrong', icon: 'error' });
+    })
 });
 
 const dataTable = new DataTable('#list', {
@@ -116,7 +142,7 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/users/${id}`);
-    let fields = ['id','name', 'employee_no', 'email', 'country_id', 'mobile_no', 'city_id', 'state_id', 'address', 'date_of_birth', 'date_of_join', 'role_id', 'qualification', 'is_active'];
+    let fields = ['id', 'name', 'employee_no', 'email', 'country_id', 'mobile_no', 'city_id', 'state_id', 'address', 'date_of_birth', 'date_of_join', 'role_id', 'qualification', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

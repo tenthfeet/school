@@ -15,6 +15,7 @@ use App\Http\Controllers\Master\SubjectController;
 use App\Http\Controllers\Master\TermController;
 use App\Http\Controllers\Master\UserController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('permissions', PermissionController::class);
     Route::apiResource('roles', RoleController::class);
     Route::apiResource('users', UserController::class);
+    Route::get('/cities-by-state-id', [UserController::class, 'fetchCities']);
     Route::apiResource('states', StateController::class);
     Route::apiResource('cities', CityController::class);
     Route::apiResource('countries', CountryController::class);
