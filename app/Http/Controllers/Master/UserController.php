@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\UserRequest;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Role;
 use App\Models\State;
 use App\Models\User;
 use Carbon\Carbon;
@@ -22,13 +23,15 @@ class UserController extends Controller
     {
         $state = State::where('is_active', 1)->get();
         $city = City::where('is_active', 1)->get();
+        $role = Role::all();
         $country = Country::where('is_active', 1)->get();
         return $request->wantsJson()
-            ? response()->json(['data' => User::with('state', 'city', 'country')->get()])
+            ? response()->json(['data' => User::with('state', 'city', 'country','role')->get()])
             : view('pages.master.user', [
                 'states' => $state,
                 'cities' => $city,
-                'countries' => $country
+                'countries' => $country,
+                'roles'=>$role
             ]);
     }
 
@@ -42,7 +45,7 @@ class UserController extends Controller
         $user = User::create($validated);
 
         return response()->json([
-            'item' => $user->load('state', 'city', 'country'),
+            'item' => $user->load('state', 'city', 'country','role'),
             'message' => [
                 'text' => "{$request->name} added successfully...",
                 'icon' => 'success'
@@ -69,7 +72,7 @@ class UserController extends Controller
         $user->update($validated);
 
         return response()->json([
-            'item' => $user->load('state', 'city', 'country'),
+            'item' => $user->load('state', 'city', 'country','role'),
             'message' => [
                 'text' => "{$request->name} updated successfully...",
                 'icon' => 'success'

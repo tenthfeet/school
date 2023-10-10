@@ -10,6 +10,7 @@ use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
+use App\Http\Controllers\Master\MediumOfStudyController;
 use App\Http\Controllers\Master\StatusController;
 use App\Http\Controllers\Master\SubjectController;
 use App\Http\Controllers\Master\TermController;
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('subjects', SubjectController::class);
     Route::apiResource('terms', TermController::class);
     Route::apiResource('fees', FeeController::class);
+    Route::apiResource('medium-of-studies', MediumOfStudyController::class);
 
 });
 

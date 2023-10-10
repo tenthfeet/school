@@ -70,4 +70,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Country::class,'country_id');
     }
+    public function role()
+    {
+        return $this->belongsTo(Role::class,'role_id');
+    }
 }

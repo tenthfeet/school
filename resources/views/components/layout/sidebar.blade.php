@@ -75,8 +75,13 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('subjects.index') }}">
-                                            <span class="nav-icon"></span> Subject
+                                        <a class="nav-link" href="{{ route('states.index') }}">
+                                            <span class="nav-icon"></span> State
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('medium-of-studies.index') }}">
+                                            <span class="nav-icon"></span> Medium Of Study
                                         </a>
                                     </li>
                                     <li class="nav-item">

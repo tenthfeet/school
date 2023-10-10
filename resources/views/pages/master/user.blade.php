@@ -72,8 +72,12 @@
                         <label class="form-label">Role Id</label>
                         <select class="form-control reset" name="role_id">
                             <option value="">Select Role Id</option>
-                            <option value="1">11111</option>
-                            <option value="2">22222</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}"
+                                    @isset($data){{ $data->role_id == $role->id ? 'selected' : '' }} @endisset>
+                                    {{ $role->name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
