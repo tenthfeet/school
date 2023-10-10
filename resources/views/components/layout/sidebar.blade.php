@@ -75,6 +75,11 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('exam-categories.index') }}">
+                                            <span class="nav-icon"></span> Exam Category
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('financial-years.index') }}">
                                             <span class="nav-icon"></span> Financial Year
                                         </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Master\ExamCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Master\PermissionGroupController;
 use App\Http\Controllers\Master\PermissionController;
@@ -49,6 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('fees', FeeController::class);
     Route::apiResource('medium-of-studies', MediumOfStudyController::class);
     Route::apiResource('class-names', ClassNameController::class);
+    Route::apiResource('exam-categories', ExamCategoryController::class);
 
 });
 
