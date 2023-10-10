@@ -6,6 +6,7 @@ use App\Http\Controllers\Master\PermissionController;
 use App\Http\Controllers\Master\RoleController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
+use App\Http\Controllers\Master\ClassNameController;
 use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FinancialYearController;
@@ -47,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('terms', TermController::class);
     Route::apiResource('fees', FeeController::class);
     Route::apiResource('medium-of-studies', MediumOfStudyController::class);
+    Route::apiResource('class-names', ClassNameController::class);
 
 });
 

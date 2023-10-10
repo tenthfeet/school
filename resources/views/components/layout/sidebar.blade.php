@@ -40,6 +40,11 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('class-names.index') }}">
+                                            <span class="nav-icon"></span> Class
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('roles.index') }}">
                                             <span class="nav-icon"></span> Roles
                                         </a>

@@ -18,5 +18,6 @@ return [
     'terms' => 'terms',
     'fees' => 'fees',
     'statuses' => 'statuses',
-    'medium_of_studies'=> 'medium_of_studies',
+    'medium_of_studies' => 'medium_of_studies',
+    'class_names' => 'class_names'
 ];
