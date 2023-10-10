@@ -53,13 +53,7 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">City</label>
                         <select class="form-control reset" name="city_id">
-                            <option value="">Select City</option>
-                            @foreach ($cities as $city)
-                                <option value="{{ $city->id }}"
-                                    @isset($data){{ $data->city_id == $city->id ? 'selected' : '' }} @endisset>
-                                    {{ $city->name }}
-                                </option>
-                            @endforeach
+                            <option value=""></option>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
