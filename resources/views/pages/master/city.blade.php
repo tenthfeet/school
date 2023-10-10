@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
-                        <select class="form-control reset" name="is_active">
+                        <select class="form-control" name="is_active">
                             <option value="1"
                                 @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
                                 Active

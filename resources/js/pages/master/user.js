@@ -72,12 +72,12 @@ const dataTable = new DataTable('#list', {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'name' },
         { data: 'employee_no' },
+        { data: 'name' },
         { data: 'email' },
         { data: 'mobile_no' },
-        { data: 'city.name' },
         { data: 'state.name' },
+        { data: 'city.name' },
         {
             data: 'is_active',
             render: function (data) {
@@ -132,6 +132,7 @@ function submitForm(form, event) {
 }
 
 function resetForm() {
+    form.find('[name="is_active"]').val(1);
     form.find('.reset').val('').removeClass('is-invalid');
     formCard.find('.card-header').html('Add new User');
     formBtn.html('Submit');

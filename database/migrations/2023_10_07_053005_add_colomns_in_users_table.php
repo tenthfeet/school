@@ -27,7 +27,7 @@ public function down(): void
     Schema::table(config('table.users'), function (Blueprint $table) {
         $table->dropColumn([
             'date_of_birth',
-            'date_fo_join',
+            'date_of_join',
         ]);
     });
 }

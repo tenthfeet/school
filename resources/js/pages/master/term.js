@@ -86,6 +86,7 @@ function submitForm(form, event) {
 
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
+    form.find('[name="is_active"]').val(1);
     formCard.find('.card-header').html('Add new Term');
     formBtn.html('Submit');
 }

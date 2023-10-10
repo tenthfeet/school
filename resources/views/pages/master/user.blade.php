@@ -24,7 +24,7 @@
                         <label class="form-label">Mobile Number</label>
                         <div class="input-group">
                             <span class="input-group-select">
-                            <select class="form-select reset col-md-4" name="country_id">
+                            <select class="form-select  col-md-4" name="country_id">
                                 <option value="91">IND</option>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}"
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
-                        <select class="form-control reset" name="is_active">
+                        <select class="form-control" name="is_active">
                             <option value="1"
                                 @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
                                 Active
