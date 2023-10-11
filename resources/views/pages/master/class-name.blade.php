@@ -14,7 +14,7 @@
                             <option value="">Select Medium Of Study</option>
                             @foreach ($mediumofStudies as $mediumofStudy)
                                 <option value="{{ $mediumofStudy->id }}"
-                                    @isset($data){{ $data->$mediumofStudy_id == $mediumofStudy->id ? 'selected' : '' }} @endisset>
+                                    @isset($data){{ $data->$medium_of_study == $mediumofStudy->id ? 'selected' : '' }} @endisset>
                                     {{ $mediumofStudy->name }}
                                 </option>
                             @endforeach

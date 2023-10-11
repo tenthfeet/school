@@ -45,6 +45,16 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('academic-years.index') }}">
+                                            <span class="nav-icon"></span> Academic Year
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('exams.index') }}">
+                                            <span class="nav-icon"></span> Exam
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('roles.index') }}">
                                             <span class="nav-icon"></span> Roles
                                         </a>

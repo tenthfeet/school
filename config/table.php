@@ -20,5 +20,7 @@ return [
     'statuses' => 'statuses',
     'medium_of_studies' => 'medium_of_studies',
     'class_names' => 'class_names',
-    'exam_categories' => 'exam_categories'
+    'exam_categories' => 'exam_categories',
+    'academic_years' => 'academic_years',
+    'exams' => 'exams'
 ];

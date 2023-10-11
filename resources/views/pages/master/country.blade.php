@@ -7,7 +7,7 @@
             <form id="country-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-3 form-group">
                         <label class="form-label">Country</label>
                         <input type="text" class="form-control reset" name="name">

@@ -21,6 +21,6 @@ class ClassName extends Model
 
     public function mediumofStudy()
     {
-        return $this->belongsTo(MediumOfStudy::class,'medium_of_study_id');
+        return $this->belongsTo(MediumOfStudy::class,'medium_of_study');
     }
 }

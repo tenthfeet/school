@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Master\AcademicYearController;
 use App\Http\Controllers\Master\ExamCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Master\PermissionGroupController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\ClassNameController;
 use App\Http\Controllers\Master\CountryController;
+use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
@@ -48,9 +50,11 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('subjects', SubjectController::class);
     Route::apiResource('terms', TermController::class);
     Route::apiResource('fees', FeeController::class);
+    Route::apiResource('exams', ExamController::class);
     Route::apiResource('medium-of-studies', MediumOfStudyController::class);
     Route::apiResource('class-names', ClassNameController::class);
     Route::apiResource('exam-categories', ExamCategoryController::class);
+    Route::apiResource('academic-years', AcademicYearController::class);
 
 });
 

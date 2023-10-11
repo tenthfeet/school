@@ -7,7 +7,7 @@
             <form id="medium-of-study-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-5 form-group">
                         <label class="form-label">Medium Of Study</label>
                         <input type="text" class="form-control reset" name="name">

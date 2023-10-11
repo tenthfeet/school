@@ -1,26 +1,26 @@
 <x-app-layout>
-    <x-slot:breadcrumb> Fees </x-slot:breadcrumb>
+    <x-slot:breadcrumb> Academic Year </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new Fee </div>
+        <div class="card-header">Add new Academic Year </div>
         <div class="card-body">
-            <form id="fee-form">
+            <form id="academic-year-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row">
-                    <div class="col-md-3 form-group">
-                        <label class="form-label">Fee Name</label>
-                        <input type="text" class="form-control reset" name="name">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">Satrt Date</label>
+                        <input type="date" class="form-control reset" name="start_date">
                     </div>
-                    <div class="col-md-3 form-group">
-                        <label class="form-label">Fee Type</label>
-                        <input type="text" class="form-control reset" name="fee_type">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">End Date</label>
+                        <input type="date" class="form-control reset" name="end_date">
                     </div>
-                    <div class="col-md-3 form-group">
-                        <label class="form-label">Fee Amount</label>
-                        <input type="number" class="form-control reset" name="fee_amount">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">Academic Year</label>
+                        <input type="text" class="form-control reset" name="academic_year" readonly>
                     </div>
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-5 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             <option value="1"
@@ -43,17 +43,17 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header">List of Fees</div>
+        <div class="card-header">List of Academic Years</div>
         <div class="card-body">
-            <table id="list" class="table table-bordered table-hover table-stripped m-0">
+            <table id="lists" class="table table-bordered table-hover table-stripped m-0">
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
-                        <th>Fee Name</th>
-                        <th>Fee Type</th>
-                        <th>Fee Amount</th>
+                        <th>Academic Year</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +63,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/fee.js')
+        @vite('resources/js/pages/master/academicYear.js')
     </x-slot:script>
 
 </x-app-layout>

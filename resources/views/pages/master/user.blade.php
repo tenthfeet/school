@@ -7,7 +7,7 @@
             <form id="user-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-4 form-group">
                         <label class="form-label">Employee No</label>
                         <input type="text" class="form-control reset" name="employee_no">

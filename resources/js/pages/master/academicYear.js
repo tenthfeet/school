@@ -2,22 +2,25 @@ import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
-const form = $('#class-name-form');
+const form = $('#academic-year-form');
 const formCard = form.closest('.card');
+const startDate = form.find('[name="start_date"]');
+const endDate = form.find('[name="end_date"]');
+const academicYear = form.find('[name="academic_year"]');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#class-name-form', {
+const validator = validatorInit('#academic-year-form', {
     rules: {
-        name: { required: true, maxlength: 50 },
-        medium_of_study: { required: true },
+        start_date: { required: true },
+        end_date: { required: true },
         is_active: { required: true },
     },
     messages: {
-        name: {
-            required: 'Please enter the class name',
+        start_date: {
+            required: 'Please select the starting date',
         },
-        medium_of_study: {
-            required: 'Please select the Medium',
+        end_date: {
+            required: 'Please select the ending date',
         },
     },
     submitHandler: (form, event) => {
@@ -25,8 +28,8 @@ const validator = validatorInit('#class-name-form', {
     }
 });
 
-const dataTable = new DataTable('#list', {
-    ajax: 'class-names',
+const dataTable = new DataTable('#lists', {
+    ajax: 'academic-years',
     columns: [
         {
             data: 'id',
@@ -34,8 +37,9 @@ const dataTable = new DataTable('#list', {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'mediumof_study.name' },
-        { data: 'name' },
+        { data: 'academic_year' },
+        { data: 'start_date' },
+        { data: 'end_date' },
         {
             data: 'is_active',
             render: function (data) {
@@ -55,12 +59,27 @@ const dataTable = new DataTable('#list', {
     processing: true
 });
 
+function generateAcademicYear() {
+    let from = (new Date(startDate.val())).getFullYear();
+    let to = (new Date(endDate.val())).getFullYear();
+    let combinedYear = `${isNaN(from)?'':from}-${isNaN(to)?'':to}`;
+    academicYear.val(combinedYear);
+}
+
+endDate.on('change', function () {
+    generateAcademicYear();
+});
+
+startDate.on('change', function () {
+    generateAcademicYear();
+});
+
 function submitForm(form, event) {
     event.preventDefault();
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/class-names/${id}` : '/class-names';
+    let url = isUpdate ? `/academic-years/${id}` : '/academic-years';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
@@ -92,7 +111,7 @@ function submitForm(form, event) {
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
     form.find('[name="is_active"]').val(1);
-    formCard.find('.card-header').html('Add new Class');
+    formCard.find('.card-header').html('Add new Exam Category');
     formBtn.html('Submit');
 }
 
@@ -100,12 +119,12 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/class-names/${id}`);
-    let fields = ['id', 'name', 'medium_of_study', 'is_active'];
+    const { data } = await axios.get(`/academic-years/${id}`);
+    let fields = ['id', 'academic_year', 'start_date', 'end_date', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
-    formCard.find('.card-header').html('Update Class');
+    formCard.find('.card-header').html('Update Academic Year');
     formBtn.html('Update');
 };
 
