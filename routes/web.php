@@ -15,6 +15,7 @@ use App\Http\Controllers\Master\StatusController;
 use App\Http\Controllers\Master\SubjectController;
 use App\Http\Controllers\Master\TermController;
 use App\Http\Controllers\Master\UserController;
+use App\Http\Controllers\Master\StudentController;
 
 
 /*
@@ -48,6 +49,9 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('fees', FeeController::class);
     Route::apiResource('medium-of-studies', MediumOfStudyController::class);
 
+    Route::apiResource('students', StudentController::class);
+    Route::get('student-autocomplete',[StudentController::class,'autoComplete']);
+    Route::get('/parent-info/{student}',[StudentController::class,'getParentInfo']);
 });
 
 

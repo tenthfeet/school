@@ -1,5 +1,6 @@
 import './bootstrap';
 
+import 'lightbox2';
 
 // Import all of CoreUI's JS
 import * as coreui from '@coreui/coreui';
