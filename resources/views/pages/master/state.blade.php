@@ -19,13 +19,7 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1"
-                                @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
-                                Active
-                            </option>
-                            <option value="0"
-                                @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
-                                Inactive</option>
+                            {!! optionsFromArray($status) !!}
                         </select>
                     </div>
                 </div>
