@@ -10,14 +10,14 @@ const validator = validatorInit('#exam-form', {
     rules: {
         exam_category_id: { required: true },
         medium_of_study_id: { required: true, maxlength: 50 },
-        class_name_id: { required: true },
+        class_room_id: { required: true },
         date: { required: true },
         session: { required: true },
         subject: { required: true },
         is_active: { required: true },
     },
     messages: {
-        class_name_id: {
+        class_room_id: {
             required: 'Please select the class name',
         },
         medium_of_study_id: {
@@ -55,7 +55,7 @@ const dataTable = new DataTable('#list', {
         },
         { data: 'exam_category.name' },
         { data: 'mediumof_study.name' },
-        { data: 'class_name.name' },
+        { data: 'class_room.name' },
         { data: 'subject' },
         { data: 'date' },
         {
@@ -129,7 +129,7 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/exams/${id}`);
-    let fields = ['id', 'exam_category_id', 'medium_of_study_id', 'date', 'session', 'subject', 'class_name_id', 'is_active'];
+    let fields = ['id', 'exam_category_id', 'medium_of_study_id', 'date', 'session', 'subject', 'class_room_id', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

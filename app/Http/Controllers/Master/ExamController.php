@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\ExamRequest;
 use App\Models\MediumOfStudy;
-use App\Models\ClassName;
+use App\Models\ClassRoom;
 use App\Models\ExamCategory;
 use App\Models\Exam;
 use Illuminate\Http\JsonResponse;
@@ -21,13 +21,13 @@ class ExamController extends Controller
     {
         $examCategory = ExamCategory::where('is_active', 1)->get();
         $mediumofStudy = MediumOfStudy::where('is_active', 1)->get();
-        $className = ClassName::where('is_active', 1)->get();
+        $classRoom = ClassRoom::where('is_active', 1)->get();
         return $request->wantsJson()
-            ? response()->json(['data' => Exam::with('examCategory', 'mediumofStudy', 'className')->get()])
+            ? response()->json(['data' => Exam::with('examCategory', 'mediumofStudy', 'classRoom')->get()])
             : view('pages.master.exam', [
                 'mediumofStudies' => $mediumofStudy,
                 'examCategories' => $examCategory,
-                'classNames' => $className
+                'classRooms' => $classRoom
             ]);
     }
 
@@ -40,7 +40,7 @@ class ExamController extends Controller
         $exam = Exam::create($validated);
 
         return response()->json([
-            'item' => $exam->load('examCategory', 'mediumofStudy', 'className'),
+            'item' => $exam->load('examCategory', 'mediumofStudy', 'classRoom'),
             'message' => [
                 'text' => "Exam added successfully...",
                 'icon' => 'success'
@@ -67,7 +67,7 @@ class ExamController extends Controller
         $exam->update($validated);
 
         return response()->json([
-            'item' => $exam->load('examCategory', 'mediumofStudy', 'className'),
+            'item' => $exam->load('examCategory', 'mediumofStudy', 'classRoom'),
             'message' => [
                 'text' => "Exam updated successfully...",
                 'icon' => 'success'

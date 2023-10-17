@@ -66,11 +66,10 @@ const dataTable = new DataTable('#list', {
 });
 
 function generateClassName() {
-    let val1 = academicStandard.children('option:selected').text();
-    let val2 = department.children('option:selected').text();
-    console.log(val1,val2);
+    let val1 = academicStandard.children('option:selected').text().trim();
+    let val2 = department.children('option:selected').text().trim();
     let val3 = sectionName.val();
-    let combine = `${(val1)}-${(val2)}-${val3}`;
+    let combine = `${val1}-${val2}-${val3}`;
     className.val(combine);
 }
 

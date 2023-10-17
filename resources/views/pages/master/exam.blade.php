@@ -22,11 +22,11 @@
 
                     <div class="col-md-4 form-group">
                         <label class="form-label">Class Name</label>
-                        <select class="form-control reset" name="class_name_id">
+                        <select class="form-control reset" name="class_room_id">
                             <option value="">-- Select Class Name --</option>
-                            @foreach ($classNames as $className)
-                                <option value="{{ $className->id }}">
-                                    {{ $className->name }}
+                            @foreach ($classRooms as $classRoom)
+                                <option value="{{ $classRoom->id }}">
+                                    {{ $classRoom->name }}
                                 </option>
                             @endforeach
                         </select>

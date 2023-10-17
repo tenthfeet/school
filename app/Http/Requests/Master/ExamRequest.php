@@ -27,7 +27,7 @@ class ExamRequest extends FormRequest
             'date' => 'required',
             'session' => 'required',
             'subject' => 'required',
-            'class_name_id' => 'required',
+            'class_room_id' => 'required',
             'is_active' => 'required',
         ];
     }

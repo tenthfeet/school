@@ -13,7 +13,7 @@ class Exam extends Model
         'date',
         'session',
         'subject',
-        'class_name_id',
+        'class_room_id',
         'is_active'
     ];
 
@@ -29,8 +29,8 @@ class Exam extends Model
     {
         return $this->belongsTo(MediumOfStudy::class,'medium_of_study_id');
     }
-    public function className()
+    public function classRoom()
     {
-        return $this->belongsTo(ClassName::class,'class_name_id');
+        return $this->belongsTo(ClassRoom::class,'class_room_id');
     }
 }
