@@ -40,7 +40,22 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('class-names.index') }}">
+                                        <a class="nav-link" href="{{ route('departments.index') }}">
+                                            <span class="nav-icon"></span> Department
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('fee-details.index') }}">
+                                            <span class="nav-icon"></span> Fee Detail
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('academic-standards.index') }}">
+                                            <span class="nav-icon"></span> Academic Standard
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('class-rooms.index') }}">
                                             <span class="nav-icon"></span> Class
                                         </a>
                                     </li>
@@ -56,7 +71,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('roles.index') }}">
-                                            <span class="nav-icon"></span> Roles
+                                            <span class="nav-icon"></span> Role
                                         </a>
                                     </li>
                                     <li class="nav-item">

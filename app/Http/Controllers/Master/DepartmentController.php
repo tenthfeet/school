@@ -3,39 +3,35 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Master\ClassNameRequest;
-use App\Models\ClassName;
-use App\Models\MediumOfStudy;
+use App\Http\Requests\Master\DepartmentRequest;
+use App\Models\Department;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class ClassNameController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $mediumofStudy = MediumOfStudy::where('is_active', 1)->get();
         return $request->wantsJson()
-            ? response()->json(['data' => ClassName::with('mediumofStudy')->get()])
-            : view('pages.master.class-name', [
-                'mediumofStudies' => $mediumofStudy
-            ]);
+        ? response()->json(['data' => Department::all()])
+        : view('pages.master.department');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ClassNameRequest $request): JsonResponse
+    public function store(DepartmentRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
-        $className = ClassName::create($validated);
+        $department = Department::create($validated);
 
         return response()->json([
-            'item' => $className->load('mediumofStudy'),
+            'item' => $department,
             'message' => [
                 'text' => "{$request->name} added successfully...",
                 'icon' => 'success'
@@ -46,23 +42,23 @@ class ClassNameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ClassName $className): JsonResponse
+    public function show(Department $department): JsonResponse
     {
-        return response()->json($className);
+        return response()->json($department);
     }
 
     /**
      * Update the specified resource in storage.
      */
 
-    public function update(ClassNameRequest $request, ClassName $className)
+    public function update(DepartmentRequest $request,Department $department)
     {
         $validated = $request->validated();
 
-        $className->update($validated);
+        $department->update($validated);
 
         return response()->json([
-            'item' => $className->load('mediumofStudy'),
+            'item' => $department,
             'message' => [
                 'text' => "{$request->name} updated successfully...",
                 'icon' => 'success'

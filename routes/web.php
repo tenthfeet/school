@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Master\AcademicStandardController;
 use App\Http\Controllers\Master\AcademicYearController;
 use App\Http\Controllers\Master\ExamCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -8,10 +9,12 @@ use App\Http\Controllers\Master\PermissionController;
 use App\Http\Controllers\Master\RoleController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
-use App\Http\Controllers\Master\ClassNameController;
+use App\Http\Controllers\Master\ClassRoomController;
 use App\Http\Controllers\Master\CountryController;
+use App\Http\Controllers\Master\DepartmentController;
 use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
+use App\Http\Controllers\Master\FeeDetailController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\LanguageController;
 use App\Http\Controllers\Master\MediumOfStudyController;
@@ -52,9 +55,12 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('fees', FeeController::class);
     Route::apiResource('exams', ExamController::class);
     Route::apiResource('medium-of-studies', MediumOfStudyController::class);
-    Route::apiResource('class-names', ClassNameController::class);
+    Route::apiResource('class-rooms', ClassRoomController::class);
     Route::apiResource('exam-categories', ExamCategoryController::class);
     Route::apiResource('academic-years', AcademicYearController::class);
+    Route::apiResource('departments', DepartmentController::class);
+    Route::apiResource('academic-standards', AcademicStandardController::class);
+    Route::apiResource('fee-details', FeeDetailController::class);
 
 });
 

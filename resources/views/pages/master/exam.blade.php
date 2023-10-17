@@ -11,10 +11,9 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Exam Category</label>
                         <select class="form-control reset" name="exam_category_id">
-                            <option value="">Select Exam Category</option>
+                            <option value="">-- Select Exam Category --</option>
                             @foreach ($examCategories as $examCategory)
-                                <option value="{{ $examCategory->id }}"
-                                    @isset($data){{ $data->examCcategory_id == $examCategory->id ? 'selected' : '' }} @endisset>
+                                <option value="{{ $examCategory->id }}">
                                     {{ $examCategory->name }}
                                 </option>
                             @endforeach
@@ -24,22 +23,20 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Class Name</label>
                         <select class="form-control reset" name="class_name_id">
-                            <option value="">Select Class Name</option>
+                            <option value="">-- Select Class Name --</option>
                             @foreach ($classNames as $className)
-                                <option value="{{ $className->id }}"
-                                    @isset($data){{ $data->class_name_id == $className->id ? 'selected' : '' }} @endisset>
+                                <option value="{{ $className->id }}">
                                     {{ $className->name }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
-                        <label class="form-label">Medium Of Study</label>
+                        <label class="form-label">-- Medium Of Study --</label>
                         <select class="form-control reset" name="medium_of_study_id">
                             <option value="">Select Medium Of Study</option>
                             @foreach ($mediumofStudies as $mediumofStudy)
-                                <option value="{{ $mediumofStudy->id }}"
-                                    @isset($data){{ $data->medium_of_study_id == $mediumofStudy->id ? 'selected' : '' }} @endisset>
+                                <option value="{{ $mediumofStudy->id }}">
                                     {{ $mediumofStudy->name }}
                                 </option>
                             @endforeach
@@ -56,12 +53,10 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Session</label>
                         <select class="form-control" name="session">
-                            <option value="1"
-                                @isset($data){{ $data->session == 1 ? 'selected' : '' }} @endisset>
+                            <option value="1">
                                 FN
                             </option>
-                            <option value="2"
-                                @isset($data){{ $data->session == 0 ? 'selected' : '' }} @endisset>
+                            <option value="2">
                                 AN
                             </option>
                         </select>
@@ -69,12 +64,10 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1"
-                                @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
+                            <option value="1">
                                 Active
                             </option>
-                            <option value="0"
-                                @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
+                            <option value="0">
                                 Inactive
                             </option>
                         </select>

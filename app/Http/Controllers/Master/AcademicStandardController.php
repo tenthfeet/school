@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Master\AcademicYearRequest;
-use App\Models\AcademicYear;
+use App\Http\Requests\Master\AcademicStandardRequest;
+use App\Models\AcademicStandard;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AcademicYearController extends Controller
+class AcademicStandardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,22 +17,21 @@ class AcademicYearController extends Controller
     public function index(Request $request)
     {
         return $request->wantsJson()
-        ? response()->json(['data' => AcademicYear::all()])
-        : view('pages.master.academic-year');
+        ? response()->json(['data' => AcademicStandard::all()])
+        : view('pages.master.academic-standard');
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AcademicYearRequest $request): JsonResponse
+    public function store(AcademicStandardRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
-        $academicYear = AcademicYear::create($validated);
+        $academicStandard = AcademicStandard::create($validated);
 
         return response()->json([
-            'item' => $academicYear,
+            'item' => $academicStandard,
             'message' => [
                 'text' => "{$request->name} added successfully...",
                 'icon' => 'success'
@@ -43,23 +42,23 @@ class AcademicYearController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AcademicYear $academicYear): JsonResponse
+    public function show(AcademicStandard $academicStandard): JsonResponse
     {
-        return response()->json($academicYear);
+        return response()->json($academicStandard);
     }
 
     /**
      * Update the specified resource in storage.
      */
 
-    public function update(AcademicYearRequest $request,AcademicYear $academicYear)
+    public function update(AcademicStandardRequest $request,AcademicStandard $academicStandard)
     {
         $validated = $request->validated();
 
-        $academicYear->update($validated);
+        $academicStandard->update($validated);
 
         return response()->json([
-            'item' => $academicYear,
+            'item' => $academicStandard,
             'message' => [
                 'text' => "{$request->name} updated successfully...",
                 'icon' => 'success'

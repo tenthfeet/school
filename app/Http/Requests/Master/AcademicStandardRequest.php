@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Master;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class AcademicYearRequest extends FormRequest
+class AcademicStandardRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +22,15 @@ class AcademicYearRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('academic_standard');
         return [
-            'name' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'is_active' => 'required',
+            'name' => [
+                'required',
+                'max:100',
+                Rule::unique(config('table.academic_standards'), 'name')->ignore($id)
+            ],
+            'is_active' => 'required|boolean',
+
         ];
     }
 }

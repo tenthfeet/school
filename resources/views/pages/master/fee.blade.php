@@ -13,22 +13,12 @@
                         <input type="text" class="form-control reset" name="name">
                     </div>
                     <div class="col-md-3 form-group">
-                        <label class="form-label">Fee Type</label>
-                        <input type="text" class="form-control reset" name="fee_type">
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label class="form-label">Fee Amount</label>
-                        <input type="number" class="form-control reset" name="fee_amount">
-                    </div>
-                    <div class="col-md-3 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1"
-                                @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
+                            <option value="1">
                                 Active
                             </option>
-                            <option value="0"
-                                @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
+                            <option value="0">
                                 Inactive</option>
                         </select>
                     </div>
@@ -50,8 +40,6 @@
                     <tr class="table-primary">
                         <th>#</th>
                         <th>Fee Name</th>
-                        <th>Fee Type</th>
-                        <th>Fee Amount</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>

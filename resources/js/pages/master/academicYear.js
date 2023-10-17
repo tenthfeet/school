@@ -1,12 +1,13 @@
 import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
+import moment from "moment/moment";
 
 const form = $('#academic-year-form');
 const formCard = form.closest('.card');
 const startDate = form.find('[name="start_date"]');
 const endDate = form.find('[name="end_date"]');
-const academicYear = form.find('[name="academic_year"]');
+const academicYear = form.find('[name="name"]');
 const formBtn = form.find('button[type="submit"]');
 
 const validator = validatorInit('#academic-year-form', {
@@ -37,9 +38,19 @@ const dataTable = new DataTable('#lists', {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'academic_year' },
-        { data: 'start_date' },
-        { data: 'end_date' },
+        { data: 'name' },
+        {
+            data: 'start_date',
+            render: function (data) {
+                return moment(data).format('DD-MMM-YYYY');
+            }
+        },
+        {
+            data: 'end_date',
+            render: function (data) {
+                return moment(data).format('DD-MMM-YYYY');
+            }
+        },
         {
             data: 'is_active',
             render: function (data) {
@@ -62,7 +73,7 @@ const dataTable = new DataTable('#lists', {
 function generateAcademicYear() {
     let from = (new Date(startDate.val())).getFullYear();
     let to = (new Date(endDate.val())).getFullYear();
-    let combinedYear = `${isNaN(from)?'':from}-${isNaN(to)?'':to}`;
+    let combinedYear = `${isNaN(from) ? '' : from}-${isNaN(to) ? '' : to}`;
     academicYear.val(combinedYear);
 }
 
@@ -120,7 +131,7 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/academic-years/${id}`);
-    let fields = ['id', 'academic_year', 'start_date', 'end_date', 'is_active'];
+    let fields = ['id', 'name', 'start_date', 'end_date', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('table.class_names'), function (Blueprint $table) {
-            $table->smallIncrements('id');
-            $table->string('name', 150);
-            $table->unsignedTinyInteger('medium_of_study');
+        Schema::create(config('table.fee_details'), function (Blueprint $table) {
+            $table->mediumIncrements('id');
+            $table->tinyInteger('academic_year_id');
+            $table->mediumInteger('academic_standard_id');
+            $table->string('fee_id');
+            $table->decimal('fee_amount',11,2);
             $table->boolean('is_active');
             $table->timestamps();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('table.class_names'));
+        Schema::dropIfExists(config('table.fee_details'));
     }
 };

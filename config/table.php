@@ -19,8 +19,11 @@ return [
     'fees' => 'fees',
     'statuses' => 'statuses',
     'medium_of_studies' => 'medium_of_studies',
-    'class_names' => 'class_names',
+    'class_rooms' => 'class_rooms',
     'exam_categories' => 'exam_categories',
     'academic_years' => 'academic_years',
-    'exams' => 'exams'
+    'exams' => 'exams',
+    'departments'=>'departments',
+    'academic_standards'=>'academic_standards',
+    'fee_details'=>'fee_details'
 ];

@@ -9,8 +9,6 @@ class Fee extends Model
 {
     protected $fillable = [
         'name',
-        'fee_type',
-        'fee_amount',
         'is_active'
     ];
 

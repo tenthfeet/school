@@ -5,7 +5,7 @@ namespace App\Http\Requests\Master;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ClassNameRequest extends FormRequest
+class DepartmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,15 @@ class ClassNameRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('class_name');
-        return [
-            'name' => [
-                'required',
-                'max:150',
-                Rule::unique(config('table.class_names'), 'name')->ignore($id)
-            ],
-            'medium_of_study' => 'required',
-            'is_active' => 'required'
-        ];
+            $id = $this->route('department');
+            return [
+                'name' => [
+                    'required',
+                    'max:100',
+                    Rule::unique(config('table.departments'), 'name')->ignore($id)
+                ],
+                'is_active' => 'required|boolean',
+
+            ];
     }
 }

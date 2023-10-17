@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('table.academic_years'), function (Blueprint $table) {
-            $table->tinyIncrements('id');
-            $table->string('academic_year',10);
-            $table->date('start_date');
-            $table->date('end_date');
+        Schema::create(config('table.academic_standards'), function (Blueprint $table) {
+            $table->mediumIncrements('id');
+            $table->string('name');
             $table->boolean('is_active');
             $table->timestamps();
         });
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('table.academic_years'));
+        Schema::dropIfExists(config('table.academic_standards'));
     }
 };

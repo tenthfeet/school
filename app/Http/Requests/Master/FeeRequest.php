@@ -29,8 +29,6 @@ class FeeRequest extends FormRequest
                 'max:100',
                 Rule::unique(config('table.fees'), 'name')->ignore($id)
             ],
-            'fee_type'=>'required|max:100',
-            'fee_amount'=>'required|numeric|min:0',
             'is_active' => 'required|boolean',
 
         ];

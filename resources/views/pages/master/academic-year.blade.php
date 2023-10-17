@@ -8,28 +8,27 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row">
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Satrt Date</label>
                         <input type="date" class="form-control reset" name="start_date">
                     </div>
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">End Date</label>
                         <input type="date" class="form-control reset" name="end_date">
                     </div>
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Academic Year</label>
-                        <input type="text" class="form-control reset" name="academic_year" readonly>
+                        <input type="text" class="form-control reset" name="name" readonly>
                     </div>
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1"
-                                @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
+                            <option value="1">
                                 Active
                             </option>
-                            <option value="0"
-                                @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
-                                Inactive</option>
+                            <option value="0">
+                                Inactive
+                            </option>
                         </select>
                     </div>
                 </div>

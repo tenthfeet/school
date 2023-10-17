@@ -4,7 +4,7 @@ namespace App\Http\Requests\Master;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AcademicYearRequest extends FormRequest
+class FeeDetailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,12 @@ class AcademicYearRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'academic_year_id' => 'required',
+            'academic_standard_id' => 'required',
+            'fee_id' => 'required',
+            'fee_amount' => 'required',
             'is_active' => 'required',
+
         ];
     }
 }
