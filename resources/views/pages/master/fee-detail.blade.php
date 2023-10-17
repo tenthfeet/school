@@ -31,8 +31,15 @@
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
-                        <label class="form-label">Fee Id</label>
-                        <input type="text" class="form-control reset" name="fee_id">
+                        <label class="form-label">Fee Name</label>
+                        <select class="form-control reset" name="fee_id">
+                            <option value="">-- Select Fee Name --</option>
+                            @foreach ($fees as $fee)
+                                <option value="{{ $fee->id }}">
+                                    {{ $fee->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">Fee Amount</label>
@@ -68,7 +75,7 @@
                         <th>#</th>
                         <th>Academic Year</th>
                         <th>Academic Standard</th>
-                        <th>Fee Id</th>
+                        <th>Fee Name</th>
                         <th>Fee Amount</th>
                         <th>Status</th>
                         <th>Actions</th>

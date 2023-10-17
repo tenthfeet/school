@@ -23,7 +23,8 @@ return [
     'exam_categories' => 'exam_categories',
     'academic_years' => 'academic_years',
     'exams' => 'exams',
-    'departments'=>'departments',
-    'academic_standards'=>'academic_standards',
-    'fee_details'=>'fee_details'
+    'departments' => 'departments',
+    'academic_standards' => 'academic_standards',
+    'fee_details' => 'fee_details',
+    'homeworks' => 'homeworks'
 ];

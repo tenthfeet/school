@@ -45,6 +45,16 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('subjects.index') }}">
+                                            <span class="nav-icon"></span> Subject
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('homeworks.index') }}">
+                                            <span class="nav-icon"></span> Homework
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('fee-details.index') }}">
                                             <span class="nav-icon"></span> Fee Detail
                                         </a>

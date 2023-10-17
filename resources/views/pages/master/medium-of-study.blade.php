@@ -8,11 +8,11 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row">
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Medium Of Study</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             <option value="1">

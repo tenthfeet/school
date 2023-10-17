@@ -1,31 +1,36 @@
 import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
+import moment from "moment/moment";
 
-const form = $('#fee-detail-form');
+const form = $('#homework-form');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#fee-detail-form', {
+const validator = validatorInit('#homework-form', {
     rules: {
-        academic_standard_id: { required: true },
-        academic_year_id: { required: true },
-        fee_id: { required: true },
-        fee_amount: { required: true },
+        class_room_id: { required: true },
+        subject_id: { required: true },
+        homework_detail: { required: true },
+        date: { required: true },
+        user_id: { required: true },
         is_active: { required: true },
     },
     messages: {
-         academic_year_id: {
-            required: 'Please select the Academic Year',
+        class_room_id: {
+            required: 'Please select the class',
         },
-        academic_standard_id: {
-            required: 'Please select the Academic Standard',
+        subject_id: {
+            required: 'Please select the subject',
         },
-        fee_id: {
-            required: 'Please enter the fee id',
+        homework_detail: {
+            required: 'Please enter the homework details',
         },
-        fee_amount: {
-            required: 'Please enter the fee amount',
+        date: {
+            required: 'Please select the date',
+        },
+        user_id: {
+            required: 'Please select the user',
         },
     },
     submitHandler: (form, event) => {
@@ -34,7 +39,7 @@ const validator = validatorInit('#fee-detail-form', {
 });
 
 const dataTable = new DataTable('#list', {
-    ajax: 'fee-details',
+    ajax: 'homeworks',
     columns: [
         {
             data: 'id',
@@ -42,10 +47,16 @@ const dataTable = new DataTable('#list', {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'academic_year.name' },
-        { data: 'academic_standard.name' },
-        { data: 'fee.name' },
-        { data: 'fee_amount' },
+        { data: 'class_room.name' },
+        { data: 'subject.name' },
+        { data: 'homework_detail' },
+        {
+            data: 'date',
+            render: function (data) {
+                return moment(data).format('DD-MMM-YYYY');
+            }
+        },
+        { data: 'user_id' },
         {
             data: 'is_active',
             render: function (data) {
@@ -65,12 +76,13 @@ const dataTable = new DataTable('#list', {
     processing: true
 });
 
+
 function submitForm(form, event) {
     event.preventDefault();
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/fee-details/${id}` : '/fee-details';
+    let url = isUpdate ? `/homeworks/${id}` : '/homeworks';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
@@ -102,7 +114,7 @@ function submitForm(form, event) {
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
     form.find('[name="is_active"]').val(1);
-    formCard.find('.card-header').html('Add new Fee Detail');
+    formCard.find('.card-header').html('Add new Homework');
     formBtn.html('Submit');
 }
 
@@ -110,12 +122,12 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/fee-details/${id}`);
-    let fields = ['id','academic_year_id','academic_standard_id','fee_id','fee_amount','is_active'];
+    const { data } = await axios.get(`/homeworks/${id}`);
+    let fields = ['id', 'homework_detail', 'subject_id', 'date', 'class_room_id', 'user_id', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
-    formCard.find('.card-header').html('Update Fee Detail');
+    formCard.find('.card-header').html('Update Homework');
     formBtn.html('Update');
 };
 

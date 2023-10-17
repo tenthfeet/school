@@ -16,6 +16,7 @@ use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
 use App\Http\Controllers\Master\FinancialYearController;
+use App\Http\Controllers\Master\HomeworkController;
 use App\Http\Controllers\Master\LanguageController;
 use App\Http\Controllers\Master\MediumOfStudyController;
 use App\Http\Controllers\Master\StatusController;
@@ -61,6 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('departments', DepartmentController::class);
     Route::apiResource('academic-standards', AcademicStandardController::class);
     Route::apiResource('fee-details', FeeDetailController::class);
+    Route::apiResource('homeworks', HomeworkController::class);
 
 });
 

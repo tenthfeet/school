@@ -4,39 +4,46 @@
     <div class="card mb-3">
         <div class="card-header">Add new Class </div>
         <div class="card-body">
-            <form id="class-room-form">
+            <form id="homework-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="row">
                     <div class="col-md-4 form-group">
-                        <label class="form-label">Academic Standard</label>
-                        <select class="form-control reset" name="academic_standard_id">
-                            <option value="">-- Select Academic Standard --</option>
-                            @foreach ($academicStandards as $academicStandard)
-                                <option value="{{ $academicStandard->id }}">
-                                    {{ $academicStandard->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Department</label>
-                        <select class="form-control reset" name="department_id">
-                            <option value="">-- Select Department --</option>
-                            @foreach ($departments as $department)
-                                <option value="{{ $department->id }}">
-                                    {{ $department->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Section</label>
-                        <input type="text" class="form-control reset" name="section">
-                    </div>
-                    <div class="col-md-4 form-group">
                         <label class="form-label">Class Name</label>
-                        <input type="text" class="form-control reset" name="name" readonly>
+                        <select class="form-control reset" name="class_room_id">
+                            <option value="">-- Select Class Name--</option>
+                            @foreach ($classRooms as $classRoom)
+                                <option value="{{ $classRoom->id }}">
+                                    {{ $classRoom->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Subject</label>
+                        <select class="form-control reset" name="subject_id">
+                            <option value="">-- Select subject Name --</option>
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->id }}">
+                                    {{ $subject->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Homework</label>
+                        <input type="text" class="form-control reset" name="homework_detail">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control reset" name="date">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">User Name</label>
+                        <select class="form-control reset" name="user_id">
+                            <option value="">-- Select User Name --</option>
+                           <option value="1">Tamil Teacher</option>
+                        </select>
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
@@ -60,16 +67,17 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header">List of Class</div>
+        <div class="card-header">List of Homewroks</div>
         <div class="card-body">
             <table id="list" class="table table-bordered table-hover table-stripped m-0">
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
-                        <th>Academic Year</th>
-                        <th>Department</th>
-                        <th>Section</th>
                         <th>Class Name</th>
+                        <th>Subject</th>
+                        <th>Homework</th>
+                        <th>Date</th>
+                        <th>User Id</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -81,7 +89,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/classRoom.js')
+        @vite('resources/js/pages/master/homework.js')
     </x-slot:script>
 
 </x-app-layout>

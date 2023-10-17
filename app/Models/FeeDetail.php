@@ -27,4 +27,8 @@ class FeeDetail extends Model
     {
         return $this->belongsTo(AcademicStandard::class,'academic_standard_id');
     }
+    public function fee()
+    {
+        return $this->belongsTo(Fee::class,'fee_id');
+    }
 }

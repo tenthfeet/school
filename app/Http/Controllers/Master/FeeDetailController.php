@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\FeeDetailRequest;
 use App\Models\AcademicStandard;
 use App\Models\AcademicYear;
+use App\Models\Fee;
 use App\Models\FeeDetail;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -20,11 +21,13 @@ class FeeDetailController extends Controller
     {
         $academicStandard = AcademicStandard::where('is_active', 1)->get();
         $academicYear = AcademicYear::where('is_active', 1)->get();
+        $fee = Fee::where('is_active', 1)->get();
         return $request->wantsJson()
-            ? response()->json(['data' => FeeDetail::with('academicYear','academicStandard')->get()])
+            ? response()->json(['data' => FeeDetail::with('academicYear','fee','academicStandard')->get()])
             : view('pages.master.fee-detail', [
                 'academicYears' => $academicYear,
-                'academicStandards' => $academicStandard
+                'academicStandards' => $academicStandard,
+                'fees'=>$fee,
             ]);
     }
 
@@ -38,7 +41,7 @@ class FeeDetailController extends Controller
         $feeDetail = FeeDetail::create($validated);
 
         return response()->json([
-            'item' => $feeDetail->load('academicYear','academicStandard'),
+            'item' => $feeDetail->load('academicYear','fee','academicStandard'),
             'message' => [
                 'text' => "Fee Detail added successfully...",
                 'icon' => 'success'
@@ -65,7 +68,7 @@ class FeeDetailController extends Controller
         $feeDetail->update($validated);
 
         return response()->json([
-            'item' => $feeDetail->load('academicYear','academicStandard'),
+            'item' => $feeDetail->load('academicYear','fee','academicStandard'),
             'message' => [
                 'text' => "Fee Detail updated successfully...",
                 'icon' => 'success'
