@@ -1,8 +1,8 @@
 <x-app-layout>
-    <x-slot:breadcrumb> Class </x-slot:breadcrumb>
+    <x-slot:breadcrumb> Homework </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new Class </div>
+        <div class="card-header">Add new Homework </div>
         <div class="card-body">
             <form id="homework-form">
                 @csrf
