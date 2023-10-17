@@ -1,20 +1,21 @@
 import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
-import { select2Init, toSelect2DataSource } from '../../utils/select2'
+import { select2Init, setSelect2Data, toSelect2DataSource } from '../../utils/select2'
 
 const form = $("#permission-form");
 const formCard = form.closest(".card");
 const formBtn = form.find('button[type="submit"]');
+const permissionGroupId = form.find('[name="permission_group_id"]');
 
 const validator = validatorInit("#permission-form", {
     rules: {
-        permission_group_id:'required',
+        permission_group_id: 'required',
         name: { required: true, maxlength: 100 },
     },
     messages: {
-        permission_group_id: { required: "Please select the permission group"},
-        name: { required: "Please enter the permission name"},
+        permission_group_id: { required: "Please select the permission group" },
+        name: { required: "Please enter the permission name" },
     },
     submitHandler: (form, event) => {
         submitForm(form, event);
@@ -95,10 +96,8 @@ const showUpdateForm = async function (element) {
     fields.forEach((field) => {
         form.find(`[name="${field}"]`).val(data['permission'][field]);
     });
-    let dataSource = toSelect2DataSource(data.permissionGroups, "id", "name",data.permission.permission_group_id);
-    dataSource.unshift({ id: '', text: '--Select Group--' });
-    form.find(`[name="permission_group_id"]`).empty();
-    select2Init('[name="permission_group_id"]', { data: dataSource });
+    let dataSource = toSelect2DataSource(data.permissionGroups, "id", "name", data.permission.permission_group_id);
+    setSelect2Data(permissionGroupId, dataSource, 'Group');
     formCard.find(".card-header").html("Update Permission");
     formBtn.html("Update");
 };
@@ -108,10 +107,7 @@ async function showAddForm() {
     resetForm();
     const { data } = await axios.get("/permission-groups");
     let dataSource = toSelect2DataSource(data.data, "id", "name");
-    form.find(`[name="permission_group_id"]`).empty();
-    dataSource.unshift({ id: '', text: '--Select Group--' });
-    select2Init('[name="permission_group_id"]', { data: dataSource });
+    setSelect2Data(permissionGroupId, dataSource, 'Group');
 }
-
 
 window.showUpdateForm = showUpdateForm;

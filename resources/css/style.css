@@ -3,6 +3,7 @@
 @import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
 @import 'select2/dist/css/select2.min.css';
 @import 'select2-theme-bootstrap5/dist/select2-bootstrap.min.css';
+@import 'lightbox2/dist/css/lightbox.min.css';
 
 .select2-container--bootstrap.select2-container--focus .select2-selection {
     border: var(--cui-border-width) solid var(--cui-input-border-color, var(--cui-border-color));
