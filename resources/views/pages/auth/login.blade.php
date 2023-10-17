@@ -5,17 +5,21 @@
             <p class="text-medium-emphasis">Sign In to your account</p>
             <form id="login-form" action="POST">
                 @csrf
-                <div class="input-group mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-user icon"></i>
-                    </span>
-                    <input class="form-control rounded-end" name="employee_no" type="text" placeholder="Employee No">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-user icon"></i>
+                        </span>
+                        <input class="form-control rounded-end" name="employee_no" type="text" placeholder="Employee No">
+                    </div>
                 </div>
-                <div class="input-group mb-4">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-lock icon"></i>
-                    </span>
-                    <input class="form-control rounded-end" name="password" type="password" placeholder="Password">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-lock icon"></i>
+                        </span>
+                        <input class="form-control rounded-end" name="password" type="password" placeholder="Password">
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col">

@@ -139,6 +139,11 @@
                                             <span class="nav-icon"></span> Fee
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('students.index') }}">
+                                            <span class="nav-icon"></span> Student
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </div>

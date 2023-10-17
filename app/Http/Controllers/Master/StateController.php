@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\StateRequest;
 use App\Models\State;
@@ -17,8 +18,8 @@ class StateController extends Controller
     public function index(Request $request)
     {
         return $request->wantsJson()
-        ? response()->json(['data' => State::all()])
-        : view('pages.master.state');
+            ? response()->json(['data' => State::all()])
+            : view('pages.master.state', ['status' => Status::labelArray()]);
     }
 
     /**
@@ -51,7 +52,7 @@ class StateController extends Controller
      * Update the specified resource in storage.
      */
 
-    public function update(StateRequest $request,State $state)
+    public function update(StateRequest $request, State $state)
     {
         $validated = $request->validated();
 
