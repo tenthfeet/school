@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fee extends Model
+class ExamCategory extends Model
 {
+
     protected $fillable = [
         'name',
         'is_active'
@@ -14,6 +15,6 @@ class Fee extends Model
 
     public function getTable()
     {
-        return config('table.fees', parent::getTable());
+        return config('table.exam_categories', parent::getTable());
     }
 }

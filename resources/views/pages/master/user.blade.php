@@ -7,7 +7,7 @@
             <form id="user-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-4 form-group">
                         <label class="form-label">Employee No</label>
                         <input type="text" class="form-control reset" name="employee_no">
@@ -24,15 +24,14 @@
                         <label class="form-label">Mobile Number</label>
                         <div class="input-group">
                             <span class="input-group-select">
-                            <select class="form-select  col-md-4" name="country_id">
-                                <option value="91">IND</option>
-                                @foreach ($countries as $country)
-                                    <option value="{{ $country->id }}"
-                                        @isset($data){{ $data->country_id == $country->id ? 'selected' : '' }} @endisset>
-                                        {{ $country->iso_code }}
-                                    </option>
-                                @endforeach
-                            </select>
+                                <select class="form-select  col-md-4" name="country_id">
+                                    <option value="91">IND</option>
+                                    @foreach ($countries as $country)
+                                        <option value="{{ $country->id }}">
+                                            {{ $country->iso_code }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </span>
                             <input class="form-control reset col-md-8" type="number" name="mobile_no">
                         </div>
@@ -41,10 +40,9 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">State</label>
                         <select class="form-control reset" name="state_id">
-                            <option value="">Select State</option>
+                            <option value="">-- Select State --</option>
                             @foreach ($states as $state)
-                                <option value="{{ $state->id }}"
-                                    @isset($data){{ $data->state_id == $state->id ? 'selected' : '' }} @endisset>
+                                <option value="{{ $state->id }}">
                                     {{ $state->name }}
                                 </option>
                             @endforeach
@@ -71,10 +69,9 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Role Id</label>
                         <select class="form-control reset" name="role_id">
-                            <option value="">Select Role Id</option>
+                            <option value="">-- Select Role Id --</option>
                             @foreach ($roles as $role)
-                                <option value="{{ $role->id }}"
-                                    @isset($data){{ $data->role_id == $role->id ? 'selected' : '' }} @endisset>
+                                <option value="{{ $role->id }}">
                                     {{ $role->name }}
                                 </option>
                             @endforeach
@@ -87,12 +84,10 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1"
-                                @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
+                            <option value="1">
                                 Active
                             </option>
-                            <option value="0"
-                                @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
+                            <option value="0">
                                 Inactive
                             </option>
                         </select>

@@ -2,18 +2,30 @@ import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
-const form = $('#fee-form');
+const form = $('#class-room-form');
+const academicStandard = form.find('[name="academic_standard_id"]');
+const department = form.find('[name="department_id"]');
+const sectionName = form.find('[name="section"]');
+const className = form.find('[name="name"]');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#fee-form', {
+const validator = validatorInit('#class-room-form', {
     rules: {
-        name: { required: true, maxlength: 120 },
+        academic_standard_id: { required: true },
+        department_id: { required: true },
+        section: { required: true },
         is_active: { required: true },
     },
     messages: {
-        name: {
-            required: 'Please enter the fee name',
+        academic_standard_id: {
+            required: 'Please select the academic standard',
+        },
+        department_id: {
+            required: 'Please select the department',
+        },
+        section: {
+            required: 'Please enter the section',
         },
     },
     submitHandler: (form, event) => {
@@ -22,7 +34,7 @@ const validator = validatorInit('#fee-form', {
 });
 
 const dataTable = new DataTable('#list', {
-    ajax: 'fees',
+    ajax: 'class-rooms',
     columns: [
         {
             data: 'id',
@@ -30,6 +42,9 @@ const dataTable = new DataTable('#list', {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
+        { data: 'academic_standard.name' },
+        { data: 'department.name' },
+        { data: 'section' },
         { data: 'name' },
         {
             data: 'is_active',
@@ -50,12 +65,30 @@ const dataTable = new DataTable('#list', {
     processing: true
 });
 
+function generateClassName() {
+    let val1 = academicStandard.children('option:selected').text().trim();
+    let val2 = department.children('option:selected').text().trim();
+    let val3 = sectionName.val();
+    let combine = `${val1}-${val2}-${val3}`;
+    className.val(combine);
+}
+
+academicStandard.on('change', function () {
+    generateClassName();
+});
+department.on('change', function () {
+    generateClassName();
+});
+sectionName.on('input', function () {
+    generateClassName();
+});
+
 function submitForm(form, event) {
     event.preventDefault();
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/fees/${id}` : '/fees';
+    let url = isUpdate ? `/class-rooms/${id}` : '/class-rooms';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
@@ -87,7 +120,7 @@ function submitForm(form, event) {
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
     form.find('[name="is_active"]').val(1);
-    formCard.find('.card-header').html('Add new fee');
+    formCard.find('.card-header').html('Add new Class');
     formBtn.html('Submit');
 }
 
@@ -95,12 +128,12 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/fees/${id}`);
-    let fields = ['id', 'name', 'is_active'];
+    const { data } = await axios.get(`/class-rooms/${id}`);
+    let fields = ['id', 'name', 'academic_standard_id', 'department_id', 'section', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
-    formCard.find('.card-header').html('Update Fees');
+    formCard.find('.card-header').html('Update Class');
     formBtn.html('Update');
 };
 

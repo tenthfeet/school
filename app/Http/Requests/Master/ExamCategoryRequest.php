@@ -5,7 +5,7 @@ namespace App\Http\Requests\Master;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FeeRequest extends FormRequest
+class ExamCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,12 @@ class FeeRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('fee');
+        $id = $this->route('exam_category');
         return [
             'name' => [
                 'required',
-                'max:100',
-                Rule::unique(config('table.fees'), 'name')->ignore($id)
+                'max:150',
+                Rule::unique(config('table.exam_categories'), 'name')->ignore($id)
             ],
             'is_active' => 'required|boolean',
 

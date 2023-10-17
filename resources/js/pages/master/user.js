@@ -46,7 +46,7 @@ const validator = validatorInit('#user-form', {
 state.on('change', function () {
     let state_id = this.value;
     let element = city;
-    element.html(`<option>  Select City  </option>`);
+    element.html(`<option> -- Select City -- </option>`);
 
     if (state_id == '') {
         return;

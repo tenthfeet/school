@@ -1,22 +1,18 @@
 <x-app-layout>
-    <x-slot:breadcrumb> Subject </x-slot:breadcrumb>
+    <x-slot:breadcrumb> Exam Category </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new Subject </div>
+        <div class="card-header">Add new Exam Category </div>
         <div class="card-body">
-            <form id="subject-form">
+            <form id="exam-category-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Subject</label>
+                <div class="row">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">Exam Category</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Printable Name</label>
-                        <input type="text" class="form-control reset" name="printable_name">
-                    </div>
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-5 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             <option value="1">
@@ -37,14 +33,13 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header">List of Subjects</div>
+        <div class="card-header">List of Exam Categories</div>
         <div class="card-body">
             <table id="lists" class="table table-bordered table-hover table-stripped m-0">
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
-                        <th>Subject</th>
-                        <th>Printable Name</th>
+                        <th>Exam Category</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -56,7 +51,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/subject.js')
+        @vite('resources/js/pages/master/examCategory.js')
     </x-slot:script>
 
 </x-app-layout>

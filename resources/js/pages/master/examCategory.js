@@ -2,18 +2,18 @@ import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
-const form = $('#fee-form');
+const form = $('#exam-category-form');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#fee-form', {
+const validator = validatorInit('#exam-category-form', {
     rules: {
-        name: { required: true, maxlength: 120 },
+        name: { required: true, maxlength: 100 },
         is_active: { required: true },
     },
     messages: {
         name: {
-            required: 'Please enter the fee name',
+            required: 'Please enter the exam category',
         },
     },
     submitHandler: (form, event) => {
@@ -21,8 +21,8 @@ const validator = validatorInit('#fee-form', {
     }
 });
 
-const dataTable = new DataTable('#list', {
-    ajax: 'fees',
+const dataTable = new DataTable('#lists', {
+    ajax: 'exam-categories',
     columns: [
         {
             data: 'id',
@@ -55,7 +55,7 @@ function submitForm(form, event) {
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/fees/${id}` : '/fees';
+    let url = isUpdate ? `/exam-categories/${id}` : '/exam-categories';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
@@ -87,7 +87,7 @@ function submitForm(form, event) {
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
     form.find('[name="is_active"]').val(1);
-    formCard.find('.card-header').html('Add new fee');
+    formCard.find('.card-header').html('Add new Exam Category');
     formBtn.html('Submit');
 }
 
@@ -95,12 +95,12 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/fees/${id}`);
+    const { data } = await axios.get(`/exam-categories/${id}`);
     let fields = ['id', 'name', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
-    formCard.find('.card-header').html('Update Fees');
+    formCard.find('.card-header').html('Update Exam Category');
     formBtn.html('Update');
 };
 

@@ -7,7 +7,7 @@
             <form id="country-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-3 form-group">
                         <label class="form-label">Country</label>
                         <input type="text" class="form-control reset" name="name">
@@ -23,12 +23,10 @@
                     <div class="col-md-3 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1"
-                                @isset($data){{ $data->is_active == 1 ? 'selected' : '' }} @endisset>
+                            <option value="1">
                                 Active
                             </option>
-                            <option value="0"
-                                @isset($data){{ $data->is_active == 0 ? 'selected' : '' }} @endisset>
+                            <option value="0">
                                 Inactive</option>
                         </select>
                     </div>

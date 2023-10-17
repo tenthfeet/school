@@ -1,20 +1,24 @@
 <x-app-layout>
-    <x-slot:breadcrumb> Subject </x-slot:breadcrumb>
+    <x-slot:breadcrumb> Academic Year </x-slot:breadcrumb>
 
     <div class="card mb-3">
-        <div class="card-header">Add new Subject </div>
+        <div class="card-header">Add new Academic Year </div>
         <div class="card-body">
-            <form id="subject-form">
+            <form id="academic-year-form">
                 @csrf
                 <input type="hidden" name="id" class="reset">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-4 form-group">
-                        <label class="form-label">Subject</label>
-                        <input type="text" class="form-control reset" name="name">
+                        <label class="form-label">Satrt Date</label>
+                        <input type="date" class="form-control reset" name="start_date">
                     </div>
                     <div class="col-md-4 form-group">
-                        <label class="form-label">Printable Name</label>
-                        <input type="text" class="form-control reset" name="printable_name">
+                        <label class="form-label">End Date</label>
+                        <input type="date" class="form-control reset" name="end_date">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Academic Year</label>
+                        <input type="text" class="form-control reset" name="name" readonly>
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
@@ -23,7 +27,8 @@
                                 Active
                             </option>
                             <option value="0">
-                                Inactive</option>
+                                Inactive
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -37,14 +42,15 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header">List of Subjects</div>
+        <div class="card-header">List of Academic Years</div>
         <div class="card-body">
             <table id="lists" class="table table-bordered table-hover table-stripped m-0">
                 <thead>
                     <tr class="table-primary">
                         <th>#</th>
-                        <th>Subject</th>
-                        <th>Printable Name</th>
+                        <th>Academic Year</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -56,7 +62,7 @@
     </div>
 
     <x-slot:script>
-        @vite('resources/js/pages/master/subject.js')
+        @vite('resources/js/pages/master/academicYear.js')
     </x-slot:script>
 
 </x-app-layout>

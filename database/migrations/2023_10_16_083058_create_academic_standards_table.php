@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('table.fees'), function (Blueprint $table) {
-            $table->smallIncrements('id',5);
-            $table->string('name',150);
-            $table->string('is_active',5);
+        Schema::create(config('table.academic_standards'), function (Blueprint $table) {
+            $table->mediumIncrements('id');
+            $table->string('name');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('table.fees'));
+        Schema::dropIfExists(config('table.academic_standards'));
     }
 };

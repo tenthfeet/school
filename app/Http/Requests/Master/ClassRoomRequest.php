@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Master;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class FeeRequest extends FormRequest
+class ClassRoomRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +21,12 @@ class FeeRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('fee');
         return [
-            'name' => [
-                'required',
-                'max:100',
-                Rule::unique(config('table.fees'), 'name')->ignore($id)
-            ],
-            'is_active' => 'required|boolean',
-
+        'academic_standard_id'=>'required',
+        'department_id'=>'required|nullable',
+        'section'=>'required|nullable',
+        'name'=>'required',
+        'is_active'=>'required'
         ];
     }
 }
