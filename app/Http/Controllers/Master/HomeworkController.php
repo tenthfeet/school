@@ -7,6 +7,7 @@ use App\Http\Requests\Master\HomeworkRequest;
 use App\Models\Homework;
 use App\Models\ClassRoom;
 use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -19,12 +20,14 @@ class HomeworkController extends Controller
     public function index(Request $request)
     {
         $classRoom = ClassRoom::where('is_active', 1)->get();
+        $user = User::where('is_active', 1)->get();
         $subject = Subject::where('is_active', 1)->get();
         return $request->wantsJson()
-            ? response()->json(['data' => Homework::with('classRoom', 'subject')->get()])
+            ? response()->json(['data' => Homework::with('classRoom', 'subject', 'user')->get()])
             : view('pages.master.homework', [
                 'classRooms' => $classRoom,
-                'subjects' => $subject
+                'subjects' => $subject,
+                'users' => $user
             ]);
     }
 
@@ -38,7 +41,7 @@ class HomeworkController extends Controller
         $homework = Homework::create($validated);
 
         return response()->json([
-            'item' => $homework->load('classRoom', 'subject'),
+            'item' => $homework->load('classRoom', 'subject','user'),
             'message' => [
                 'text' => "Home Work added successfully...",
                 'icon' => 'success'
@@ -65,7 +68,7 @@ class HomeworkController extends Controller
         $homework->update($validated);
 
         return response()->json([
-            'item' => $homework->load('classRoom', 'subject'),
+            'item' => $homework->load('classRoom', 'subject','user'),
             'message' => [
                 'text' => "Home Work updated successfully...",
                 'icon' => 'success'

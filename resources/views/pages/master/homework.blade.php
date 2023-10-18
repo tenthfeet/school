@@ -42,7 +42,11 @@
                         <label class="form-label">User Name</label>
                         <select class="form-control reset" name="user_id">
                             <option value="">-- Select User Name --</option>
-                           <option value="1">Tamil Teacher</option>
+                            @foreach ($users as $user)
+                            <option value="{{ $user->id }}">
+                                {{ $user->name }}
+                            </option>
+                        @endforeach
                         </select>
                     </div>
                     <div class="col-md-4 form-group">

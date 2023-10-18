@@ -56,7 +56,7 @@ const dataTable = new DataTable('#list', {
                 return moment(data).format('DD-MMM-YYYY');
             }
         },
-        { data: 'user_id' },
+        { data: 'user.name' },
         {
             data: 'is_active',
             render: function (data) {
