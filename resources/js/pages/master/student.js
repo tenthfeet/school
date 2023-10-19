@@ -3,6 +3,7 @@ import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 import { select2Init, setSelect2Data } from "../../utils/select2";
 import axios from "axios";
+import moment from "moment/moment";
 
 const form = $("#student-form");
 const formCard = form.closest('.card');
@@ -95,7 +96,12 @@ const dataTable = new DataTable("#list", {
         },
         { data: "id_no" },
         { data: "name" },
-        { data: "date_of_birth" },
+        {
+            data: "date_of_birth",
+            render: (data) => {
+                return moment(data).format('DD-MMM-YYYY');
+            }
+        },
         { data: "gender" },
         { data: "student_status_id" },
         {
@@ -240,7 +246,7 @@ function setStudentPhotoPath(path) {
         avatar.addClass('d-none').attr('href', '');
         return;
     }
-    avatar.removeClass('d-none').attr('href', 'storage/'+path);
+    avatar.removeClass('d-none').attr('href', 'storage/' + path);
 }
 
 window.showUpdateForm = showUpdateForm;

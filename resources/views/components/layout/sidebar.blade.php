@@ -140,6 +140,11 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('fee-bundles.index') }}">
+                                            <span class="nav-icon"></span> Fees Bundle
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('students.index') }}">
                                             <span class="nav-icon"></span> Student
                                         </a>

@@ -28,5 +28,7 @@ return [
     'departments' => 'departments',
     'academic_standards' => 'academic_standards',
     'fee_details' => 'fee_details',
-    'homeworks' => 'homeworks'
+    'fee_bundles' => 'fee_bundles',
+    'homeworks' => 'homeworks',
+    'fee_bundles_and_fee_details' => 'fee_bundles_and_fee_details',
 ];
