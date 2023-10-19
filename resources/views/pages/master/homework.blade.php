@@ -39,9 +39,9 @@
                         <input type="date" class="form-control reset" name="date">
                     </div>
                     <div class="col-md-4 form-group">
-                        <label class="form-label">User Name</label>
+                        <label class="form-label">Teacher Name</label>
                         <select class="form-control reset" name="user_id">
-                            <option value="">-- Select User Name --</option>
+                            <option value="">-- Select Teacher Name --</option>
                             @foreach ($users as $user)
                             <option value="{{ $user->id }}">
                                 {{ $user->name }}
@@ -81,7 +81,7 @@
                         <th>Subject</th>
                         <th>Homework</th>
                         <th>Date</th>
-                        <th>User Id</th>
+                        <th>Teacher Name</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>

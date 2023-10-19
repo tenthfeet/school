@@ -50,6 +50,21 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('class-periods.index') }}">
+                                            <span class="nav-icon"></span> Class Period
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('teacher-mappings.index') }}">
+                                            <span class="nav-icon"></span> Teacher Mapping
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('subject-mappings.index') }}">
+                                            <span class="nav-icon"></span> Subject Mapping
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('homeworks.index') }}">
                                             <span class="nav-icon"></span> Homework
                                         </a>

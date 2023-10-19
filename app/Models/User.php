@@ -30,6 +30,7 @@ class User extends Authenticatable
         'date_of_birth',
         'date_of_join',
         'role_id',
+        'is_teacher',
         'qualification',
         'is_active'
     ];

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Master;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ClassRoomRequest extends FormRequest
 {
@@ -21,11 +22,15 @@ class ClassRoomRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('class_room');
         return [
         'academic_standard_id'=>'required',
         'department_id'=>'required|nullable',
         'section'=>'required|nullable',
-        'name'=>'required',
+        'name' => [
+            'required',
+            Rule::unique(config('table.class_rooms'), 'name')->ignore($id)
+        ],
         'is_active'=>'required'
         ];
     }

@@ -92,6 +92,10 @@
                             </option>
                         </select>
                     </div>
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Teacher</label>
+                        <input type="checkbox"name="is_teacher" value="1" checked>
+                    </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-4 d-flex justify-content-around">

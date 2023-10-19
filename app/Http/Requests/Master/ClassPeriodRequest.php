@@ -5,7 +5,7 @@ namespace App\Http\Requests\Master;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FeeDetailRequest extends FormRequest
+class ClassPeriodRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,20 +22,18 @@ class FeeDetailRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('fee_detail');
+        $id = $this->route('class_period');
         return [
-            'academic_year_id' => 'required',
-            'academic_standard_id' => 'required',
-            'fee_id' => [
+            'name' => [
                 'required',
-                Rule::unique(config('table.fee_details'), 'fee_id')
-                    ->where('academic_year_id', $this->input('academic_year_id'))
-                    ->where('academic_standard_id', $this->input('academic_standard_id'))
-                    ->ignore($id)
+                Rule::unique(config('table.class_periods'), 'name')->ignore($id)
             ],
-            'fee_amount' => 'required',
-            'is_active' => 'required',
-
+            'start_time' => [
+                'required',
+                Rule::unique(config('table.class_periods'), 'start_time')->ignore($id)
+            ],
+            'end_time' => 'required',
+            'is_active' => 'required'
         ];
     }
 }

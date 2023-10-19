@@ -39,6 +39,7 @@ class UserRequest extends FormRequest
             'date_of_join' => 'required',
             'role_id' => 'required',
             'qualification' => 'required',
+            'is_teacher'=>'required',
             'is_active' => 'required|boolean',
         ];
     }

@@ -28,5 +28,8 @@ return [
     'departments' => 'departments',
     'academic_standards' => 'academic_standards',
     'fee_details' => 'fee_details',
-    'homeworks' => 'homeworks'
+    'homeworks' => 'homeworks',
+    'mapping_subjects_classrooms_day_time' => 'mapping_subjects_classrooms_day_time',
+    'mapping_teachers_classrooms_day_time' => 'mapping_teachers_classrooms_day_time',
+    'class_periods' => 'class_periods'
 ];

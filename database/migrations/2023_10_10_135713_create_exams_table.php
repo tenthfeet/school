@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('session');
             $table->string('subject');
-            $table->string('is_active');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }

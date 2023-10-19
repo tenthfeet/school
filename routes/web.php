@@ -9,6 +9,7 @@ use App\Http\Controllers\Master\PermissionController;
 use App\Http\Controllers\Master\RoleController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
+use App\Http\Controllers\Master\ClassPeriodController;
 use App\Http\Controllers\Master\ClassRoomController;
 use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\DepartmentController;
@@ -24,8 +25,8 @@ use App\Http\Controllers\Master\SubjectController;
 use App\Http\Controllers\Master\TermController;
 use App\Http\Controllers\Master\UserController;
 use App\Http\Controllers\Master\StudentController;
-
-
+use App\Http\Controllers\Master\SubjectMappingController;
+use App\Http\Controllers\Master\TeacherMappingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +65,9 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('academic-standards', AcademicStandardController::class);
     Route::apiResource('fee-details', FeeDetailController::class);
     Route::apiResource('homeworks', HomeworkController::class);
+    Route::apiResource('teacher-mappings', TeacherMappingController::class);
+    Route::apiResource('subject-mappings', SubjectMappingController::class);
+    Route::apiResource('class-periods', ClassPeriodController::class);
 
     Route::apiResource('students', StudentController::class);
     Route::get('student-autocomplete',[StudentController::class,'autoComplete']);

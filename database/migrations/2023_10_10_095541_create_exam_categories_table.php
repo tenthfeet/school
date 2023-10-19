@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create(config('table.exam_categories'), function (Blueprint $table) {
             $table->tinyIncrements('id');
             $table->string('name');
-            $table->string('is_active');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
