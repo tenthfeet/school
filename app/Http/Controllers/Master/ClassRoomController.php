@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\ClassRoomRequest;
 use App\Models\ClassRoom;
@@ -23,6 +24,7 @@ class ClassRoomController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => ClassRoom::with('academicStandard', 'department')->get()])
             : view('pages.master.class-room', [
+                'status' => Status::labelArray(),
                 'academicStandards' => $academicStandard,
                 'departments' => $department
             ]);

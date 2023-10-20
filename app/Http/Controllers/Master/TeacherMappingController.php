@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Day;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\TeacherMappingRequest;
 use App\Models\TeacherMapping;
@@ -27,6 +28,7 @@ class TeacherMappingController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => TeacherMapping::with('classRoom','classPeriod','academicYear', 'user')->get()])
             : view('pages.master.teacher-mapping', [
+                'days' => Day::labelArray(),
                 'classPeriods'=>$classPeriod,
                 'classRooms' => $classRoom,
                 'academicYears' => $academicYear,

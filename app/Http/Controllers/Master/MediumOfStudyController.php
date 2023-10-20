@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\MediumOfStudyRequest;
 use App\Models\MediumOfStudy;
@@ -18,7 +19,7 @@ class MediumOfStudyController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => MediumOfStudy::all()])
-        : view('pages.master.medium-of-study');
+        : view('pages.master.medium-of-study',['status' => Status::labelArray()]);
     }
 
     /**

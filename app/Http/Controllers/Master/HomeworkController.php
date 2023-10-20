@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\HomeworkRequest;
 use App\Models\Homework;
@@ -25,6 +26,7 @@ class HomeworkController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => Homework::with('classRoom', 'subject', 'user')->get()])
             : view('pages.master.homework', [
+                'status' => Status::labelArray(),
                 'classRooms' => $classRoom,
                 'subjects' => $subject,
                 'users' => $user

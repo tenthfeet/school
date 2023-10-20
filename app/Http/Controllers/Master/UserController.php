@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\UserRequest;
 use App\Models\City;
@@ -28,6 +29,7 @@ class UserController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => User::with('state', 'city', 'country','role')->get()])
             : view('pages.master.user', [
+                'status' => Status::labelArray(),
                 'states' => $state,
                 'cities' => $city,
                 'countries' => $country,

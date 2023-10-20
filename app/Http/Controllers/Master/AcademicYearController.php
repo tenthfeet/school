@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\AcademicYearRequest;
 use App\Models\AcademicYear;
@@ -18,7 +19,7 @@ class AcademicYearController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => AcademicYear::all()])
-        : view('pages.master.academic-year');
+        : view('pages.master.academic-year',['status' => Status::labelArray()]);
     }
 
 

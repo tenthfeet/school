@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\ExamCategoryRequest;
 use App\Models\ExamCategory;
@@ -18,7 +19,7 @@ class ExamCategoryController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => ExamCategory::all()])
-        : view('pages.master.exam-category');
+        : view('pages.master.exam-category',['status' => Status::labelArray()]);
     }
 
     /**

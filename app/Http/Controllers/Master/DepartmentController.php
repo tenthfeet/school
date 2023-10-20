@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\DepartmentRequest;
 use App\Models\Department;
@@ -18,7 +19,7 @@ class DepartmentController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => Department::all()])
-        : view('pages.master.department');
+        : view('pages.master.department',['status' => Status::labelArray()]);
     }
 
     /**

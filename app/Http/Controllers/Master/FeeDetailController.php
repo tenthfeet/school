@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\FeeDetailRequest;
 use App\Models\AcademicStandard;
@@ -25,6 +26,7 @@ class FeeDetailController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => FeeDetail::with('academicYear','fee','academicStandard')->get()])
             : view('pages.master.fee-detail', [
+                'status' => Status::labelArray(),
                 'academicYears' => $academicYear,
                 'academicStandards' => $academicStandard,
                 'fees'=>$fee,

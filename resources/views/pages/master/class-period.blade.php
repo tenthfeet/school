@@ -23,8 +23,7 @@
                     <div class="col-md-4 form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
-                            <option value="1">Active</option>
-                            <option value="0">Inactive</option>
+                            {!! optionsFromArray($status) !!}
                         </select>
                     </div>
                 </div>

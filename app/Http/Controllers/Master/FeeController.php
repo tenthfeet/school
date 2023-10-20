@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\FeeRequest;
 use App\Models\Fee;
@@ -19,7 +20,7 @@ class FeeController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => Fee::all()])
-        : view('pages.master.fee');
+        : view('pages.master.fee',['status' => Status::labelArray()]);
     }
 
     /**

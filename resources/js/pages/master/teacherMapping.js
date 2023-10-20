@@ -1,7 +1,6 @@
 import DataTable from "datatables.net-bs5";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
-import moment from "moment/moment";
 
 const form = $('#teacher-mapping-form');
 const formCard = form.closest('.card');
@@ -49,7 +48,16 @@ const dataTable = new DataTable('#list', {
         { data: 'user.name' },
         { data: 'academic_year.name' },
         { data: 'class_room.name' },
-        { data: 'day' },
+        {
+            data: 'day',
+            render: function (data) {
+                if (data == 1) { return 'Monday' }
+                if (data == 2) { return 'Tuesday' }
+                if (data == 3) { return 'Wednesday' }
+                if (data == 4) { return 'Thursday' }
+                if (data == 5) { return 'Friday' }
+            }
+        },
         { data: 'class_period.name' },
         {
             data: 'id',

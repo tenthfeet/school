@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Day;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\SubjectMappingRequest;
 use App\Models\SubjectMapping;
@@ -27,6 +28,7 @@ class SubjectMappingController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => SubjectMapping::with('classRoom','classPeriod', 'academicYear', 'subject')->get()])
             : view('pages.master.subject-mapping', [
+                'days' => Day::labelArray(),
                 'classPeriods'=>$classPeriod,
                 'classRooms' => $classRoom,
                 'academicYears' => $academicYear,

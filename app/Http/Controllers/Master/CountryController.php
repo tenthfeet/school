@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\CountryRequest;
 use App\Models\Country;
@@ -18,7 +19,7 @@ class CountryController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => Country::all()])
-        : view('pages.master.country');
+        : view('pages.master.country',['status' => Status::labelArray()]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\AcademicStandardRequest;
 use App\Models\AcademicStandard;
@@ -17,8 +18,8 @@ class AcademicStandardController extends Controller
     public function index(Request $request)
     {
         return $request->wantsJson()
-        ? response()->json(['data' => AcademicStandard::all()])
-        : view('pages.master.academic-standard');
+            ? response()->json(['data' => AcademicStandard::all()])
+            : view('pages.master.academic-standard', ['status' => Status::labelArray()]);
     }
 
     /**
@@ -51,7 +52,7 @@ class AcademicStandardController extends Controller
      * Update the specified resource in storage.
      */
 
-    public function update(AcademicStandardRequest $request,AcademicStandard $academicStandard)
+    public function update(AcademicStandardRequest $request, AcademicStandard $academicStandard)
     {
         $validated = $request->validated();
 

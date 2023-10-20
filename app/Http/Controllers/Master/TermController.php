@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\TermRequest;
 use App\Models\Term;
@@ -17,7 +18,7 @@ class TermController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => Term::all()])
-        : view('pages.master.term');
+        : view('pages.master.term',['status' => Status::labelArray()]);
     }
 
     /**

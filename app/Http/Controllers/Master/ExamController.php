@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\ExamRequest;
 use App\Models\MediumOfStudy;
@@ -25,6 +26,7 @@ class ExamController extends Controller
         return $request->wantsJson()
             ? response()->json(['data' => Exam::with('examCategory', 'mediumofStudy', 'classRoom')->get()])
             : view('pages.master.exam', [
+                'status' => Status::labelArray(),
                 'mediumofStudies' => $mediumofStudy,
                 'examCategories' => $examCategory,
                 'classRooms' => $classRoom

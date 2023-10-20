@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\LanguageRequest;
 use App\Models\Language;
@@ -18,7 +19,7 @@ class LanguageController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => Language::all()])
-        : view('pages.master.language');
+        : view('pages.master.language',['status' => Status::labelArray()]);
     }
 
     /**

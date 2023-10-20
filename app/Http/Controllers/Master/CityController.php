@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\CityRequest;
 use App\Models\City;
@@ -20,7 +21,10 @@ class CityController extends Controller
         $state = State::where('is_active', 1)->get();
         return $request->wantsJson()
             ? response()->json(['data' => City::with('state')->get()])
-            : view('pages.master.city', ['states' => $state]);
+            : view('pages.master.city', [
+                'status' => Status::labelArray(),
+                'states' => $state
+            ]);
     }
 
     /**

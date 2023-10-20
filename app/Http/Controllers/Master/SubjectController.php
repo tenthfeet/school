@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\SubjectRequest;
 use App\Models\Subject;
@@ -18,7 +19,7 @@ class SubjectController extends Controller
     {
         return $request->wantsJson()
         ? response()->json(['data' => Subject::all()])
-        : view('pages.master.subject');
+        : view('pages.master.subject',['status' => Status::labelArray()]);
     }
 
     /**

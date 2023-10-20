@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\FinancialYearRequest;
 use App\Models\FinancialYear;
@@ -17,7 +18,7 @@ class FinancialYearController extends Controller
    {
        return $request->wantsJson()
        ? response()->json(['data' => FinancialYear::all()])
-       : view('pages.master.financial-year');
+       : view('pages.master.financial-year',['status' => Status::labelArray()]);
    }
 
    /**

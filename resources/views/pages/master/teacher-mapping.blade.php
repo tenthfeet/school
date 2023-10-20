@@ -45,11 +45,7 @@
                         <label class="form-label">Day</label>
                         <select class="form-control reset" name="day">
                             <option value="">-- Select Day --</option>
-                                <option value="1">Monday</option>
-                                <option value="2">Tuesday</option>
-                                <option value="3">Wednesday</option>
-                                <option value="4">Thursday</option>
-                                <option value="5">Friday</option>
+                            {!! optionsFromArray($days) !!}
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
