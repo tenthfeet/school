@@ -9,6 +9,7 @@ use App\Models\AcademicStandard;
 use App\Models\AcademicYear;
 use App\Models\Fee;
 use App\Models\FeeDetail;
+use App\Services\FeeDetailService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -24,12 +25,12 @@ class FeeDetailController extends Controller
         $academicYear = AcademicYear::where('is_active', 1)->get();
         $fee = Fee::where('is_active', 1)->get();
         return $request->wantsJson()
-            ? response()->json(['data' => FeeDetail::with('academicYear','fee','academicStandard')->get()])
+            ? response()->json(['data' => FeeDetail::with('academicYear', 'fee', 'academicStandard')->get()])
             : view('pages.master.fee-detail', [
                 'status' => Status::labelArray(),
                 'academicYears' => $academicYear,
                 'academicStandards' => $academicStandard,
-                'fees'=>$fee,
+                'fees' => $fee,
             ]);
     }
 
@@ -43,7 +44,7 @@ class FeeDetailController extends Controller
         $feeDetail = FeeDetail::create($validated);
 
         return response()->json([
-            'item' => $feeDetail->load('academicYear','fee','academicStandard'),
+            'item' => $feeDetail->load('academicYear', 'fee', 'academicStandard'),
             'message' => [
                 'text' => "Fee Detail added successfully...",
                 'icon' => 'success'
@@ -70,7 +71,7 @@ class FeeDetailController extends Controller
         $feeDetail->update($validated);
 
         return response()->json([
-            'item' => $feeDetail->load('academicYear','fee','academicStandard'),
+            'item' => $feeDetail->load('academicYear', 'fee', 'academicStandard'),
             'message' => [
                 'text' => "Fee Detail updated successfully...",
                 'icon' => 'success'
@@ -84,5 +85,21 @@ class FeeDetailController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function getByYearAndStandard(Request $request, FeeDetailService $service): JsonResponse
+    {
+        $data = $service->feeDetailsByYearAndStandard(
+            $request->academic_year_id,
+            $request->academic_standard_id
+        );
+        return response()->json($data);
+    }
+
+    public function getFeeBundleTotalAmount(Request $request): jsonResponse
+    {
+        $totalAmount = FeeDetail::whereIn('id', $request->fee_details_id)
+            ->sum('fee_amount');
+        return response()->json(['totalAmount' => $totalAmount]);
     }
 }

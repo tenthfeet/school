@@ -3,11 +3,6 @@
 use App\Http\Controllers\Master\AcademicStandardController;
 use App\Http\Controllers\Master\AcademicYearController;
 use App\Http\Controllers\Master\ExamCategoryController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Master\PermissionGroupController;
-use App\Http\Controllers\Master\PermissionController;
-use App\Http\Controllers\Master\RoleController;
-use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\ClassPeriodController;
 use App\Http\Controllers\Master\ClassRoomController;
@@ -16,11 +11,17 @@ use App\Http\Controllers\Master\DepartmentController;
 use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
+use App\Http\Controllers\master\FeesBundleController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\HomeworkController;
 use App\Http\Controllers\Master\LanguageController;
 use App\Http\Controllers\Master\MediumOfStudyController;
+use App\Http\Controllers\Master\PermissionController;
+use App\Http\Controllers\Master\PermissionGroupController;
+use App\Http\Controllers\Master\RoleController;
+use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\StatusController;
+use App\Http\Controllers\Master\StudentController;
 use App\Http\Controllers\Master\SubjectController;
 use App\Http\Controllers\Master\TermController;
 use App\Http\Controllers\Master\UserController;
@@ -37,8 +38,6 @@ use App\Http\Controllers\Master\TeacherMappingController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
 
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
@@ -64,14 +63,16 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('departments', DepartmentController::class);
     Route::apiResource('academic-standards', AcademicStandardController::class);
     Route::apiResource('fee-details', FeeDetailController::class);
+    Route::get('/fee-details-by-year-and-standard',[FeeDetailController::class,'getByYearAndStandard']);
+    Route::get('/fee-bundle-total-amount',[FeeDetailController::class,'getFeeBundleTotalAmount']);
     Route::apiResource('homeworks', HomeworkController::class);
     Route::apiResource('teacher-mappings', TeacherMappingController::class);
     Route::apiResource('subject-mappings', SubjectMappingController::class);
     Route::apiResource('class-periods', ClassPeriodController::class);
-
     Route::apiResource('students', StudentController::class);
-    Route::get('student-autocomplete',[StudentController::class,'autoComplete']);
-    Route::get('/parent-info/{student}',[StudentController::class,'getParentInfo']);
+    Route::get('student-autocomplete', [StudentController::class, 'autoComplete']);
+    Route::get('/parent-info/{student}', [StudentController::class, 'getParentInfo']);
+    Route::apiResource('fee-bundles', FeesBundleController::class);
 });
 
 
