@@ -2,12 +2,12 @@
 
 use App\Http\Controllers\Master\AcademicStandardController;
 use App\Http\Controllers\Master\AcademicYearController;
-use App\Http\Controllers\Master\ExamCategoryController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\ClassPeriodController;
 use App\Http\Controllers\Master\ClassRoomController;
 use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\DepartmentController;
+use App\Http\Controllers\Master\ExamCategoryController;
 use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
@@ -23,11 +23,11 @@ use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\StatusController;
 use App\Http\Controllers\Master\StudentController;
 use App\Http\Controllers\Master\SubjectController;
-use App\Http\Controllers\Master\TermController;
-use App\Http\Controllers\Master\UserController;
-use App\Http\Controllers\Master\StudentController;
 use App\Http\Controllers\Master\SubjectMappingController;
 use App\Http\Controllers\Master\TeacherMappingController;
+use App\Http\Controllers\Master\TermController;
+use App\Http\Controllers\Master\UserController;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
