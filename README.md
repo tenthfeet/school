@@ -2,8 +2,9 @@
 ## Installation guide
 ### Install dependencies
 ```bash
-git clone https://github.com/Codeshaper-bd/dashcode-laravel.git
-cd dashcode-laravel
+git clone https://github.com/tenthfeet/school.git
+cd school
+git chechout your-branch
 cp .env.example .env
 # If you are using api make IS_API_PROJECT=true in env file
 composer install
