@@ -1,4 +1,4 @@
-import DataTable from "datatables.net-bs5";
+import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
@@ -24,13 +24,18 @@ const dataTable = new DataTable('#list', {
     ajax: 'permission-groups',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `
@@ -40,7 +45,7 @@ const dataTable = new DataTable('#list', {
             }
         }
     ],
-    processing: true
+    processing: true,
 });
 
 function submitForm(form, event) {

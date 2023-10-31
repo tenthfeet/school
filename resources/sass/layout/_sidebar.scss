@@ -1,0 +1,205 @@
+/* Sidebar Wrapper Area */
+.sidebar-wrapper {
+  @apply fixed top-0 z-[999] h-screen w-[248px] bg-white shadow-base dark:bg-slate-800;
+}
+
+.app-wrapper .sidebar-open {
+  @apply block;
+}
+
+.app-wrapper .menu-hide {
+  @apply hidden;
+}
+
+.logo-segment {
+  @apply sticky top-0 z-10 flex items-center justify-between overflow-x-hidden border-none bg-white py-6 px-4 dark:bg-slate-800;
+}
+
+.sidebar-menu {
+  @apply bg-transparent;
+}
+
+.sidebar-menu > li {
+  @apply font-Inter text-[12px] font-medium leading-4 text-secondary-800 dark:text-white;
+}
+
+.sidebar-menu .sidebar-menu-title {
+  @apply my-4 font-Inter font-semibold dark:text-slate-300;
+}
+
+.semiDark .sidebar-menu .sidebar-menu-title {
+  @apply my-4 font-Inter font-semibold dark:text-slate-300;
+}
+
+.semiDark .sidebar-menu .sidebar-menu-title {
+  @apply text-slate-300;
+}
+
+.semiDark .navItem.active {
+  @apply bg-slate-700;
+}
+
+.semiDark .icon-arrow {
+  @apply bg-slate-700 text-white;
+}
+
+.semiDark .navItem {
+  @apply text-slate-300;
+}
+
+.navItem {
+  @apply flex items-center justify-between text-sm font-medium text-slate-700 transition-all duration-200 dark:text-slate-300;
+  display: flex !important;
+}
+
+.navItem .nav-icon {
+  @apply text-[18px] ltr:mr-3 rtl:ml-3;
+}
+
+.navItem.active {
+  @apply bg-slate-800 text-white dark:bg-slate-700;
+}
+
+.icon-arrow {
+  @apply flex h-5  w-5  items-center justify-center rounded-full bg-secondary-500 bg-opacity-30 text-[14px] text-slate-600 text-opacity-70 transition-all duration-300 rtl:rotate-180 dark:bg-slate-700 dark:text-white;
+}
+
+.sidebar-menu > li > a {
+  @apply rounded-md pl-[8px] pr-[10px];
+}
+
+.sidebar-menu > li.active > a {
+  @apply flex cursor-pointer rounded-[4px] bg-slate-200 bg-opacity-50 px-[10px] py-3 text-sm font-medium capitalize text-slate-700 dark:bg-secondary-500 dark:bg-opacity-20 dark:text-slate-200;
+}
+
+.sidebar-menu .sidebar-submenu {
+  @apply mt-[9px] bg-transparent;
+}
+
+.sidebar-menu .sidebar-submenu > li > a {
+  @apply relative whitespace-nowrap bg-transparent py-[7px] text-sm font-medium text-slate-600 transition-all duration-500 before:absolute before:top-[14px] before:h-[8px] before:w-[8px] before:rounded-full before:border before:border-slate-800 before:ring-0 before:ring-black-500 before:ring-opacity-[15%] hover:text-slate-900 ltr:pl-8 ltr:before:left-3 rtl:pr-8 rtl:before:right-3 dark:text-slate-300 dark:before:border-slate-300 dark:before:ring-slate-300 dark:before:ring-opacity-20 hover:dark:text-white;
+}
+
+.sidebar-menu .sidebar-submenu > li > a.active {
+  @apply text-black-500 before:bg-black-500 before:ring-4 dark:text-white dark:before:bg-slate-300;
+}
+
+.sidebar-menu > li.active .icon-arrow {
+  @apply rotate-90 bg-secondary-500 bg-opacity-30 text-slate-600 text-opacity-70 transition-all duration-300 dark:text-white;
+}
+
+.sidebar-menu > li.active-withOutChild > a {
+  @apply bg-black-500 text-white;
+}
+
+/* For Sidebar Type  */
+.app-wrapper.collapsed .collapsed-icon {
+  @apply hidden;
+}
+.app-wrapper.extend .extend-icon {
+  @apply block;
+}
+
+.app-wrapper.collapsed .extend-icon {
+  @apply hidden;
+}
+.app-wrapper.extend .collapsed-icon {
+  @apply hidden;
+}
+
+.sidebarDotIcon.collapsed-icon {
+  @apply hidden;
+}
+
+.app-wrapper.collapsed .sidebarOpenButton {
+  display: inline-flex !important;
+}
+.app-wrapper.extend .sidebarOpenButton {
+  display: none !important;
+}
+
+/* Collapsed button */
+.app-header,
+.content-wrapper,
+.site-footer{
+  @apply ml-[0px] xl:ltr:ml-[248px] rtl:mr-[0px] xl:rtl:mr-[248px]
+}
+
+.collapsed .app-header,
+.collapsed .content-wrapper,
+.collapsed .site-footer {
+  @apply ltr:ml-[72px] rtl:mr-[72px];
+}
+
+.collapsed .sidebar-wrapper {
+  @apply w-[72px] transition-all duration-300 hover:w-[248px];
+}
+
+.collapsed .sidebar-wrapper .sidebar-menus .sidebar-menu-title {
+  @apply hidden;
+}
+
+.collapsed .sidebar-wrapper .navItem span span {
+  @apply invisible;
+}
+
+.collapsed .sidebar-wrapper .sidebar-menu li.active > .sidebar-submenu {
+  display: none !important;
+}
+
+/* Collapsed Hover */
+.collapsed .sidebar-wrapper:hover .sidebar-menu li.active > .sidebar-submenu {
+  display: block !important;
+}
+
+.app-wrapper.collapsed:hover .collapsed-icon {
+  @apply block;
+}
+
+.collapsed .sidebar-wrapper .logo-segment a span,
+.collapsed .sidebar-wrapper .logo-segment #sidebar_type {
+  display: none !important;
+}
+
+.collapsed .sidebar-wrapper:hover .logo-segment a span,
+.collapsed .sidebar-wrapper:hover .logo-segment #sidebar_type {
+  display: block !important;
+}
+
+.collapsed .sidebar-wrapper:hover .navItem span span {
+  @apply visible;
+}
+
+.app-wrapper.collapsed #sidebar_bottom_wizard {
+  @apply hidden;
+}
+
+// Semidark
+.semiDark .sidebar-wrapper {
+  @apply bg-slate-800;
+}
+
+.semiDark {
+  .logo-segment {
+    @apply bg-transparent;
+    .sidebarDotIcon,
+    span {
+      @apply text-white;
+    }
+  }
+  #sidebar_menus {
+    @apply bg-transparent;
+  }
+  .sidebar-menu > li.active > a {
+    @apply bg-secondary-700 text-slate-200;
+  }
+  .sidebar-menu > li.active .icon-arrow {
+    @apply text-slate-200
+  }
+  .sidebar-menu .sidebar-submenu > li > a {
+    @apply text-slate-300 before:border-slate-300
+  }
+  .sidebar-menu .sidebar-submenu > li > a.active {
+    @apply text-white before:bg-white before:ring-slate-50 before:ring-opacity-10
+  }
+}

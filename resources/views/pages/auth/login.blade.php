@@ -3,31 +3,19 @@
         <div class="card-body">
             <h1>Login</h1>
             <p class="text-medium-emphasis">Sign In to your account</p>
-            <form id="login-form" action="POST">
+            <form id="login-form" class="mt-4" action="POST">
                 @csrf
                 <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <i class="fa-solid fa-user icon"></i>
-                        </span>
-                        <input class="form-control rounded-end" name="employee_no" type="text" placeholder="Employee No">
-                    </div>
+                    <input type="text" name="employee_no" class="form-control py-2" placeholder="Employee No"
+                    autofocus>
+
                 </div>
                 <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <i class="fa-solid fa-lock icon"></i>
-                        </span>
-                        <input class="form-control rounded-end" name="password" type="password" placeholder="Password">
-                    </div>
+                    <input type="password" name="password" class="form-control py-2" placeholder="Password">
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button class="btn btn-primary px-4" type="submit">Login</button>
-                    </div>
-                    <div class="col text-end">
-                        <a class="btn btn-link px-0">Forgot password?</a>
-                    </div>
+                <div class="flex justify-between">
+                    <button class="btn-primary btn px-4" type="submit">Login</button>
+                    <a class="btn btn-link px-0">Forgot password?</a>
                 </div>
             </form>
         </div>

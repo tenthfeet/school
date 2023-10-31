@@ -1,4 +1,4 @@
-import DataTable from "datatables.net-bs5";
+import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 

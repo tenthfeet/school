@@ -1,0 +1,6 @@
+.badge {
+  @apply inline-flex whitespace-nowrap rounded-[.358rem]  py-1 px-2 align-baseline text-xs  font-semibold capitalize;
+  &.pill {
+    @apply rounded-[999px];
+  }
+}

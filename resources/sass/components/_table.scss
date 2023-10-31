@@ -1,0 +1,55 @@
+.table-th {
+  @apply py-5 px-6 text-xs  font-semibold  uppercase text-slate-600 ltr:text-left rtl:text-right dark:text-slate-300;
+}
+
+.table-td {
+  @apply border-slate-100 px-6 py-5 text-sm font-normal capitalize text-slate-600   dark:border-slate-700 dark:text-slate-300;
+}
+
+.table-checkbox {
+  @apply relative h-4 w-4 rounded before:absolute
+  before:inset-0 before:m-[-0.7px] before:flex before:h-[18px] before:w-[18px]  before:flex-col
+    before:items-center before:justify-center before:rounded before:bg-slate-100 checked:before:bg-slate-900 checked:before:leading-[10px]
+    checked:before:ring-2 checked:before:ring-black-500
+    checked:before:ring-offset-2 checked:before:content-[url("https://api.iconify.design/heroicons-outline/check.svg?color=white")]
+    dark:before:bg-slate-500 checked:before:dark:ring-slate-700
+    checked:before:dark:ring-offset-0;
+}
+.table-checkbox[type="checkbox"]:indeterminate {
+  @apply before:items-center before:justify-center before:rounded  before:bg-slate-900 before:leading-[10px]
+    before:ring-2 before:ring-black-500
+    before:ring-offset-2 before:content-[url("https://api.iconify.design/heroicons/minus.svg?color=white")]
+    dark:before:bg-slate-500 before:dark:ring-slate-700
+    before:dark:ring-offset-0;
+}
+
+// table css
+.dashcode-data-table {
+  label {
+    @apply inline-block w-full cursor-pointer text-sm font-medium capitalize leading-6 text-slate-600 rtl:block rtl:text-right dark:text-slate-300;
+  }
+  select,
+  input[type="text"],
+  input[type="search"] {
+    @apply inline-block rounded border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900  transition duration-300 ease-in-out placeholder:font-normal placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-opacity-90 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:placeholder:text-slate-400 dark:focus:ring-slate-900;
+  }
+  input[type="text"],
+  input[type="search"] {
+    @apply ml-2;
+  }
+  .dataTables_empty {
+    @apply px-6 pt-6 dark:text-white;
+  }
+  .dataTables_paginate {
+    @apply mt-6 mr-4 space-x-2 pb-6;
+    .paginate_button {
+      @apply mr-2 inline-flex h-6 w-6 cursor-pointer items-center justify-center rounded bg-slate-100 text-sm font-normal leading-[16px] text-slate-900 transition-all duration-150 last:mr-0 dark:bg-slate-700 dark:text-slate-400;
+      &.current {
+        @apply bg-slate-900 font-medium  text-white dark:bg-slate-600 dark:text-slate-200;
+      }
+    }
+    .next, .previous {
+      @apply relative top-[2px]
+    }
+  }
+}

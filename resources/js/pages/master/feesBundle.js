@@ -1,4 +1,4 @@
-import DataTable from "datatables.net-bs5";
+import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 import { setSelect2Data } from "../../utils/select2";
@@ -68,7 +68,7 @@ const dataTable = new DataTable('#list', {
             data: 'id',
             render: function (data) {
                 return `
-                <button class="btn btn-sm py-0 btn-outline-primary" data-id="${data}" 
+                <button class="btn btn-sm py-0 btn-outline-primary" data-id="${data}"
                 onclick="showUpdateForm(this)"><i class="fa-solid fa-pen-to-square me-2"></i> Edit
                 </button>`;
             }

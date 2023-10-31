@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Master\AcademicStandardController;
 use App\Http\Controllers\Master\AcademicYearController;
 use App\Http\Controllers\Master\CityController;
@@ -27,17 +28,37 @@ use App\Http\Controllers\Master\SubjectMappingController;
 use App\Http\Controllers\Master\TeacherMappingController;
 use App\Http\Controllers\Master\TermController;
 use App\Http\Controllers\Master\UserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+
+Route::get('/', function () {
+    return to_route('login');
+});
+
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    // Dashboards
+    // Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard.index');
+    // Locale
+    // Route::get('setlocale/{locale}', SetLocaleController::class)->name('setlocale');
+
+    // User
+    // Route::resource('users', UserController::class);
+    // Permission
+    // Route::resource('permissions', PermissionController::class)->except(['show']);
+    // Roles
+    // Route::resource('roles', RoleController::class);
+    // Profiles
+    Route::resource('profiles', ProfileController::class)->only(['index', 'update'])->parameter('profiles', 'user');
+    // Env
+    Route::singleton('general-settings', GeneralSettingController::class);
+    Route::post('general-settings-logo', [GeneralSettingController::class, 'logoUpdate'])->name('general-settings.logo');
+
+    // Database Backup
+    // Route::resource('database-backups', DatabaseBackupController::class);
+    // Route::get('database-backups-download/{fileName}', [DatabaseBackupController::class, 'databaseBackupDownload'])->name('database-backups.download');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
@@ -74,6 +95,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/parent-info/{student}', [StudentController::class, 'getParentInfo']);
     Route::apiResource('fee-bundles', FeesBundleController::class);
 });
-
 
 require __DIR__ . '/auth.php';

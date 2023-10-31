@@ -2,14 +2,34 @@
 
 namespace App\Exceptions;
 
-use Throwable;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
     /**
-     * The list of the inputs that are never flashed to the session on validation exceptions.
+     * A list of exception types with their corresponding custom log levels.
+     *
+     * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
+     */
+    protected $levels = [
+        //
+    ];
+
+    /**
+     * A list of the exception types that are not reported.
+     *
+     * @var array<int, class-string<\Throwable>>
+     */
+    protected $dontReport = [
+        //
+    ];
+
+    /**
+     * A list of the inputs that are never flashed to the session on validation exceptions.
      *
      * @var array<int, string>
      */
@@ -21,25 +41,33 @@ class Handler extends ExceptionHandler
 
     /**
      * Register the exception handling callbacks for the application.
+     *
+     * @return void
      */
-    public function register(): void
+    public function register()
     {
         $this->reportable(function (Throwable $e) {
             //
         });
     }
 
-    public function render($request, Throwable $exception)
+    /**
+     * @param $request
+     * @param  Throwable  $e
+     * @return JsonResponse|Response|\Symfony\Component\HttpFoundation\Response
+     * @throws Throwable
+     */
+    public function render($request, Throwable $e)
     {
-        if ($exception instanceof ModelNotFoundException && $request->wantsJson()) {
-            return response()->json([
-                'message' => [
-                    'text' => str_replace('App\\Models\\', '', $exception->getModel()) . ' record not found',
-                    'icon' => 'error'
-                ]
-            ], 404);
+        if ($request->expectsJson()) {
+            if ($e instanceof NotFoundHttpException) {
+                return response()->json([
+                    'message' => "Url not found. Please check your request url.",
+                ], 404);
+            }
         }
 
-        return parent::render($request, $exception);
+
+        return parent::render($request, $e);
     }
 }

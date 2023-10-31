@@ -1,0 +1,45 @@
+// chat height
+.chat-height {
+  height: calc(var(--vh, 1vh) * 100 - 12.1rem);
+}
+@media (max-width: 768px) {
+  .chat-height {
+    height: calc(var(--vh, 1vh) * 100 - 10.5rem);
+  }
+}
+.contact-height {
+  height: calc(100% - 138px);
+}
+.msg-height {
+  height: calc(100% - 0px);
+}
+.parent-height {
+  height: calc(100% - 200px);
+}
+.msg-action-btn {
+  @apply flex h-6 w-6 cursor-pointer flex-col items-center justify-center rounded-full bg-slate-100 text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-400 md:h-8 md:w-8 md:text-xl;
+}
+
+.info-500-list {
+  @apply text-xs text-slate-600;
+  li {
+    @apply flex space-x-2;
+    span:nth-child(1) {
+      @apply flex-none text-right font-medium;
+    }
+    span:nth-child(2) {
+      @apply flex-1 text-right;
+    }
+  }
+}
+
+// Email
+.nav-pills {
+  .active {
+    @apply bg-slate-900 text-white dark:bg-slate-800
+  }
+}
+
+.select2-container {
+  width: 100% !important;
+}

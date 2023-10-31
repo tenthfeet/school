@@ -1,0 +1,19 @@
+models:
+  Post:
+    title: string:400
+    content: longtext
+    published_at: nullable timestamp
+    relationships:
+      belongsTo: User
+
+controllers:
+  Post:
+    index:
+      query: all
+      render: post.index with:posts
+
+    store:
+      validate: title, content
+      save: post
+      flash: post.title
+      redirect: post.index

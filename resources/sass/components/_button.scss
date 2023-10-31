@@ -1,0 +1,219 @@
+/*===========================
+  Buttons Page
+  =============================*/
+  .btn {
+    @apply relative z-0 whitespace-normal rounded px-4 py-[10px] font-Inter text-sm font-semibold capitalize  leading-6 transition-all duration-150 md:whitespace-nowrap md:px-6 md:py-3;
+  }
+  .btn.btn-xl {
+    @apply px-7 py-3 text-[16px] md:px-10 md:py-4;
+  }
+  .btn.btn-sm {
+    @apply py-2 px-3 text-xs md:px-4;
+  }
+  .btn.block-btn {
+    @apply block w-full text-center;
+  }
+  .btn.block-btn span {
+    @apply justify-center;
+  }
+  
+  .btn-group-example {
+    @apply flex flex-wrap items-center justify-start;
+  }
+  
+  .btn-group-example button {
+    @apply mb-3 ltr:mr-5 rtl:ml-5;
+  }
+  
+  /* Basic Button */
+  .btn-dark {
+    @apply bg-slate-900 text-white ring-black-900 hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:bg-slate-900 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-primary {
+    @apply bg-primary-500 text-white ring-primary-500 hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-secondary {
+    @apply bg-secondary-500 text-white ring-secondary-500 hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-success {
+    @apply bg-success-500 text-white ring-success-500 hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-info {
+    @apply bg-[#0CE7FA] text-white ring-[#0CE7FA] hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-warning {
+    @apply bg-[#FA916B] text-white ring-[#FA916B] hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-danger {
+    @apply bg-danger-500 text-white ring-danger-500 hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  .btn-light {
+    @apply bg-slate-100 text-slate-900 ring-[#E0EAFF] hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+
+  .btn-white {
+    @apply bg-white text-slate-900 ring-[#E0EAFF] hover:ring-2 hover:ring-opacity-80 hover:ring-offset-1 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  
+  /* Outline Button */
+  .btn-outline-dark {
+    @apply border border-black-500 bg-transparent text-slate-900 hover:border-black-500 hover:bg-slate-900 hover:bg-opacity-5 dark:border-slate-600 dark:text-slate-300;
+    &.active {
+      @apply bg-slate-900 text-white dark:bg-slate-900 dark:text-slate-300;
+    }
+  }
+  .btn-outline-dark .active {
+    @apply bg-slate-900 text-white dark:bg-slate-900 dark:text-slate-300;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-dark {
+    @apply bg-slate-900 text-white;
+  }
+  
+  .btn-outline-primary {
+    @apply border border-primary-500 bg-transparent text-primary-500 hover:border-primary-500  hover:bg-primary-500 hover:bg-opacity-5;
+  }
+  
+  .btn-outline-primary .active {
+    @apply bg-primary-500 text-white;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-primary {
+    @apply bg-primary-500 text-white;
+  }
+  
+  .btn-outline-secondary {
+    @apply border border-secondary-500 bg-transparent text-secondary-500 hover:border-secondary-500  hover:bg-secondary-500 hover:bg-opacity-5;
+  }
+  
+  .btn-outline-secondary .active {
+    @apply bg-secondary-500 text-white;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-secondary {
+    @apply bg-secondary-500 text-white;
+  }
+  
+  .btn-outline-success {
+    @apply border border-success-500 bg-transparent text-success-500 hover:border-success-500  hover:bg-success-500 hover:bg-opacity-5;
+  }
+  
+  .btn-outline-success .active {
+    @apply bg-success-500 text-white;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-success {
+    @apply bg-success-500 text-white;
+  }
+  
+  .btn-outline-info {
+    @apply border border-[#0CE7FA] bg-transparent text-[#0CE7FA] hover:border-[#0CE7FA];
+  }
+  
+  .btn-outline-info .active {
+    @apply bg-[#0CE7FA] text-white;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-info {
+    @apply bg-info-500 text-white;
+  }
+  
+  .btn-outline-warning {
+    @apply border border-[#FA916B] bg-transparent text-[#FA916B] hover:border-[#FA916B]  hover:bg-[#FA916B] hover:bg-opacity-5;
+  }
+  
+  .btn-outline-warning .active {
+    @apply bg-[#FA916B] text-white;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-warning {
+    @apply bg-warning-500 text-white;
+  }
+  
+  .btn-outline-danger {
+    @apply border border-danger-500 bg-transparent text-danger-500 hover:border-danger-500  hover:bg-danger-500 hover:bg-opacity-5;
+  }
+  
+  .btn-outline-danger .active {
+    @apply bg-danger-500 text-white;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-danger {
+    @apply bg-danger-500 text-white;
+  }
+  
+  .btn-outline-light {
+    @apply border  border-[#E0EAFF] bg-transparent text-slate-900 hover:border-[#E0EAFF] hover:bg-[#E0EAFF] hover:bg-opacity-5 dark:text-white;
+  }
+  
+  .btn-outline-light .active {
+    @apply bg-[#E0EAFF] text-slate-900;
+  }
+  
+  [aria-expanded="true"] > .btn-outline-light {
+    @apply bg-[#E0EAFF] text-slate-900;
+  }
+  
+  /* light color */
+  .btn.light {
+    @apply bg-opacity-[15%]  ring-opacity-30 dark:hover:bg-opacity-10;
+  }
+  .btn-primary .light {
+    @apply text-primary-500 dark:hover:bg-opacity-10;
+  }
+  .btn-secondary.light {
+    @apply text-secondary-500 dark:hover:bg-opacity-10;
+  }
+  .btn-success.light {
+    @apply text-success-500 dark:hover:bg-opacity-10;
+  }
+  .btn-info.light {
+    @apply text-[#0CE7FA] dark:hover:bg-opacity-10;
+  }
+  .btn-warning.light {
+    @apply text-[#FA916B] dark:hover:bg-opacity-10;
+  }
+  .btn-danger.light {
+    @apply text-danger-500 dark:hover:bg-opacity-10;
+  }
+  .btn-light.light {
+    @apply text-opacity-80 dark:text-slate-300 dark:hover:bg-opacity-10;
+  }
+  
+  /* Group Buttons */
+  .groupButtons {
+    @apply inline-flex items-center overflow-hidden rounded-md;
+  }
+  
+  .groupButtons .btn {
+    @apply mx-0 rounded-none bg-opacity-90 hover:ring-0 hover:ring-opacity-0 hover:ring-offset-0 dark:hover:bg-opacity-70 dark:hover:ring-0 dark:hover:ring-offset-0;
+  }
+  
+  .groupButtons .btn.active {
+    @apply bg-opacity-100;
+  }
+  
+  .outline-buttons .btn {
+    @apply first:rounded-l-md last:rounded-r-md hover:bg-opacity-10;
+  }
+  
+  .outline-buttons .btn.active {
+    @apply bg-primary-500 text-white;
+  }
+  
+  .btn-link {
+    @apply text-sm font-medium text-slate-900 underline dark:text-white;
+  }
+  
+  .btn-link .white {
+    @apply text-white;
+  }
+  
+// action btn
+.action-btn {
+  @apply flex h-6 w-6 flex-col items-center justify-center rounded border border-slate-200 dark:border-slate-700;
+}
+
+.invocie-btn {
+  @apply mr-3 mb-4 hover:bg-slate-900 hover:text-slate-100 dark:hover:bg-slate-600;
+}

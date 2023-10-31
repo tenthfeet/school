@@ -1,0 +1,72 @@
+.wizard-step {
+  .number-box {
+    @apply relative z-[66] flex h-7 w-7 flex-col items-center justify-center rounded-full text-base font-medium ring-1 transition duration-150 md:h-12 md:w-12 md:text-lg;
+  }
+  .bar-line {
+    @apply absolute top-1/2 h-[2px] w-full;
+  }
+  .bar-line2 {
+    @apply absolute top-0 left-1/2 h-full w-[2px] -translate-x-1/2;
+  }
+  .circle-box {
+    @apply absolute top-full mt-3 text-base opacity-0 transition duration-150 group-hover:opacity-100 md:leading-6 md:opacity-100;
+  }
+  &:not(.active) {
+    .number-box {
+      @apply bg-white text-slate-900 text-opacity-70  ring-slate-900 ring-opacity-70 dark:bg-slate-600 dark:text-slate-300 dark:ring-slate-600;
+    }
+    .bar-line {
+      @apply bg-[#E0EAFF] dark:bg-slate-700;
+    }
+    .circle-box {
+      @apply text-slate-500 dark:text-slate-300 dark:text-opacity-40;
+    }
+  }
+  &:not(.passed) {
+    .number-box {
+      .number {
+        @apply block;
+      }
+      .no-icon {
+        @apply hidden;
+      }
+    }
+    .bar-line2 {
+      @apply bg-[#E0EAFF] dark:bg-slate-600;
+    }
+  }
+  &.passed {
+    .number-box {
+      .number {
+        @apply hidden;
+      }
+      .no-icon {
+        @apply block;
+      }
+    }
+  }
+
+  &.active,
+  &.passed {
+    .number-box {
+      @apply bg-slate-900 text-white ring-slate-900 ring-offset-2 dark:bg-slate-900 dark:ring-slate-900 dark:ring-offset-slate-500;
+    }
+    .bar-line {
+      @apply bg-slate-900 dark:bg-slate-900;
+    }
+    .circle-box {
+      @apply text-slate-900 dark:text-slate-300;
+    }
+    .bar-line2 {
+      @apply bg-slate-900 dark:bg-slate-900;
+    }
+  }
+}
+
+.wizard-form-step {
+  @apply hidden;
+}
+
+.wizard-form-step.active {
+  @apply block;
+}

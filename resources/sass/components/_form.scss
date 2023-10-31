@@ -1,0 +1,208 @@
+// .form-control {
+//   @apply bg-transparent dark:bg-slate-900 transition duration-300 ease-in-out border border-slate-200
+//    dark:border-slate-700 focus:ring-1 focus:ring-slate-600 focus:outline-none focus:ring-opacity-90 rounded
+//     placeholder:text-slate-400 text-slate-900 text-sm px-3  placeholder:font-normal block w-full h-[40px] dark:text-white;
+// }
+
+.form-label {
+  @apply mb-2 block w-full cursor-pointer text-sm font-medium capitalize leading-6 text-slate-600 rtl:block rtl:text-right dark:text-slate-300;
+}
+
+.inline-inputLabel {
+  @apply absolute left-0 top-1/2 -translate-y-1/2
+}
+
+.form-control {
+  @apply block w-full rounded border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900  transition duration-300 ease-in-out placeholder:font-normal placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-opacity-90 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:placeholder:text-slate-400 dark:focus:ring-slate-900;
+}
+
+.input-description {
+  @apply mt-2 block text-xs font-light leading-4 text-secondary-500;
+}
+.fromGroup {
+  @apply relative;
+  &.has-error {
+    .form-control {
+      @apply border-danger-500 focus:ring-1  focus:ring-danger-500 focus:ring-opacity-90;
+    }
+  }
+  &.is-valid {
+    .form-control {
+      @apply border-success-500 focus:ring-1 focus:ring-success-500 focus:ring-opacity-90;
+    }
+  }
+}
+
+.form-control[readonly] {
+  @apply cursor-pointer bg-slate-200 text-slate-400 placeholder:text-slate-400 dark:bg-slate-600;
+}
+
+.form-control[disabled] {
+  @apply cursor-not-allowed bg-slate-50 text-slate-800 placeholder:text-opacity-60 dark:bg-slate-600;
+}
+
+// Form layout
+.checkbox-area input:checked + span {
+  @apply bg-black-500 ring ring-black-500 ring-offset-1;
+}
+
+.checkbox-area input:checked + span img {
+  @apply opacity-100;
+}
+
+.primary-checkbox input:checked + span {
+  @apply bg-primary-500 ring ring-primary-500 ring-offset-1;
+}
+.secondary-checkbox input:checked + span {
+  @apply bg-secondary-500 ring ring-secondary-500 ring-offset-1;
+}
+.info-checkbox input:checked + span {
+  @apply bg-info-500 ring ring-info-500 ring-offset-1;
+}
+.success-checkbox input:checked + span {
+  @apply bg-success-500 ring ring-success-500 ring-offset-1;
+}
+.warning-checkbox input:checked + span {
+  @apply bg-warning-500 ring ring-warning-500 ring-offset-1;
+}
+.danger-checkbox input:checked + span {
+  @apply bg-danger-500 ring ring-danger-500 ring-offset-1;
+}
+
+// Basic Radio 
+.basicRadio input:checked + span {
+  @apply bg-primary-500 border-white ring-1 ring-offset-1 ring-primary-500;
+}
+
+// Colored Radio 
+.primary-radio input:checked + span {
+  @apply bg-primary-500 border-white ring-1 ring-offset-1 ring-primary-500;
+}
+.secondary-radio input:checked + span {
+  @apply bg-secondary-500 border-white ring-1 ring-offset-1 ring-secondary-500;
+}
+.info-radio input:checked + span {
+  @apply bg-info-500 border-white ring-1 ring-offset-1 ring-info-500;
+}
+.success-radio input:checked + span {
+  @apply bg-success-500 border-white ring-1 ring-offset-1 ring-success-500;
+}
+.warning-radio input:checked + span {
+  @apply bg-warning-500 border-white ring-1 ring-offset-1 ring-warning-500;
+}
+.danger-radio input:checked + span {
+  @apply bg-danger-500 border-white ring-1 ring-offset-1 ring-danger-500;
+}
+
+// Form Validation
+.error {
+  @apply font-Inter text-sm text-danger-500 mt-1 inline-block;
+}
+
+#passwordshow {
+  @apply hidden
+}
+
+#tooltipValidation span.error {
+  @apply mt-1 inline-block rounded bg-danger-500 py-1 px-1 text-xs text-white;
+}
+
+// vue date range picker css
+.text-vtd-primary-500-600 {
+  color: #0f172a !important;
+}
+.bg-vtd-primary-500-500 {
+  background-color: #0f172a !important;
+}
+.text-vtd-primary-500-500 {
+  color: #0f172a !important;
+}
+
+.dark {
+  .text-vtd-primary-500-600 {
+    color: #f8fafc !important;
+  }
+  .text-vtd-primary-500-500 {
+    color: #f8fafc !important;
+  }
+  .bg-vtd-primary-500-500 {
+    background-color: #334155 !important;
+  }
+}
+
+// file input
+.file-control {
+  @apply rounded border border-slate-200 bg-transparent text-sm transition duration-300 ease-in-out placeholder:font-normal focus:outline-none focus:ring-1 focus:ring-slate-900 focus:ring-opacity-90 ltr:pl-3 rtl:pr-3   dark:border-slate-700 dark:bg-slate-900 dark:text-white   dark:focus:ring-slate-900;
+}
+.badge-title {
+  @apply rounded bg-slate-900 px-2 py-[3px] text-sm text-white;
+}
+
+.select2-container .select2-selection--single {
+  @apply h-10 flex items-center
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow b {
+  @apply relative top-5
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  @apply bg-slate-900 font-Inter text-xs font-normal py-1 text-white px-2 pr-6
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  border-left: 1px solid #1818187d;
+  border-right: unset;
+  @apply right-0 left-auto text-white text-sm h-full rounded-none border-slate-100  hover:bg-slate-900 hover:text-white
+  
+}
+
+.select2-selection {
+  @apply dark:bg-slate-800
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  @apply dark:text-white
+}
+.select2-dropdown.select2-dropdown--below {
+  @apply dark:bg-slate-900 dark:text-white
+}
+
+// File Preview
+#file-preview {
+  @apply flex flex-wrap space-x-2
+}
+
+#file-preview img {
+  @apply w-40 h-40 overflow-hidden p-1 border border-slate-200 mt-4 rounded-md object-contain
+}
+
+.dz-error-message {
+  display: none !important;
+  opacity: 0 !important;
+}
+.dz-remove {
+  margin-top: 4px !important;
+}
+
+
+.flatpickr-months, .flatpickr-weekdays {
+  background-color: #E2E8F0;
+  .flatpickr-weekday {
+    font-family: 'Inter';
+    font-weight: 700;
+  }
+}
+
+.flatpickr-day {
+  @apply font-Inter
+}
+
+.flatpickr-day.selected {
+  background-color: #202020 !important;
+  border-color: #202020 !important;
+  color: #ffffff;
+}
+
+.flatpickr-day {
+  font-family: 'Inter';
+}

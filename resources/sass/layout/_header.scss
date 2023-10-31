@@ -1,0 +1,61 @@
+/* Header Changing area */
+.app-header {
+  @apply py-3 px-[15px] md:py-6 md:px-6;
+}
+
+.nav-floating #app_header .app-header {
+  @apply rounded-lg;
+}
+
+.nav-sticky #app_header {
+  @apply top-0 sticky;
+}
+
+.nav-hidden #app_header {
+  @apply hidden;
+}
+
+.nav-floating #app_header {
+  @apply top-4 sticky after:content-[''] after:absolute after:-z-10 after:backdrop-blur-md mx-4 mt-4;
+}
+
+.nav-floating #app_header::after{    
+  background: linear-gradient(180deg,rgba(var(--v-theme-background),70%) 44%,rgba(var(--v-theme-background),43%) 73%,rgba(var(--v-theme-background),0%));
+  background-repeat: repeat;
+  block-size: 5.5rem;
+  inset-block-start: -1rem;
+  inset-inline-end: 0;
+  inset-inline-start: 0;
+  -webkit-mask: linear-gradient(black,black 18%,transparent 100%);
+  mask: linear-gradient(black,black 18%,transparent 100%);
+}
+
+// xl device mobile logo
+.vertical-box {
+  @apply flex;
+}
+.horizental-box {
+  @apply hidden;
+}
+.main-menu {
+  @apply hidden;
+}
+
+.horizontalMenu {
+  .vertical-box {
+    @apply hidden;
+  }
+  .horizental-box {
+    @apply flex;
+  }
+  .main-menu {
+    @apply hidden xl:block;
+  }
+  .app-header {
+    @apply py-4 xl:py-0;
+  }
+}
+
+.modal {
+  @apply backdrop-blur-sm
+}

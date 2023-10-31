@@ -1,7 +1,7 @@
-import DataTable from "datatables.net-bs5";
+import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
-import { select2Init, setSelect2Data, toSelect2DataSource } from '../../utils/select2'
+import { setSelect2Data, toSelect2DataSource } from '../../utils/select2'
 
 const form = $("#permission-form");
 const formCard = form.closest(".card");
@@ -26,14 +26,22 @@ const dataTable = new DataTable("#list", {
     ajax: "permissions",
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "id",
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             },
         },
-        { data: "permission_group.name" },
-        { data: "name" },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "permission_group.name"
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "name"
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "id",
             render: function (data) {
                 return `

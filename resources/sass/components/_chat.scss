@@ -1,0 +1,16 @@
+.chat-contact-bar {
+  @apply w-[200px] flex-none transition-all duration-150 lg:w-[260px];
+  &.enter-lg {
+    @apply absolute top-0 -left-full z-[999] h-full w-[260px];
+    &.active {
+      @apply left-0;
+    }
+  }
+}
+
+.chat-overlay {
+  @apply invisible absolute  inset-0 z-[-99] w-full  flex-1 rounded-md bg-slate-900 bg-opacity-60 opacity-0 backdrop-blur-sm backdrop-filter dark:bg-slate-900 dark:bg-opacity-60;
+  &.active {
+    @apply visible z-[99] opacity-100;
+  }
+}

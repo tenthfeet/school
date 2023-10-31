@@ -1,17 +1,14 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import fg from 'fast-glob';
-
-const files = fg.sync(['resources/js/**/*.js'], { dot: true });
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
 
 export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/style.css',
-                'resources/scss/app.scss',
-                'resources/js/app.js',
-                ...files
+                "resources/css/app.scss",
+                "resources/js/custom/store.js",
+                "resources/js/main.js",
+                "resources/js/app.js",
             ],
             refresh: true,
         }),

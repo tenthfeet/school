@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "components/mix";
+@import "components/alert";
+@import "components/badge";
+@import "components/button";
+@import "components/form";
+@import "components/input-group";
+@import "components/typography";
+@import "components/pagination";
+@import "components/progress";
+@import "components/table";
+@import "components/auth";
+@import "components/card";
+@import "components/print";
+@import "components/app";
+@import "utility/calander";
+@import "utility/editor";
+@import "utility/step-form";
+@import "components/chat";
+@import "components/email";
+@import "components/todo";
+@import "components/email";
+@import "layout/header";
+@import "layout/menu";
+@import "layout/sidebar";
+
+.margin-0 {
+    margin-left: 0px !important;
+    margin-right: 0 !important;
+}
+.social-link {
+    @apply flex h-8 w-8 flex-col items-center justify-center rounded-full border border-black-500 leading-[1] text-slate-900 transition duration-150 hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-700;
+}
+
+.leading-0 {
+    line-height: 0;
+}
+
+.icon-lists {
+    li {
+        margin-right: 12px;
+        margin-bottom: 12px;
+    }
+}
+
+// task list
+.completed {
+    .img-active {
+        @apply opacity-20;
+    }
+    .bar-active {
+        @apply line-through dark:text-white;
+    }
+}
+
+.legend-ring {
+    .apexcharts-legend-series:nth-child(1) .apexcharts-legend-marker {
+        @apply ring-4  ring-primary-500 ring-opacity-30 rtl:ml-4;
+    }
+    .apexcharts-legend-series:nth-child(2) .apexcharts-legend-marker {
+        @apply ring-4  ring-info-500 ring-opacity-30 rtl:ml-4;
+    }
+    .apexcharts-legend-series:nth-child(3) .apexcharts-legend-marker {
+        @apply ring-4  ring-warning-500 ring-opacity-30 rtl:ml-4;
+    }
+}
+.legend-ring2 {
+    .apexcharts-legend-series:nth-child(1) .apexcharts-legend-marker {
+        @apply ring-4  ring-info-500 ring-opacity-30 rtl:ml-4;
+    }
+    .apexcharts-legend-series:nth-child(2) .apexcharts-legend-marker {
+        @apply ring-4  ring-warning-500 ring-opacity-30 rtl:ml-4;
+    }
+}
+
+.legend-ring3 {
+    .apexcharts-legend-series:nth-child(1) .apexcharts-legend-marker {
+        @apply ring-4  ring-success-500 ring-opacity-30 rtl:ml-4;
+    }
+    .apexcharts-legend-series:nth-child(2) .apexcharts-legend-marker {
+        @apply ring-4  ring-warning-500 ring-opacity-30 rtl:ml-4;
+    }
+    .apexcharts-legend-series:nth-child(3) .apexcharts-legend-marker {
+        @apply ring-4  ring-secondary-500 ring-opacity-30 rtl:ml-4;
+    }
+}
+
+.legend-ring4 {
+    .apexcharts-legend-series:nth-child(1) .apexcharts-legend-marker {
+        @apply ring-4  ring-primary-500 ring-opacity-30 rtl:ml-4;
+    }
+    .apexcharts-legend-series:nth-child(2) .apexcharts-legend-marker {
+        @apply ring-4  ring-warning-500 ring-opacity-30 rtl:ml-4;
+    }
+}
+.dashcode-app {
+    .leaflet-control {
+        z-index: 0 !important;
+    }
+    .leaflet-control-container {
+        z-index: 555 !important;
+        position: relative;
+    }
+    .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+        z-index: 0 !important;
+    }
+}
+
+// General Settings Edit Page
+.imageUploadCard {
+    @apply border border-slate-50 dark:border-slate-700 shadow-sm rounded-md;
+    .imageUploadCardHeader {
+        @apply border-b border-slate-100 dark:border-slate-700 p-3;
+        h3 {
+            @apply font-Inter font-semibold text-base lg:text-xl;
+        }
+    }
+    .cardBody {
+        @apply p-5 text-center space-y-5;
+    }
+}
+
+.generalSettings {
+    .generalSettingsCardHead {
+        @apply flex items-center justify-between bg-slate-100 px-5 py-3;
+        .generalSettingsCardTitle {
+            @apply text-lg font-semibold font-Inter;
+        }
+    }
+    .settingBox {
+        @apply px-4 py-4 border border-slate-100 h-auto overflow-hidden transition-all duration-500
+    }
+    .hideContent {
+        @apply py-0 h-0
+    }
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
+}
+
+// @import './select2-tailwind';
