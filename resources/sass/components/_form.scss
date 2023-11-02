@@ -69,12 +69,12 @@
   @apply bg-danger-500 ring ring-danger-500 ring-offset-1;
 }
 
-// Basic Radio 
+// Basic Radio
 .basicRadio input:checked + span {
   @apply bg-primary-500 border-white ring-1 ring-offset-1 ring-primary-500;
 }
 
-// Colored Radio 
+// Colored Radio
 .primary-radio input:checked + span {
   @apply bg-primary-500 border-white ring-1 ring-offset-1 ring-primary-500;
 }
@@ -154,7 +154,7 @@
   border-left: 1px solid #1818187d;
   border-right: unset;
   @apply right-0 left-auto text-white text-sm h-full rounded-none border-slate-100  hover:bg-slate-900 hover:text-white
-  
+
 }
 
 .select2-selection {
@@ -165,6 +165,10 @@
 }
 .select2-dropdown.select2-dropdown--below {
   @apply dark:bg-slate-900 dark:text-white
+}
+
+.select2-search__field{
+    @apply text-slate-900 dark:text-slate-600
 }
 
 // File Preview

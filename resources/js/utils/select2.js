@@ -13,7 +13,7 @@ export function toSelect2DataSource(data, idProperty, textProperty, selectedId, 
     return data;
 }
 
-const select2Options = { theme: 'bootstrap' };
+const select2Options = {};
 export function select2Init($element, options) {
     const mergedConfig = { ...select2Options, ...options };
 
