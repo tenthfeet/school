@@ -43,6 +43,66 @@
                     <li>
                         <a href="{{ route('permissions.index') }}" class="">Permission</a>
                     </li>
+                    <li>
+                        <a href="{{ route('academic-years.index') }}" class="">Academic Year</a></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('academic-standards.index') }}" class="">Academic Standard</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('cities.index') }}" class="">City</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('class-periods.index') }}" class="">Class Period</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('class-rooms.index') }}" class="">Class Room</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('countries.index') }}" class="">Country</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('exam-categories.index') }}" class="">Exam Category</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('exams.index') }}" class="">Exam</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('financial-years.index') }}" class="">Financial Year</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('homeworks.index') }}" class="">HomeWork</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('languages.index') }}" class="">Language</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('medium-of-studies.index') }}" class="">Medium Of Study</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('states.index') }}" class="">State</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('statuses.index') }}" class="">Status</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('subjects.index') }}" class="">Subject</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('terms.index') }}" class="">Term</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('roles.index') }}" class="">Role</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('users.index') }}" class="">User</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('teacher-mappings.index') }}" class="">Teacher Mapping</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('subject-mappings.index') }}" class="">Subject Mapping</a>
+                    </li>
                 </ul>
             </li>
 

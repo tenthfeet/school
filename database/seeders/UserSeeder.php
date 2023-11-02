@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         $users->map(function ($user) {
             $user = collect($user);
             $newUser = User::create($user->except('role')->toArray());
-            $newUser->assignRole($user['role']);
+            //$newUser->assignRole($user['role']);
         });
     }
 }

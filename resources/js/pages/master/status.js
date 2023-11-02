@@ -24,13 +24,18 @@ const dataTable = new DataTable('#lists', {
     ajax: 'statuses',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `
