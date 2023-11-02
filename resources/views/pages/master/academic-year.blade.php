@@ -8,19 +8,19 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Start Date</label>
                         <input type="date" class="form-control reset" name="start_date">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">End Date</label>
                         <input type="date" class="form-control reset" name="end_date">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Academic Year</label>
                         <input type="text" class="form-control reset" name="name" readonly>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             {!! optionsFromArray($status) !!}

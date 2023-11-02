@@ -8,15 +8,15 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Employee No</label>
                         <input type="text" class="form-control reset" name="employee_no">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Name</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Email</label>
                         <input type="email" class="form-control reset" name="email">
                     </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">State</label>
                         <select class="form-control reset" name="state_id">
                             <option value="">-- Select State --</option>
@@ -48,25 +48,25 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">City</label>
                         <select class="form-control reset" name="city_id">
                             <option value=""></option>
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Address</label>
                         <textarea type="text" class="form-control reset" name="address"></textarea>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Date Of Birth</label>
                         <input type="date" class="form-control reset" name="date_of_birth">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Date Of Join</label>
                         <input type="date" class="form-control reset" name="date_of_join">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Role Id</label>
                         <select class="form-control reset" name="role_id">
                             <option value="">-- Select Role Id --</option>
@@ -77,17 +77,17 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Qualification</label>
                         <input type="text" class="form-control reset" name="qualification">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             {!! optionsFromArray($status) !!}
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Teacher</label>
                         <input type="checkbox"name="is_teacher" value="1" checked>
                     </div>

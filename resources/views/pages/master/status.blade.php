@@ -8,7 +8,7 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Student Status</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>

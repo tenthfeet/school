@@ -8,7 +8,7 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Academic Year</label>
                         <select class="form-control reset" name="academic_year_id">
                             <option value="">-- Select Academic Year --</option>
@@ -19,7 +19,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Class Room Name</label>
                         <select class="form-control reset" name="class_room_id">
                             <option value="">-- Select Class Room Name--</option>
@@ -30,14 +30,14 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Day</label>
                         <select class="form-control reset" name="day">
                             <option value="">-- Select Day --</option>
                             {!! optionsFromArray($days) !!}
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Class Period</label>
                         <select class="form-control reset" name="class_period_id">
                             <option value="">-- Select Class Period--</option>
@@ -48,7 +48,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Subject Name</label>
                         <select class="form-control reset" name="subject_id">
                             <option value="">-- Select Subject Name --</option>

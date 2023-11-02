@@ -8,19 +8,19 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Class Period Name</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Start Time</label>
                         <input type="time" class="form-control reset" name="start_time">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">End Time</label>
                         <input type="time" class="form-control reset" name="end_time">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             {!! optionsFromArray($status) !!}

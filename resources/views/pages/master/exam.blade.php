@@ -8,7 +8,7 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Exam Category</label>
                         <select class="form-control reset" name="exam_category_id">
                             <option value="">-- Select Exam Category --</option>
@@ -20,7 +20,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Class Name</label>
                         <select class="form-control reset" name="class_room_id">
                             <option value="">-- Select Class Name --</option>
@@ -31,7 +31,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Medium Of Study</label>
                         <select class="form-control reset" name="medium_of_study_id">
                             <option value="">--Select Medium Of Study--</option>
@@ -42,15 +42,15 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Subject</label>
                         <input type="text" class="form-control reset" name="subject">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Date</label>
                         <input type="date" class="form-control reset" name="date">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Session</label>
                         <select class="form-control" name="session">
                             <option value="1">
@@ -61,7 +61,7 @@
                             </option>
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             {!! optionsFromArray($status) !!}

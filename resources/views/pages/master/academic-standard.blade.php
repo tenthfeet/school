@@ -8,11 +8,11 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Academic Standard</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                              {!! optionsFromArray($status) !!}
@@ -37,7 +37,7 @@
                         <thead class="border-t border-slate-100 dark:border-slate-800">
                             <tr class="table-primary">
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">#</th>
-                                <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Name</th>
+                                <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Academic Standard</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Status</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Actions</th>
                             </tr>

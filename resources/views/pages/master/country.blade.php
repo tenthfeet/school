@@ -8,19 +8,19 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-3 form-group">
+                    <div class="form-group">
                         <label class="form-label">Country</label>
                         <input type="text" class="form-control reset" name="name">
                     </div>
-                    <div class="col-md-3 form-group">
+                    <div class="form-group">
                         <label class="form-label">ISO Code</label>
                         <input type="text" class="form-control reset" name="iso_code">
                     </div>
-                    <div class="col-md-3 form-group">
+                    <div class="form-group">
                         <label class="form-label">Mobile Code</label>
                         <input type="number" class="form-control reset" name="mobile_code">
                     </div>
-                    <div class="col-md-3 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             {!! optionsFromArray($status) !!}

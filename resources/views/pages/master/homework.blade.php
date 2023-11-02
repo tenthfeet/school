@@ -8,7 +8,7 @@
                 @csrf
                 <input type="hidden" name="id" class="reset">
                 <div class="grid gap-2 md:grid-cols-3">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Class Name</label>
                         <select class="form-control reset" name="class_room_id">
                             <option value="">-- Select Class Name--</option>
@@ -19,7 +19,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Subject</label>
                         <select class="form-control reset" name="subject_id">
                             <option value="">-- Select subject Name --</option>
@@ -30,15 +30,15 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Homework</label>
                         <input type="text" class="form-control reset" name="homework_detail">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Date</label>
                         <input type="date" class="form-control reset" name="date">
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Teacher Name</label>
                         <select class="form-control reset" name="user_id">
                             <option value="">-- Select Teacher Name --</option>
@@ -49,7 +49,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="form-group">
                         <label class="form-label">Status</label>
                         <select class="form-control" name="is_active">
                             {!! optionsFromArray($status) !!}
