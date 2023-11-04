@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     protected $fillable = [
+        'name',
         'exam_category_id',
         'medium_of_study_id',
         'date',
         'session',
-        'subject',
+        'subject_id',
         'class_room_id',
         'is_active'
     ];
@@ -23,14 +24,18 @@ class Exam extends Model
     }
     public function examCategory()
     {
-        return $this->belongsTo(ExamCategory::class,'exam_category_id');
+        return $this->belongsTo(ExamCategory::class, 'exam_category_id');
     }
     public function mediumofStudy()
     {
-        return $this->belongsTo(MediumOfStudy::class,'medium_of_study_id');
+        return $this->belongsTo(MediumOfStudy::class, 'medium_of_study_id');
     }
     public function classRoom()
     {
-        return $this->belongsTo(ClassRoom::class,'class_room_id');
+        return $this->belongsTo(ClassRoom::class, 'class_room_id');
+    }
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class, 'subject_id');
     }
 }

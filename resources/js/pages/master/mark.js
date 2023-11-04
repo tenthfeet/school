@@ -2,42 +2,45 @@ import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
-const form = $('#exam-form');
+const form = $('#mark-form');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#exam-form', {
+const validator = validatorInit('#mark-form', {
     rules: {
-        name: { required: true },
-        exam_category_id: { required: true },
-        medium_of_study_id: { required: true, maxlength: 50 },
+        student_admission_id: { required: true },
+        exam_id: { required: true },
+        subject_id: { required: true },
         class_room_id: { required: true },
-        date: { required: true },
-        session: { required: true },
-        subject: { required: true },
-        is_active: { required: true },
+        grade_id: { required: true },
+        pass_marks: { required: true },
+        marks: { required: true },
+        maximum_marks: { required: true },
     },
     messages: {
+        student_admission_id: {
+            required: 'Please select the student',
+        },
+        exam_id: {
+            required: 'Please select the exam',
+        },
+        subject_id: {
+            required: 'Please select the subject',
+        },
         class_room_id: {
-            required: 'Please select the class name',
+            required: 'Please select the class room',
         },
-        medium_of_study_id: {
-            required: 'Please select the medium',
+        grade_id: {
+            required: 'Please select the grade',
         },
-        exam_category_id: {
-            required: 'Please select the exam category',
+        marks: {
+            required: 'Please enter the marks',
         },
-        subject: {
-            required: 'Please enter the subject name',
+        pass_marks: {
+            required: 'Please enter the pass marks',
         },
-        session: {
-            required: 'Please select the session',
-        },
-        date: {
-            required: 'Please select the date',
-        },
-        state_id: {
-            required: 'Please select the state',
+        maximum_marks: {
+            required: 'Please enter the maximum marks',
         },
     },
     submitHandler: (form, event) => {
@@ -45,8 +48,8 @@ const validator = validatorInit('#exam-form', {
     }
 });
 
-const dataTable = new DataTable('#list', {
-    ajax: 'exams',
+const dataTable = new DataTable('#lists', {
+    ajax: 'marks',
     columns: [
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
@@ -57,11 +60,7 @@ const dataTable = new DataTable('#list', {
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'exam_category.name'
-        },
-        {
-            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'mediumof_study.name'
+            data: 'student_admission_id'
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
@@ -69,29 +68,19 @@ const dataTable = new DataTable('#list', {
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'exam.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'subject.name'
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'name'
+            data: 'marks'
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'date'
-        },
-        {
-            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'session',
-            render: function (data) {
-                return data == 1 ? 'FN' : 'AN';
-            }
-        },
-        {
-            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'is_active',
-            render: function (data) {
-                return data == 1 ? 'Active' : 'Inactive';
-            }
+            data: 'grade.name'
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
@@ -112,7 +101,7 @@ function submitForm(form, event) {
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/exams/${id}` : '/exams';
+    let url = isUpdate ? `/marks/${id}` : '/marks';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
@@ -142,9 +131,9 @@ function submitForm(form, event) {
 }
 
 function resetForm() {
-    form.find('[name="is_active"]').val(1);
     form.find('.reset').val('').removeClass('is-invalid');
-    formCard.find('.card-header').html('Add new Exam');
+    form.find('[name="is_active"]').val(1);
+    formCard.find('.card-header').html('Add new Mark');
     formBtn.html('Submit');
 }
 
@@ -152,12 +141,21 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/exams/${id}`);
-    let fields = ['id','name', 'exam_category_id', 'medium_of_study_id', 'date', 'session', 'subject_id', 'class_room_id', 'is_active'];
+    const { data } = await axios.get(`/marks/${id}`);
+    let fields = ['id',
+        'student_admission_id',
+        'academic_year_id',
+        'exam_id',
+        'subject_id',
+        'class_room_id',
+        'marks',
+        'maximum_marks',
+        'pass_marks',
+        'grade_id'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
-    formCard.find('.card-header').html('Update Exam');
+    formCard.find('.card-header').html('Update Mark');
     formBtn.html('Update');
 };
 

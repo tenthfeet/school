@@ -8,15 +8,14 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create(config('table.exams'), function (Blueprint $table) {
+        Schema::create(config('table.grades'), function (Blueprint $table) {
             $table->mediumIncrements('id');
-            $table->unsignedTinyInteger('exam_category_id');
-            $table->unsignedTinyInteger('medium_of_study_id');
-            $table->date('date');
-            $table->string('session');
+            $table->string('name');
             $table->boolean('is_active');
             $table->timestamps();
         });
@@ -24,9 +23,11 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists(config('table.exams'));
+        Schema::dropIfExists(config('table.grades'));
     }
 };

@@ -14,8 +14,10 @@ use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
 use App\Http\Controllers\master\FeesBundleController;
 use App\Http\Controllers\Master\FinancialYearController;
+use App\Http\Controllers\Master\GradeController;
 use App\Http\Controllers\Master\HomeworkController;
 use App\Http\Controllers\Master\LanguageController;
+use App\Http\Controllers\Master\MarkController;
 use App\Http\Controllers\Master\MediumOfStudyController;
 use App\Http\Controllers\Master\PermissionController;
 use App\Http\Controllers\Master\PermissionGroupController;
@@ -94,6 +96,8 @@ Route::middleware('auth')->group(function () {
     Route::get('student-autocomplete', [StudentController::class, 'autoComplete']);
     Route::get('/parent-info/{student}', [StudentController::class, 'getParentInfo']);
     Route::apiResource('fee-bundles', FeesBundleController::class);
+    Route::apiResource('marks', MarkController::class);
+    Route::apiResource('grades', GradeController::class);
 });
 
 require __DIR__ . '/auth.php';

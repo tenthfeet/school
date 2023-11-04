@@ -47,6 +47,12 @@
                         <a href="{{ route('academic-years.index') }}" class="">Academic Year</a></a>
                     </li>
                     <li>
+                        <a href="{{ route('marks.index') }}" class="">Marks</a></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('grades.index') }}" class="">Grades</a></a>
+                    </li>
+                    <li>
                         <a href="{{ route('academic-standards.index') }}" class="">Academic Standard</a>
                     </li>
                     <li>

@@ -44,7 +44,18 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Subject</label>
-                        <input type="text" class="form-control reset" name="subject">
+                        <select class="form-control reset" name="subject_id">
+                            <option value="">--Select Subject--</option>
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->id }}">
+                                    {{ $subject->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Exam Name</label>
+                        <input type="text" class="form-control reset" name="name">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Date</label>
@@ -91,6 +102,7 @@
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Medium</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Class Name</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Subject</th>
+                                <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Exam Name</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Date</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Session</th>
                                 <th scope="col" class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">Status</th>
