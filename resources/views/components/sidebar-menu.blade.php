@@ -43,6 +43,24 @@
                     <li>
                         <a href="{{ route('permissions.index') }}" class="">Permission</a>
                     </li>
+                    <li>
+                        <a href="{{ route('departments.index') }}" class="">Departments</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('fees.index') }}" class="">Fee</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('fee-details.index') }}" class="">Fee Details</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('fee-bundles.index') }}" class="">Fees bundle</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('students.index') }}" class="">Student</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('attendances.index') }}" class="">Attendance</a>
+                    </li>
                 </ul>
             </li>
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Master\AcademicStandardController;
 use App\Http\Controllers\Master\AcademicYearController;
+use App\Http\Controllers\master\AttendanceController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\ClassPeriodController;
 use App\Http\Controllers\Master\ClassRoomController;
@@ -94,6 +95,7 @@ Route::middleware('auth')->group(function () {
     Route::get('student-autocomplete', [StudentController::class, 'autoComplete']);
     Route::get('/parent-info/{student}', [StudentController::class, 'getParentInfo']);
     Route::apiResource('fee-bundles', FeesBundleController::class);
+    Route::apiResource('attendances', AttendanceController::class);
 });
 
 require __DIR__ . '/auth.php';

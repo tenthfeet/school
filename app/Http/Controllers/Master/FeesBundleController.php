@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\master;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\FeesBundleRequest;
 use App\Models\AcademicStandard;
@@ -20,13 +21,14 @@ class FeesBundleController extends Controller
      */
     public function index(Request $request)
     {
-        $academicStandard = AcademicStandard::where('is_active', 1)->get();
-        $academicYear = AcademicYear::where('is_active', 1)->get();
+        $academicStandard = AcademicStandard::where('is_active', 1)->get()->toArray();
+        $academicYear = AcademicYear::where('is_active', 1)->get()->toArray();
         return $request->wantsJson()
             ? response()->json(['data' => FeesBundle::with('academicYear', 'academicStandard')->get()])
             : view('pages.master.fees-bundle', [
                 'academicYears' => $academicYear,
-                'academicStandards' => $academicStandard
+                'academicStandards' => $academicStandard,
+                'status' => Status::labelArray(),
             ]);
     }
 

@@ -89,22 +89,33 @@ const dataTable = new DataTable("#list", {
     ajax: "students",
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "id",
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             },
         },
-        { data: "id_no" },
-        { data: "name" },
+        { 
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "id_no" },
+        { 
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "name" },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "date_of_birth",
             render: (data) => {
                 return moment(data).format('DD-MMM-YYYY');
             }
         },
-        { data: "gender" },
-        { data: "student_status_id" },
+        { 
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "gender" },
+        { 
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "student_status_id" },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "id",
             render: function (data) {
                 return `
