@@ -61,6 +61,9 @@
                     <li>
                         <a href="{{ route('attendances.index') }}" class="">Attendance</a>
                     </li>
+                    <li>
+                        <a href="{{ route('fee-dues.index') }}" class="">Fee Due</a>
+                    </li>
                 </ul>
             </li>
 

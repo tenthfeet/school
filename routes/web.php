@@ -13,6 +13,7 @@ use App\Http\Controllers\Master\ExamCategoryController;
 use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
+use App\Http\Controllers\master\FeeDueController;
 use App\Http\Controllers\master\FeesBundleController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\HomeworkController;
@@ -96,6 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/parent-info/{student}', [StudentController::class, 'getParentInfo']);
     Route::apiResource('fee-bundles', FeesBundleController::class);
     Route::apiResource('attendances', AttendanceController::class);
+    Route::apiResource('fee-dues', FeeDueController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -35,4 +35,6 @@ return [
     'mapping_teachers_classrooms_day_time' => 'mapping_teachers_classrooms_day_time',
     'class_periods' => 'class_periods',
     'attendances' => 'attendances',
+    'payments' => 'payments',
+    'fee_dues' => 'fee_dues',
 ];
