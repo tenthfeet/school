@@ -13,7 +13,7 @@ const validator = validatorInit('#user-form', {
         employee_no: { required: true },
         name: { required: true, maxlength: 50 },
         email: { required: true },
-        mobile_no: { required: true },
+        mobile_no: { required: true,  maxlength: 10 },
         city_id: { required: true },
         state_id: { required: true },
         is_active: { required: true },

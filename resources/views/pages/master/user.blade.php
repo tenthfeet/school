@@ -25,7 +25,6 @@
                         <div class="flex items-stretch inputGroup">
                             <div class="flex-none w-1/4">
                                 <select class="form-control" name="country_id">
-                                    <option value="91">IND</option>
                                     @foreach ($countries as $country)
                                         <option value="{{ $country->id }}">
                                             {{ $country->iso_code }}
@@ -52,6 +51,11 @@
                         <label class="form-label">City</label>
                         <select class="form-control reset" name="city_id">
                             <option value=""></option>
+                            @foreach ($cities as $city)
+                                <option value="{{ $city->id }}">
+                                    {{ $city->name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">

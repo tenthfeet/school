@@ -60,7 +60,7 @@ const dataTable = new DataTable('#lists', {
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'student_admission_id'
+            data: 'student_admission.name'
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
