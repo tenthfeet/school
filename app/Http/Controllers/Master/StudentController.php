@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Enums\BloodGroup;
+use App\Enums\Gender;
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Master\StudentRequest;
 use App\Models\City;
@@ -9,7 +12,6 @@ use App\Models\Country;
 use App\Models\Language;
 use App\Models\ParentInfo;
 use App\Models\State;
-use App\Models\Status;
 use App\Models\Student;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -25,20 +27,21 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $languages = Language::where('is_active', 1)->get();
-        $statuses = Status::get();
-        $countries = Country::where('is_active', 1)->get();
-        $states = State::where('is_active', 1)->get();
-        $city = City::where('is_active', 1)->get();
+        $languages = Language::where('is_active', 1)->get()->toArray();
+        $countries = Country::where('is_active', 1)->get()->toArray();
+        $states = State::where('is_active', 1)->get()->toArray();
+        $city = City::where('is_active', 1)->get()->toArray();
 
         return $request->wantsJson()
             ? response()->json(['data' => Student::all()])
             : view('pages.master.student', [
                 'languages' => $languages,
-                'statuses' => $statuses,
                 'countries' => $countries,
                 'states' => $states,
                 'cities' => $city,
+                'status' => Status::labelArray(),
+                'gender' => Gender::labelArray(),
+                'bloodGroup' => BloodGroup::labelArray(),
             ]);
     }
 

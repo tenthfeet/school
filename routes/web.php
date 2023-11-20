@@ -3,6 +3,7 @@
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Master\AcademicStandardController;
 use App\Http\Controllers\Master\AcademicYearController;
+use App\Http\Controllers\master\AttendanceController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\ClassPeriodController;
 use App\Http\Controllers\Master\ClassRoomController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Master\ExamCategoryController;
 use App\Http\Controllers\Master\ExamController;
 use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
+use App\Http\Controllers\master\FeeDueController;
 use App\Http\Controllers\master\FeesBundleController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\GradeController;
@@ -98,6 +100,8 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('fee-bundles', FeesBundleController::class);
     Route::apiResource('marks', MarkController::class);
     Route::apiResource('grades', GradeController::class);
+    Route::apiResource('attendances', AttendanceController::class);
+    Route::apiResource('fee-dues', FeeDueController::class);
 });
 
 require __DIR__ . '/auth.php';
