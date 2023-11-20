@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('permissions', function (Blueprint $table) {
-            $table->string('module_name')->after('name');
+        Schema::create(config('table.grades'), function (Blueprint $table) {
+            $table->mediumIncrements('id');
+            $table->string('name');
+            $table->boolean('is_active');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('permissions', function (Blueprint $table) {
-            $table->dropColumn('module_name');
-        });
+        Schema::dropIfExists(config('table.grades'));
     }
 };

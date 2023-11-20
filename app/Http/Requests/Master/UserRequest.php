@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
                 Rule::unique(config('table.users'), 'email')->ignore($id)
             ],
             'country_id' => 'required',
-            'mobile_no' => 'required|max:20',
+            'mobile_no' => 'required|min:10',
             'city_id' => 'required',
             'state_id' => 'required',
             'address' => 'required|max:1000',

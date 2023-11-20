@@ -13,7 +13,7 @@ const validator = validatorInit('#user-form', {
         employee_no: { required: true },
         name: { required: true, maxlength: 50 },
         email: { required: true },
-        mobile_no: { required: true },
+        mobile_no: { required: true,  maxlength: 10 },
         city_id: { required: true },
         state_id: { required: true },
         is_active: { required: true },
@@ -67,24 +67,45 @@ const dataTable = new DataTable('#list', {
     ajax: 'users',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'employee_no' },
-        { data: 'name' },
-        { data: 'email' },
-        { data: 'mobile_no' },
-        { data: 'state.name' },
-        { data: 'city.name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'employee_no'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'email'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'mobile_no'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'state.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'city.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'is_active',
             render: function (data) {
                 return data == 1 ? 'Active' : 'Inactive';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `

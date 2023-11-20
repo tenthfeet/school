@@ -37,22 +37,37 @@ const dataTable = new DataTable('#list', {
     ajax: 'class-rooms',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'academic_standard.name' },
-        { data: 'department.name' },
-        { data: 'section' },
-        { data: 'name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'academic_standard.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'department.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'section'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'is_active',
             render: function (data) {
                 return data == 1 ? 'Active' : 'Inactive';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `

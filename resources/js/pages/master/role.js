@@ -2,7 +2,7 @@ import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
 
-const FORM_SELECTOR="#role-form";
+const FORM_SELECTOR = "#role-form";
 const form = $(FORM_SELECTOR);
 const formCard = form.closest(".card");
 const formBtn = form.find('button[type="submit"]');
@@ -28,13 +28,18 @@ const dataTable = new DataTable("#list", {
     ajax: "roles",
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "id",
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             },
         },
-        { data: "name" },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: "name"
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: "id",
             render: function (data) {
                 return `
@@ -100,13 +105,13 @@ const showUpdateForm = async function (element) {
         form.find(`[name="${field}"]`).val(data[field]);
     });
     let cards = form.find('.card');
-    let permissions=data.permissions.map(item=>item.id);
-    console.log(data.permissions,permissions);
+    let permissions = data.permissions.map(item => item.id);
+    console.log(data.permissions, permissions);
     cards.each(function (i, cardElement) {
         let card = $(cardElement);
         card.find('.card-body input').each(function (j, inputElement) {
-            let isChecked=permissions.includes(+inputElement.value);
-            console.log(isChecked,inputElement.value);
+            let isChecked = permissions.includes(+inputElement.value);
+            console.log(isChecked, inputElement.value);
             inputElement.checked = isChecked;
         });
         updatePermissionGroupState(card);

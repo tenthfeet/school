@@ -40,14 +40,22 @@ const dataTable = new DataTable('#list', {
     ajax: 'subject-mappings',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'academic_year.name' },
-        { data: 'class_room.name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'academic_year.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'class_room.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'day',
             render: function (data) {
                 if (data == 1) { return 'Monday' }
@@ -57,9 +65,16 @@ const dataTable = new DataTable('#list', {
                 if (data == 5) { return 'Friday' }
             }
         },
-        { data: 'class_period.name' },
-        { data: 'subject.name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'class_period.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'subject.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `

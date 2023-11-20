@@ -8,6 +8,7 @@ const formBtn = form.find('button[type="submit"]');
 
 const validator = validatorInit('#exam-form', {
     rules: {
+        name: { required: true },
         exam_category_id: { required: true },
         medium_of_study_id: { required: true, maxlength: 50 },
         class_room_id: { required: true },
@@ -48,29 +49,52 @@ const dataTable = new DataTable('#list', {
     ajax: 'exams',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'exam_category.name' },
-        { data: 'mediumof_study.name' },
-        { data: 'class_room.name' },
-        { data: 'subject' },
-        { data: 'date' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'exam_category.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'mediumof_study.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'class_room.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'subject.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'date'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'session',
             render: function (data) {
                 return data == 1 ? 'FN' : 'AN';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'is_active',
             render: function (data) {
                 return data == 1 ? 'Active' : 'Inactive';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `
@@ -129,7 +153,7 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/exams/${id}`);
-    let fields = ['id', 'exam_category_id', 'medium_of_study_id', 'date', 'session', 'subject', 'class_room_id', 'is_active'];
+    let fields = ['id','name', 'exam_category_id', 'medium_of_study_id', 'date', 'session', 'subject_id', 'class_room_id', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });

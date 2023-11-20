@@ -31,11 +31,18 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         'email',
         'password',
         'email_verified_at',
-        'phone',
-        'post_code',
-        'city',
-        'country',
-        'photo',
+        'employee_no',
+        'country_id',
+        'mobile_no',
+        'city_id',
+        'state_id',
+        'address',
+        'date_of_birth',
+        'date_of_join',
+        'role_id',
+        'is_teacher',
+        'qualification',
+        'is_active'
     ];
 
     /**
@@ -86,5 +93,24 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $query->where('id', '!=', 1);
     }
 
-
+    public function getTable()
+    {
+        return config('table.users', parent::getTable());
+    }
+    public function state()
+    {
+        return $this->belongsTo(State::class, 'state_id');
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
 }

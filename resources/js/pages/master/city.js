@@ -16,7 +16,7 @@ const validator = validatorInit('#city-form', {
         name: {
             required: 'Please enter the city name',
         },
-         state_id: {
+        state_id: {
             required: 'Please select the state',
         },
     },
@@ -29,20 +29,29 @@ const dataTable = new DataTable('#list', {
     ajax: 'cities',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'state.name' },
-        { data: 'name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'state.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'is_active',
             render: function (data) {
                 return data == 1 ? 'Active' : 'Inactive';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `

@@ -28,8 +28,8 @@ class AcademicYearRequest extends FormRequest
                 'required',
                 Rule::unique(config('table.academic_years'), 'name')->ignore($id)
             ],
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|date|after_or_equal:'. date('Y-01-01').'|before_or_equal:'.date('Y-12-31'),
+            'end_date' => 'required|date|before:+1 years',
             'is_active' => 'required',
         ];
     }
