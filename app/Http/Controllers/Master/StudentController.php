@@ -27,10 +27,10 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $languages = Language::where('is_active', 1)->get()->toArray();
-        $countries = Country::where('is_active', 1)->get()->toArray();
-        $states = State::where('is_active', 1)->get()->toArray();
-        $city = City::where('is_active', 1)->get()->toArray();
+        $languages = Language::where('is_active', 1)->pluck('name','id')->toArray();
+        $countries = Country::where('is_active', 1)->pluck('name','id')->toArray();
+        $states = State::where('is_active', 1)->pluck('name','id')->toArray();
+        $city = City::where('is_active', 1)->pluck('name','id')->toArray();
 
         return $request->wantsJson()
             ? response()->json(['data' => Student::all()])

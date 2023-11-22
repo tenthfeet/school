@@ -1,26 +1,31 @@
 <x-app-layout>
     <x-slot:breadcrumb> Student Status </x-slot:breadcrumb>
 
-    <div class="card mb-3">
-        <div class="card-header card-title">Add new Student Status </div>
-        <div class="card-body">
-            <form id="status-form">
-                @csrf
-                <input type="hidden" name="id" class="reset">
-                <div class="grid gap-2 md:grid-cols-3">
-                    <div class="form-group">
-                        <label class="form-label">Student Status</label>
+    <div class="grid grid-cols-1 gap-6">
+        <div class="card">
+            <div class="card-body flex flex-col p-6">
+                <header class="flex mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
+                    <div class="flex-1">
+                        <div class="card-title text-slate-900 dark:text-white">Add new Student Status</div>
+                    </div>
+                </header>
+    <div class="card-text h-full">
+        <form class="space-y-4" id="status-form">
+            @csrf
+            <input type="hidden" name="id" class="reset">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="input-area">
+                    <label class="form-label">Student Status</label>
+                    <div class="relative">
                         <input type="text" class="form-control reset" name="name">
                     </div>
                 </div>
-                <div class="mb-3 flex justify-center">
-                    <div class="flex justify-around md:w-1/3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-warning">Cancel</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="flex justify-end space-x-4">
+                <button type="submit" class="btn btn-dark inline-flex text-center">Submit</button>
+                <button type="reset" class="btn flex justify-center btn-danger">Cancel</button>
+            </div>
+        </form>
     </div>
     <div class="card">
         <div class="card-header card-title">List of Student Statuses</div>

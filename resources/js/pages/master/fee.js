@@ -25,24 +25,29 @@ const dataTable = new DataTable('#list', {
     ajax: 'fees',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'name' },
+        { 
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'name' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'is_active',
             render: function (data) {
                 return data == 1 ? 'Active' : 'Inactive';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `
-                <button class="btn btn-sm py-0 btn-outline-primary" data-id="${data}" onclick="showUpdateForm(this)">
-                    <i class="fa-solid fa-pen-to-square me-2"></i> Edit
+                <button class="action-btn" data-id="${data}" onclick="showUpdateForm(this)">
+                <iconify-icon icon="heroicons:pencil-square"></iconify-icon> 
                 </button>`;
             }
         }
@@ -61,7 +66,8 @@ function submitForm(form, event) {
         data.append('_method', 'PATCH')
     }
 
-    formBtn.attr('disabled', true).html('Submitting...' + SPINNER);
+    let loadingText = isUpdate ? `Updating` : 'Submitting';
+    formBtn.attr('disabled', true).html(loadingText + '...' + SPINNER);
 
     axios({ method, url, data })
         .then((response) => {
@@ -102,6 +108,7 @@ const showUpdateForm = async function (element) {
     });
     formCard.find('.card-header').html('Update Fees');
     formBtn.html('Update');
+    window.scrollTo(0, 0);
 };
 
 

@@ -23,9 +23,9 @@ class FeeDueController extends Controller
      */
     public function index(Request $request)
     {
-        $academicYears = AcademicYear::where('is_active', 1)->get()->toArray();
-        $academicStandards = AcademicStandard::where('is_active', 1)->get()->toArray();
-        $terms = Term::where('is_active', 1)->get()->toArray();
+        $academicYears = AcademicYear::where('is_active', 1)->pluck('name','id')->toArray();
+        $academicStandards = AcademicStandard::where('is_active', 1)->pluck('name','id')->toArray();
+        $terms = Term::where('is_active', 1)->pluck('name','id')->toArray();
 
         return $request->wantsJson()
             ? response()->json(['data' => FeeDue::all()])
@@ -60,14 +60,11 @@ class FeeDueController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Display the specified resource.
      */
-    public function edit($id)
+    public function show(FeeDue $feeDue): JsonResponse
     {
-        //
+        return response()->json($feeDue);
     }
 
     /**
@@ -77,9 +74,19 @@ class FeeDueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FeeDueRequest $request,FeeDue $feeDue)
     {
-        //
+        $validated = $request->validated();
+
+        $feeDue->update($validated);
+
+        return response()->json([
+            'item' => $feeDue->load('academicYear', 'academicStandards', 'terms'),
+            'message' => [
+                'text' => "Fee Due updated successfully...",
+                'icon' => 'success'
+            ]
+        ]);
     }
 
     /**

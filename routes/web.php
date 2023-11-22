@@ -15,6 +15,7 @@ use App\Http\Controllers\Master\FeeController;
 use App\Http\Controllers\Master\FeeDetailController;
 use App\Http\Controllers\master\FeeDueController;
 use App\Http\Controllers\master\FeesBundleController;
+use App\Http\Controllers\master\FeeTransactionController;
 use App\Http\Controllers\Master\FinancialYearController;
 use App\Http\Controllers\Master\GradeController;
 use App\Http\Controllers\Master\HomeworkController;
@@ -102,6 +103,7 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('grades', GradeController::class);
     Route::apiResource('attendances', AttendanceController::class);
     Route::apiResource('fee-dues', FeeDueController::class);
+    Route::apiResource('fee-transactions', FeeTransactionController::class);
 });
 
 require __DIR__ . '/auth.php';

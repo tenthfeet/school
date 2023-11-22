@@ -5,7 +5,7 @@ const validatorConfig = {
     errorElement: 'span',
     errorClass: 'is-invalid',
     errorPlacement: function(error, element) {
-        error.addClass('text-danger-500 text-sm');
+        error.addClass('font-Inter text-sm text-danger-500 pt-2 inline-block');
         element.closest('.form-group').append(error);
     },
 };

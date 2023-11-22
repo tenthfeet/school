@@ -145,6 +145,7 @@ const showUpdateForm = async function (element) {
     });
     formCard.find('.card-header').html('Update Academic Year');
     formBtn.html('Update');
+    window.scrollTo(0, 0);
 };
 
 

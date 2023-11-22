@@ -9,26 +9,31 @@
 
         <!-- Sidebar Type Button -->
         <div id="sidebar_type" class="cursor-pointer text-slate-900 dark:text-white text-lg">
-            <iconify-icon class="sidebarDotIcon extend-icon text-slate-900 dark:text-slate-200" icon="fa-regular:dot-circle"></iconify-icon>
-            <iconify-icon class="sidebarDotIcon collapsed-icon text-slate-900 dark:text-slate-200" icon="material-symbols:circle-outline"></iconify-icon>
+            <iconify-icon class="sidebarDotIcon extend-icon text-slate-900 dark:text-slate-200"
+                icon="fa-regular:dot-circle"></iconify-icon>
+            <iconify-icon class="sidebarDotIcon collapsed-icon text-slate-900 dark:text-slate-200"
+                icon="material-symbols:circle-outline"></iconify-icon>
         </div>
         <button class="sidebarCloseIcon text-2xl inline-block md:hidden">
             <iconify-icon class="text-slate-900 dark:text-slate-200" icon="clarity:window-close-line"></iconify-icon>
         </button>
     </div>
-    <div id="nav_shadow" class="nav_shadow h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none
-      opacity-0"></div>
+    <div id="nav_shadow"
+        class="nav_shadow h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none
+      opacity-0">
+    </div>
     <div class="sidebar-menus bg-white dark:bg-slate-800 py-2 px-4 h-[calc(100%-80px)] z-50" id="sidebar_menus">
         <ul class="sidebar-menu">
             <li>
-                <a href="{{ route('dashboard') }}" class="navItem {{ (\Request::route()->getName() == 'dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}"
+                    class="navItem {{ \Request::route()->getName() == 'dashboard' ? 'active' : '' }}">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="heroicons-outline:home"></iconify-icon>
                         <span>Dashboard</span>
                     </span>
                 </a>
             </li>
-            <li class="{{ (\Request::route()->getName() == 'project*') ? 'active' : '' }}">
+            <li class="{{ \Request::route()->getName() == 'project*' ? 'active' : '' }}">
                 <a href="javascript:void(0)" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="cil:sitemap"></iconify-icon>
@@ -129,6 +134,9 @@
                     </li>
                     <li>
                         <a href="{{ route('fee-dues.index') }}" class="">Fee Due</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('fee-transactions.index') }}" class="">Fee Transaction</a>
                     </li>
                 </ul>
             </li>

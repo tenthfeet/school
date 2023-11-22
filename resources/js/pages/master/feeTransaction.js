@@ -1,19 +1,24 @@
 import DataTable from "datatables.net-dt";
 import { validatorInit } from "../../utils/validator";
 import Swal from "sweetalert2";
+import moment from "moment/moment";
 
-const form = $('#financial-year-form');
+const form = $('#fee-transaction-form');
 const formCard = form.closest('.card');
 const formBtn = form.find('button[type="submit"]');
 
-const validator = validatorInit('#financial-year-form', {
+const validator = validatorInit('#fee-transaction-form', {
     rules: {
-        name: { required: true, maxlength: 12 },
-        is_active: { required: true },
+        payment_mode: { required: true },
+        amount: { required: true },
     },
     messages: {
-        name: {
-            required: 'Please enter the financial year',
+        payment_mode: {
+            required: 'Please select the Payment Mode',
+        },
+
+        amount: {
+            required: 'Please enter the amount'
         },
     },
     submitHandler: (form, event) => {
@@ -21,8 +26,8 @@ const validator = validatorInit('#financial-year-form', {
     }
 });
 
-const dataTable = new DataTable('#lists', {
-    ajax: 'financial-years',
+const dataTable = new DataTable('#list', {
+    ajax: 'fee-transactions',
     columns: [
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
@@ -33,22 +38,50 @@ const dataTable = new DataTable('#lists', {
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'name'
+            data: 'payment_id'
         },
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
-            data: 'is_active',
-            render: function (data) {
-                return data == 1 ? 'Active' : 'Inactive';
+            data: 'Paid_date',
+            render: (data) => {
+                return moment(data).format('DD-MMM-YYYY');
             }
         },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'payment_mode'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'amount'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'total_amount'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'ref_no'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'bank_name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'document_date',
+            render: (data) => {
+                return moment(data).format('DD-MMM-YYYY');
+            }
+        },
+
         {
             className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `
-                <button class="action-btn" data-id="${data}" onclick="showUpdateForm(this)">
-                <iconify-icon icon="heroicons:pencil-square"></iconify-icon> 
+                <button class="btn btn-sm py-0 btn-outline-primary" data-id="${data}" onclick="showUpdateForm(this)">
+                    <i class="fa-solid fa-pen-to-square me-2"></i> Edit
                 </button>`;
             }
         }
@@ -61,14 +94,13 @@ function submitForm(form, event) {
     let data = new FormData(form);
     let id = data.get('id');
     let isUpdate = !!id;
-    let url = isUpdate ? `/financial-years/${id}` : '/financial-years';
+    let url = isUpdate ? `/fee-transactions/${id}` : '/fee-transactions';
     let method = 'POST';
     if (isUpdate) {
         data.append('_method', 'PATCH')
     }
 
-    let loadingText = isUpdate ? `Updating` : 'Submitting';
-    formBtn.attr('disabled', true).html(loadingText + '...' + SPINNER);
+    formBtn.attr('disabled', true).html('Submitting...' + SPINNER);
 
     axios({ method, url, data })
         .then((response) => {
@@ -94,7 +126,7 @@ function submitForm(form, event) {
 function resetForm() {
     form.find('.reset').val('').removeClass('is-invalid');
     form.find('[name="is_active"]').val(1);
-    formCard.find('.card-header').html('Add new Financial Year');
+    formCard.find('.card-header').html('Add new Fee transaction');
     formBtn.html('Submit');
 }
 
@@ -102,12 +134,13 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
-    const { data } = await axios.get(`/financial-years/${id}`);
-    let fields = ['id', 'name', 'is_active'];
+    const { data } = await axios.get(`/fee-transactions/${id}`);
+    let fields = ['id', 'payment_id','Paid_date', 'payment_mode','amount', 'ref_no', 'bank_name',
+    'document_date', 'note',];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
-    formCard.find('.card-header').html('Update Financial Year');
+    formCard.find('.card-header').html('Update Fee Transaction');
     formBtn.html('Update');
     window.scrollTo(0, 0);
 };

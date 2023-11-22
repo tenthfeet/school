@@ -45,8 +45,8 @@ const dataTable = new DataTable("#list", {
             data: "id",
             render: function (data) {
                 return `
-                <button class="btn btn-sm py-0 btn-outline-primary" data-id="${data}" onclick="showUpdateForm(this)">
-                    <i class="fa-solid fa-pen-to-square me-2"></i> Edit
+                <button class="action-btn" data-id="${data}" onclick="showUpdateForm(this)">
+                <iconify-icon icon="heroicons:pencil-square"></iconify-icon> 
                 </button>`;
             },
         },
@@ -65,7 +65,8 @@ function submitForm(form, event) {
         data.append("_method", "PATCH");
     }
 
-    formBtn.attr("disabled", true).html("Submitting..." + SPINNER);
+    let loadingText = isUpdate ? `Updating` : 'Submitting';
+    formBtn.attr('disabled', true).html(loadingText + '...' + SPINNER);
 
     axios({ method, url, data })
         .then((response) => {
@@ -108,6 +109,7 @@ const showUpdateForm = async function (element) {
     setSelect2Data(permissionGroupId, dataSource, 'Group');
     formCard.find(".card-header").html("Update Permission");
     formBtn.html("Update");
+    window.scrollTo(0, 0);
 };
 
 showAddForm();

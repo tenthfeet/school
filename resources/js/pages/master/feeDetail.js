@@ -15,7 +15,7 @@ const validator = validatorInit('#fee-detail-form', {
         is_active: { required: true },
     },
     messages: {
-         academic_year_id: {
+        academic_year_id: {
             required: 'Please select the Academic Year',
         },
         academic_standard_id: {
@@ -37,27 +37,42 @@ const dataTable = new DataTable('#list', {
     ajax: 'fee-details',
     columns: [
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data, type, row, meta) {
                 return meta.row + meta.settings._iDisplayStart + 1;
             }
         },
-        { data: 'academic_year.name' },
-        { data: 'academic_standard.name' },
-        { data: 'fee.name' },
-        { data: 'fee_amount' },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'academic_year.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'academic_standard.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'fee.name'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
+            data: 'fee_amount'
+        },
+        {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'is_active',
             render: function (data) {
                 return data == 1 ? 'Active' : 'Inactive';
             }
         },
         {
+            className: 'table-td border border-slate-100 dark:bg-slate-800 dark:border-slate-700',
             data: 'id',
             render: function (data) {
                 return `
-                <button class="btn btn-sm py-0 btn-outline-primary" data-id="${data}" onclick="showUpdateForm(this)">
-                    <i class="fa-solid fa-pen-to-square me-2"></i> Edit
+                <button class="action-btn" data-id="${data}" onclick="showUpdateForm(this)">
+                    <iconify-icon icon="heroicons:pencil-square"></iconify-icon> 
                 </button>`;
             }
         }
@@ -76,7 +91,8 @@ function submitForm(form, event) {
         data.append('_method', 'PATCH')
     }
 
-    formBtn.attr('disabled', true).html('Submitting...' + SPINNER);
+    let loadingText = isUpdate ? `Updating` : 'Submitting';
+    formBtn.attr('disabled', true).html(loadingText + '...' + SPINNER);
 
     axios({ method, url, data })
         .then((response) => {
@@ -111,12 +127,13 @@ form.find('button[type="reset"]').on('click', () => resetForm());
 const showUpdateForm = async function (element) {
     let id = $(element).data('id');
     const { data } = await axios.get(`/fee-details/${id}`);
-    let fields = ['id','academic_year_id','academic_standard_id','fee_id','fee_amount','is_active'];
+    let fields = ['id', 'academic_year_id', 'academic_standard_id', 'fee_id', 'fee_amount', 'is_active'];
     fields.forEach(field => {
         form.find(`[name="${field}"]`).val(data[field]);
     });
     formCard.find('.card-header').html('Update Fee Detail');
     formBtn.html('Update');
+    window.scrollTo(0, 0);
 };
 
 

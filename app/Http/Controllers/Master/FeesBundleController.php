@@ -21,8 +21,8 @@ class FeesBundleController extends Controller
      */
     public function index(Request $request)
     {
-        $academicStandard = AcademicStandard::where('is_active', 1)->get()->toArray();
-        $academicYear = AcademicYear::where('is_active', 1)->get()->toArray();
+        $academicStandard = AcademicStandard::where('is_active', 1)->pluck('name','id')->toArray();
+        $academicYear = AcademicYear::where('is_active', 1)->pluck('name','id')->toArray();
         return $request->wantsJson()
             ? response()->json(['data' => FeesBundle::with('academicYear', 'academicStandard')->get()])
             : view('pages.master.fees-bundle', [

@@ -1,53 +1,77 @@
 <x-app-layout>
     <x-slot:breadcrumb> Department </x-slot:breadcrumb>
 
-    <div class="card mb-3">
-        <div class="card-header">Add new Department </div>
-        <div class="card-body">
-            <form id="department-form">
-                @csrf
-                <input type="hidden" name="id" class="reset">
-                <div class="row">
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Department</label>
-                        <input type="text" class="form-control reset" name="name">
+    <div class="grid grid-cols-1 gap-6">
+        <div class="card">
+            <div class="card-body flex flex-col p-6">
+                <header class="flex mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
+                    <div class="flex-1">
+                        <div class="card-title text-slate-900 dark:text-white">Add new Department</div>
                     </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Status</label>
-                        <select class="form-control" name="is_active">
-                            {!! optionsFromArray($status) !!}
-                        </select>
-                    </div>
+                </header>
+                <div class="card mb-3">
+                    <form class="space-y-4" id="department-form">
+                        @csrf
+                        <input type="hidden" name="id" class="reset">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="input-area">
+                                <label class="form-label">Department</label>
+                                <div class="relative">
+                                    <input type="text" class="form-control reset" name="name">
+                                </div>
+                            </div>
+                            <div class="input-area">
+                                <label class="form-label">Status</label>
+                                <div class="relative">
+                                    <select class="form-control" name="is_active">
+                                        {!! optionsFromArray($status) !!}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end space-x-4">
+                            <button type="submit" class="btn btn-dark inline-flex text-center">Submit</button>
+                            <button type="reset" class="btn flex justify-center btn-danger">Cancel</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-4 d-flex justify-content-around">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-warning">Cancel</button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-header">List of Departments</div>
-        <div class="card-body">
-            <table id="lists" class="table table-bordered table-hover table-stripped m-0">
-                <thead>
-                    <tr class="table-primary">
-                        <th>#</th>
-                        <th>Department</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
-    <x-slot:script>
-        @vite('resources/js/pages/master/department.js')
-    </x-slot:script>
+        <div class="card">
+            <div class="card-header card-title">List of Departments</div>
+            <div class="card-body">
+                <div class="inline-block min-w-full align-middle">
+                    <div class="overflow-hidden">
+                        <table id="lists"
+                            class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700">
+                            <thead class="border-t border-slate-100 dark:border-slate-800">
+                                <tr class="table-primary">
+                                    <th scope="col"
+                                        class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">
+                                        #
+                                    </th>
+                                    <th scope="col"
+                                        class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">
+                                        Department</th>
+                                    <th scope="col"
+                                        class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">
+                                        Status</th>
+                                    <th scope="col"
+                                        class="table-th border border-slate-100 dark:bg-slate-800 dark:border-slate-700">
+                                        Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <x-slot:script>
+            @vite('resources/js/pages/master/department.js')
+        </x-slot:script>
 
 </x-app-layout>

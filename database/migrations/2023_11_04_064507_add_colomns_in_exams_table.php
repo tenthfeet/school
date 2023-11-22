@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::table(config('table.exams'), function (Blueprint $table) {
             $table->after('id', function (Blueprint $table) {
                 $table->string('name');
-                $table->unsignedTinyInteger('subject_id');
-                $table->unsignedTinyInteger('class_room_id');
+                $table->unsignedSmallInteger('subject_id');
+                $table->unsignedSmallInteger('class_room_id');
 
             });
         });

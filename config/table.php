@@ -39,4 +39,5 @@ return [
     'attendances' => 'attendances',
     'payments' => 'payments',
     'fee_dues' => 'fee_dues',
+    'fee_transactions'=>'fee_transactions'
 ];
