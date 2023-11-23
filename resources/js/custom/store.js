@@ -4,7 +4,7 @@ GET DARK-LIGHT-OR-SEMI-DARK VALUE FROM LOCAL STORAGE
 const rootEl = document.documentElement;
 const themeMode = localStorage.getItem("theme");
 const sidebar = document.querySelector(".sidebar-wrapper");
-localStorage.menuLayout == "horizontalMenu";
+// localStorage.setItem('menuLayout',"horizontalMenu");
 
 if (themeMode === "dark") {
     rootEl.classList.add("dark");

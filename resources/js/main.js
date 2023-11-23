@@ -1,5 +1,6 @@
 (function ($) {
-
+    localStorage.setItem('menuLayout',"horizontalMenu");
+    localStorage.removeItem('sideBarType');
     $.sidebarMenu = function(menu) {
         var animationSpeed = 300,
             subMenuSelector = '.sidebar-submenu';
